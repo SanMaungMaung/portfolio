@@ -219,7 +219,7 @@ export default function WelcomePage() {
                   <Button
                     type="button"
                     variant="outline"
-                    className="w-full border-[#CC3333] text-white hover:bg-[#CC3333]/20 hover:border-[#FF6666] transition-all duration-300"
+                    className="w-full border-[#003366] text-[#003366] hover:bg-[#003366] hover:text-white transition-all duration-300"
                     onClick={continueAsGuest}
                   >
                     Continue as Guest
