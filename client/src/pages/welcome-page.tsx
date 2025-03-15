@@ -126,7 +126,7 @@ export default function WelcomePage() {
       </div>
 
       {/* Background pulse effect */}
-      <motion.div 
+      <motion.div
         className="absolute inset-0 bg-gradient-to-b from-[#003366]/50 via-[#004080]/30 to-[#003366]/50"
         animate={{
           opacity: [0.5, 0.7, 0.5],
@@ -159,7 +159,7 @@ export default function WelcomePage() {
                   <Input
                     placeholder="Your Name"
                     {...form.register("name")}
-                    className="bg-white/20 border-white/30 text-white placeholder:text-white/50 focus:border-transparent focus:outline-none focus:ring-0 focus:shadow-[0_0_10px_rgba(255,255,255,0.3)] transition-all duration-300"
+                    className="bg-white/20 border-none text-white placeholder:text-white/50 focus:outline-none focus:ring-0 focus:bg-white/30 hover:bg-white/25 transform transition-all duration-300"
                   />
                   {form.formState.errors.name && (
                     <p className="text-red-300 text-sm mt-1">
@@ -172,7 +172,7 @@ export default function WelcomePage() {
                   <Input
                     placeholder="Your Company"
                     {...form.register("company")}
-                    className="bg-white/20 border-white/30 text-white placeholder:text-white/50 focus:border-transparent focus:outline-none focus:ring-0 focus:shadow-[0_0_10px_rgba(255,255,255,0.3)] transition-all duration-300"
+                    className="bg-white/20 border-none text-white placeholder:text-white/50 focus:outline-none focus:ring-0 focus:bg-white/30 hover:bg-white/25 transform transition-all duration-300"
                   />
                   {form.formState.errors.company && (
                     <p className="text-red-300 text-sm mt-1">
@@ -185,7 +185,7 @@ export default function WelcomePage() {
                   <Input
                     placeholder="Your Position"
                     {...form.register("position")}
-                    className="bg-white/20 border-white/30 text-white placeholder:text-white/50 focus:border-transparent focus:outline-none focus:ring-0 focus:shadow-[0_0_10px_rgba(255,255,255,0.3)] transition-all duration-300"
+                    className="bg-white/20 border-none text-white placeholder:text-white/50 focus:outline-none focus:ring-0 focus:bg-white/30 hover:bg-white/25 transform transition-all duration-300"
                   />
                   {form.formState.errors.position && (
                     <p className="text-red-300 text-sm mt-1">
@@ -199,7 +199,7 @@ export default function WelcomePage() {
                     type="email"
                     placeholder="Your Email"
                     {...form.register("email")}
-                    className="bg-white/20 border-white/30 text-white placeholder:text-white/50 focus:border-transparent focus:outline-none focus:ring-0 focus:shadow-[0_0_10px_rgba(255,255,255,0.3)] transition-all duration-300"
+                    className="bg-white/20 border-none text-white placeholder:text-white/50 focus:outline-none focus:ring-0 focus:bg-white/30 hover:bg-white/25 transform transition-all duration-300"
                   />
                   {form.formState.errors.email && (
                     <p className="text-red-300 text-sm mt-1">
