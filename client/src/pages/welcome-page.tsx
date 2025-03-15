@@ -234,14 +234,14 @@ export default function WelcomePage() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="text-center space-y-6"
+              className="min-h-[300px] flex flex-col items-center justify-center space-y-8 py-8"
             >
-              <p className="text-white text-lg">
+              <p className="text-white text-lg text-center px-4">
                 Thank you so much for filling the information, let's explore my world of portfolio.
               </p>
               <Button
                 onClick={explorePortfolio}
-                className="bg-white/10 hover:bg-white/20 text-white border-2 border-white/20 hover:border-white/30"
+                className="bg-gradient-to-r from-[#CC3333] to-[#FF6666] hover:from-[#FF6666] hover:to-[#CC3333] text-white border-none transition-all duration-300"
               >
                 Explore
               </Button>
