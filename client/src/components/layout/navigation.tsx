@@ -23,7 +23,7 @@ export default function Navigation() {
     <header className="fixed top-0 w-full z-50 bg-[#003366] text-white">
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
         <Link href="/" className="text-xl font-bold">
-          San Maung Maung @ Zack
+          Portfolio
         </Link>
 
         {/* Desktop Navigation */}
