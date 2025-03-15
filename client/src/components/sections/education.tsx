@@ -1,20 +1,67 @@
 import { motion } from "framer-motion";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
-const education = [
-  {
-    degree: "Master of Computer Science",
-    institution: "Tech University",
-    period: "2014 - 2016",
-    description: "Specialized in Software Engineering and Distributed Systems"
-  },
-  {
-    degree: "Bachelor of Computer Science",
-    institution: "State University",
-    period: "2010 - 2014",
-    description: "Major in Computer Science with focus on Web Technologies"
-  }
-];
+// Sample certificate data - replace with actual certificates
+const certificates = Array(16).fill({
+  title: "Certificate Title",
+  image: "placeholder-certificate.jpg",
+  verificationUrl: "https://example.com/verify"
+});
+
+interface CertificateCardProps {
+  certificate: typeof certificates[0];
+  index: number;
+}
+
+function CertificateCard({ certificate, index }: CertificateCardProps) {
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: index * 0.1 }}
+          viewport={{ once: true }}
+          className="cursor-pointer group relative aspect-square bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow"
+        >
+          <img
+            src={certificate.image}
+            alt={certificate.title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+          />
+        </motion.div>
+      </DialogTrigger>
+      <DialogContent className="max-w-3xl">
+        <DialogHeader>
+          <DialogTitle>{certificate.title}</DialogTitle>
+        </DialogHeader>
+        <div className="mt-4">
+          <img
+            src={certificate.image}
+            alt={certificate.title}
+            className="w-full h-auto rounded-lg"
+          />
+        </div>
+        <div className="mt-4 flex justify-end">
+          <Button
+            onClick={() => window.open(certificate.verificationUrl, '_blank')}
+            className="bg-[#003366] hover:bg-[#336699] text-white"
+          >
+            Verify Certificate
+          </Button>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+}
 
 export default function Education() {
   return (
@@ -27,30 +74,17 @@ export default function Education() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold text-[#003366] mb-4">Education</h2>
-          <p className="text-[#336699]">Academic Background</p>
+          <h2 className="text-4xl font-bold text-[#003366] mb-4">My Recent Achievements</h2>
+          <p className="text-[#336699]">Certificates and Qualifications</p>
         </motion.div>
 
-        <div className="space-y-6">
-          {education.map((edu, index) => (
-            <motion.div
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+          {certificates.map((cert, index) => (
+            <CertificateCard
               key={index}
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-[#003366]">{edu.degree}</CardTitle>
-                  <div className="text-[#CC3333] font-medium">{edu.institution}</div>
-                  <div className="text-[#336699] text-sm">{edu.period}</div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-[#003366]">{edu.description}</p>
-                </CardContent>
-              </Card>
-            </motion.div>
+              certificate={cert}
+              index={index}
+            />
           ))}
         </div>
       </div>
