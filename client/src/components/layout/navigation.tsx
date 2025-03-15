@@ -22,18 +22,18 @@ export default function Navigation() {
   return (
     <header className="fixed top-0 w-full z-50 bg-[#CC3333] text-white">
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <Link href="/" className="text-xl font-bold hover:scale-105 transition-transform">
+        <Link href="/" className="text-xl font-bold hover:scale-105 transition-transform mr-8">
           Portfolio
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-6 flex-nowrap overflow-x-auto">
           {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
               className={cn(
-                "text-sm font-medium relative group transition-all duration-300 ease-in-out",
+                "text-sm font-medium relative group transition-all duration-300 ease-in-out whitespace-nowrap",
                 location === link.href && "text-white",
                 "hover:text-white/90 hover:scale-105"
               )}
@@ -44,7 +44,7 @@ export default function Navigation() {
           ))}
           <Link 
             href="/admin/login"
-            className="ml-4 hover:scale-110 transition-transform flex items-center gap-2 text-sm font-medium"
+            className="ml-4 hover:scale-110 transition-transform flex items-center gap-2 text-sm font-medium whitespace-nowrap"
           >
             <LogIn className="h-5 w-5" />
             <span className="sr-only">Admin Login</span>
