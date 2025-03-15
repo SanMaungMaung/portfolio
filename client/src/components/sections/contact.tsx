@@ -108,7 +108,7 @@ export default function Contact() {
 
             <Button
               type="submit"
-              className="w-full bg-[#003366] hover:bg-[#336699] text-white dark:bg-[#003366] dark:hover:bg-[#66b2ff] dark:text-white"
+              className="w-full bg-[#003366] hover:bg-[#336699] text-white dark:bg-[#003366] dark:hover:bg-[#66b2ff] dark:text-white dark:hover:text-[#003366] transition-all duration-300"
               disabled={mutation.isPending}
             >
               {mutation.isPending ? "Sending..." : "Send Message"}
