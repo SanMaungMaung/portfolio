@@ -10,6 +10,7 @@ export default function Welcome() {
     >
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
+        {/* Large floating circles */}
         {[...Array(3)].map((_, i) => (
           <motion.div
             key={i}
@@ -32,7 +33,46 @@ export default function Welcome() {
             }}
           />
         ))}
+
+        {/* Additional animated shapes */}
+        {[...Array(5)].map((_, i) => (
+          <motion.div
+            key={`shape-${i}`}
+            className="absolute bg-gradient-to-r from-white/10 to-transparent rounded-full"
+            animate={{
+              x: ["0vw", "100vw"],
+              y: ["0vh", "100vh"],
+              scale: [0.8, 1.2],
+              opacity: [0.1, 0.3, 0.1],
+            }}
+            transition={{
+              duration: 20 + i * 3,
+              repeat: Infinity,
+              ease: "linear",
+              delay: i * 2,
+            }}
+            style={{
+              width: `${150 + i * 50}px`,
+              height: `${150 + i * 50}px`,
+              left: `${-20 - i * 10}%`,
+              top: `${10 + i * 15}%`,
+            }}
+          />
+        ))}
       </div>
+
+      {/* Gradient overlay */}
+      <motion.div 
+        className="absolute inset-0 bg-gradient-to-b from-[#003366]/50 to-transparent"
+        animate={{
+          opacity: [0.5, 0.7, 0.5]
+        }}
+        transition={{
+          duration: 3,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
 
       <div className="container mx-auto px-4 py-12 md:py-20 grid md:grid-cols-[1fr,auto] gap-12 items-center relative z-10">
         <motion.div
