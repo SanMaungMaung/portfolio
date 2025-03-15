@@ -121,18 +121,34 @@ export default function Portfolio() {
         </motion.div>
 
         <Tabs defaultValue="featured" className="space-y-8">
-          <TabsList className="flex justify-center gap-2">
-            <TabsTrigger value="featured" className="data-[state=active]:text-[#003366] dark:data-[state=active]:text-[#66b2ff]">
-              Featured Projects
+          <TabsList className="flex justify-center gap-2 p-1 bg-[#F5F5F5] dark:bg-gray-800 rounded-lg">
+            <TabsTrigger 
+              value="featured" 
+              className="relative px-4 py-2 rounded-md transition-all duration-300 data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700 data-[state=active]:text-[#003366] dark:data-[state=active]:text-[#66b2ff] data-[state=active]:shadow-sm hover:text-[#003366] dark:hover:text-[#66b2ff] group"
+            >
+              <span>Featured Projects</span>
+              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#003366] dark:bg-[#66b2ff] scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
             </TabsTrigger>
-            <TabsTrigger value="web" className="data-[state=active]:text-[#003366] dark:data-[state=active]:text-[#66b2ff]">
-              Web Development
+            <TabsTrigger 
+              value="web" 
+              className="relative px-4 py-2 rounded-md transition-all duration-300 data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700 data-[state=active]:text-[#003366] dark:data-[state=active]:text-[#66b2ff] data-[state=active]:shadow-sm hover:text-[#003366] dark:hover:text-[#66b2ff] group"
+            >
+              <span>Web Development</span>
+              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#003366] dark:bg-[#66b2ff] scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
             </TabsTrigger>
-            <TabsTrigger value="ai" className="data-[state=active]:text-[#003366] dark:data-[state=active]:text-[#66b2ff]">
-              AI Integration
+            <TabsTrigger 
+              value="ai" 
+              className="relative px-4 py-2 rounded-md transition-all duration-300 data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700 data-[state=active]:text-[#003366] dark:data-[state=active]:text-[#66b2ff] data-[state=active]:shadow-sm hover:text-[#003366] dark:hover:text-[#66b2ff] group"
+            >
+              <span>AI Integration</span>
+              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#003366] dark:bg-[#66b2ff] scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
             </TabsTrigger>
-            <TabsTrigger value="design" className="data-[state=active]:text-[#003366] dark:data-[state=active]:text-[#66b2ff]">
-              Design Prototypes
+            <TabsTrigger 
+              value="design" 
+              className="relative px-4 py-2 rounded-md transition-all duration-300 data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700 data-[state=active]:text-[#003366] dark:data-[state=active]:text-[#66b2ff] data-[state=active]:shadow-sm hover:text-[#003366] dark:hover:text-[#66b2ff] group"
+            >
+              <span>Design Prototypes</span>
+              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#003366] dark:bg-[#66b2ff] scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
             </TabsTrigger>
           </TabsList>
 
