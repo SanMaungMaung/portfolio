@@ -3,6 +3,15 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Github, ExternalLink } from "lucide-react";
 import { projects } from "@/components/sections/portfolio";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { BackToTop } from "@/components/ui/back-to-top";
 
 interface ProjectDetailsProps {
   params: {
@@ -26,6 +35,51 @@ export default function ProjectDetails({ params }: ProjectDetailsProps) {
   return (
     <div className="min-h-screen bg-[#F5F5F5] dark:bg-gray-900 pt-16">
       <div className="container mx-auto px-4 py-12">
+        {/* Breadcrumb Navigation */}
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+          className="mb-6"
+        >
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink 
+                  onClick={() => setLocation('/home')}
+                  className="text-[#003366] dark:text-[#66b2ff] hover:text-[#336699] dark:hover:text-[#99ccff] cursor-pointer"
+                >
+                  Home
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink 
+                  onClick={() => setLocation('/home#portfolio')}
+                  className="text-[#003366] dark:text-[#66b2ff] hover:text-[#336699] dark:hover:text-[#99ccff] cursor-pointer"
+                >
+                  Portfolio
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink 
+                  onClick={() => setLocation('/home#portfolio')}
+                  className="text-[#003366] dark:text-[#66b2ff] hover:text-[#336699] dark:hover:text-[#99ccff] cursor-pointer"
+                >
+                  {params.category.charAt(0).toUpperCase() + params.category.slice(1)}
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage className="text-[#CC3333] dark:text-[#ff6666]">
+                  {project.title}
+                </BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </motion.div>
+
         <Button
           variant="ghost"
           className="mb-8 text-[#003366] dark:text-[#66b2ff] hover:bg-[#003366]/10 dark:hover:bg-[#66b2ff]/10"
@@ -161,6 +215,7 @@ export default function ProjectDetails({ params }: ProjectDetailsProps) {
           </div>
         </motion.div>
       </div>
+      <BackToTop />
     </div>
   );
 }
