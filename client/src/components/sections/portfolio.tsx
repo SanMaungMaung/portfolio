@@ -1,8 +1,25 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { useLocation } from "wouter";
+import { Skeleton } from "@/components/ui/skeleton";
+import { useState } from "react";
+
+const ProjectCardSkeleton = () => (
+  <div className="overflow-hidden bg-white dark:bg-gray-800 rounded-lg shadow-lg">
+    <div className="grid md:grid-cols-2 gap-6">
+      <Skeleton className="h-64 md:h-full" />
+      <div className="p-6 space-y-4">
+        <Skeleton className="h-8 w-3/4" />
+        <Skeleton className="h-4 w-1/2" />
+        <Skeleton className="h-20 w-full" />
+        <Skeleton className="h-4 w-2/3" />
+        <Skeleton className="h-10 w-32" />
+      </div>
+    </div>
+  </div>
+);
 
 export const projects = {
   featured: [
@@ -148,6 +165,7 @@ export const projects = {
 };
 
 const ProjectCard = ({ project, index, category }) => {
+  const [isHovered, setIsHovered] = useState(false);
   const [, setLocation] = useLocation();
 
   return (
@@ -156,20 +174,32 @@ const ProjectCard = ({ project, index, category }) => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       viewport={{ once: true }}
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
     >
-      <Card className="overflow-hidden bg-white dark:bg-gray-800">
+      <Card className="overflow-hidden bg-white dark:bg-gray-800 transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
         <div className="grid md:grid-cols-2 gap-6">
-          <div className="h-64 md:h-auto">
-            <img
+          <div className="h-64 md:h-auto overflow-hidden">
+            <motion.img
               src={project.image}
               alt={project.title}
               className="w-full h-full object-cover"
+              animate={{
+                scale: isHovered ? 1.05 : 1
+              }}
+              transition={{ duration: 0.3 }}
             />
           </div>
           <div className="p-6">
-            <h3 className="text-2xl font-bold text-[#003366] dark:text-[#66b2ff] mb-2">
+            <motion.h3 
+              className="text-2xl font-bold text-[#003366] dark:text-[#66b2ff] mb-2"
+              animate={{
+                color: isHovered ? '#CC3333' : '#003366'
+              }}
+              transition={{ duration: 0.3 }}
+            >
               {project.title}
-            </h3>
+            </motion.h3>
             {project.client && (
               <p className="text-[#CC3333] dark:text-[#ff6666] font-medium mb-2">
                 Client: {project.client}
@@ -181,7 +211,7 @@ const ProjectCard = ({ project, index, category }) => {
             </p>
             <Button 
               variant="outline" 
-              className="text-[#003366] dark:text-[#66b2ff] hover:bg-[#003366]/10 dark:hover:bg-[#66b2ff]/10"
+              className="text-[#003366] dark:text-[#66b2ff] hover:bg-[#003366]/10 dark:hover:bg-[#66b2ff]/10 transform transition-all duration-300 hover:scale-105"
               onClick={() => setLocation(`/project/${category}/${index}`)}
             >
               View Details
@@ -194,6 +224,16 @@ const ProjectCard = ({ project, index, category }) => {
 };
 
 export default function Portfolio() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Simulate loading state
+  useState(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section id="portfolio" className="py-20 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4">
@@ -210,48 +250,47 @@ export default function Portfolio() {
 
         <Tabs defaultValue="featured" className="space-y-8">
           <TabsList className="flex justify-center gap-2 p-1 bg-[#F5F5F5] dark:bg-gray-800 rounded-lg">
-            <TabsTrigger 
-              value="featured" 
-              className="relative px-4 py-2 rounded-md transition-all duration-300 data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700 data-[state=active]:text-[#003366] dark:data-[state=active]:text-[#66b2ff] data-[state=active]:shadow-sm hover:text-[#003366] dark:hover:text-[#66b2ff] group"
-            >
-              <span>Featured Projects</span>
-              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#003366] dark:bg-[#66b2ff] scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
-            </TabsTrigger>
-            <TabsTrigger 
-              value="web" 
-              className="relative px-4 py-2 rounded-md transition-all duration-300 data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700 data-[state=active]:text-[#003366] dark:data-[state=active]:text-[#66b2ff] data-[state=active]:shadow-sm hover:text-[#003366] dark:hover:text-[#66b2ff] group"
-            >
-              <span>Web Development</span>
-              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#003366] dark:bg-[#66b2ff] scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
-            </TabsTrigger>
-            <TabsTrigger 
-              value="ai" 
-              className="relative px-4 py-2 rounded-md transition-all duration-300 data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700 data-[state=active]:text-[#003366] dark:data-[state=active]:text-[#66b2ff] data-[state=active]:shadow-sm hover:text-[#003366] dark:hover:text-[#66b2ff] group"
-            >
-              <span>AI Integration</span>
-              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#003366] dark:bg-[#66b2ff] scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
-            </TabsTrigger>
-            <TabsTrigger 
-              value="design" 
-              className="relative px-4 py-2 rounded-md transition-all duration-300 data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700 data-[state=active]:text-[#003366] dark:data-[state=active]:text-[#66b2ff] data-[state=active]:shadow-sm hover:text-[#003366] dark:hover:text-[#66b2ff] group"
-            >
-              <span>Design Prototypes</span>
-              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#003366] dark:bg-[#66b2ff] scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
-            </TabsTrigger>
+            {["featured", "web", "ai", "design"].map((tab) => (
+              <TabsTrigger 
+                key={tab}
+                value={tab} 
+                className="relative px-4 py-2 rounded-md transition-all duration-300 data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700 data-[state=active]:text-[#003366] dark:data-[state=active]:text-[#66b2ff] data-[state=active]:shadow-sm hover:text-[#003366] dark:hover:text-[#66b2ff] group"
+              >
+                <span>{tab.charAt(0).toUpperCase() + tab.slice(1)} {tab === "featured" ? "Projects" : tab === "ai" ? "Integration" : tab === "web" ? "Development" : "Prototypes"}</span>
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#003366] dark:bg-[#66b2ff] scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
+              </TabsTrigger>
+            ))}
           </TabsList>
 
-          {Object.entries(projects).map(([category, projectList]) => (
-            <TabsContent key={category} value={category} className="space-y-8">
-              {projectList.map((project, index) => (
-                <ProjectCard 
-                  key={index} 
-                  project={project} 
-                  index={index}
-                  category={category}
-                />
-              ))}
-            </TabsContent>
-          ))}
+          <AnimatePresence mode="wait">
+            {Object.entries(projects).map(([category, projectList]) => (
+              <TabsContent key={category} value={category} className="space-y-8">
+                {isLoading ? (
+                  <div className="space-y-8">
+                    {[...Array(projectList.length)].map((_, index) => (
+                      <ProjectCardSkeleton key={index} />
+                    ))}
+                  </div>
+                ) : (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {projectList.map((project, index) => (
+                      <ProjectCard 
+                        key={index} 
+                        project={project} 
+                        index={index}
+                        category={category}
+                      />
+                    ))}
+                  </motion.div>
+                )}
+              </TabsContent>
+            ))}
+          </AnimatePresence>
         </Tabs>
       </div>
     </section>
