@@ -191,7 +191,7 @@ const ProjectCard = ({ project, index, category }) => {
             />
           </div>
           <div className="p-6">
-            <motion.h3 
+            <motion.h3
               className="text-2xl font-bold text-[#003366] dark:text-[#66b2ff] mb-2"
               animate={{
                 color: isHovered ? '#CC3333' : '#003366'
@@ -209,8 +209,8 @@ const ProjectCard = ({ project, index, category }) => {
             <p className="text-sm text-[#003366]/70 dark:text-gray-400 mb-4">
               Technologies: {project.tech}
             </p>
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               className="text-[#003366] dark:text-[#66b2ff] hover:bg-[#003366]/10 dark:hover:bg-[#66b2ff]/10 transform transition-all duration-300 hover:scale-105"
               onClick={() => setLocation(`/project/${category}/${index}`)}
             >
@@ -251,9 +251,9 @@ export default function Portfolio() {
         <Tabs defaultValue="featured" className="space-y-8">
           <TabsList className="flex justify-center gap-2 p-1 bg-[#F5F5F5] dark:bg-gray-800 rounded-lg">
             {["featured", "web", "ai", "design"].map((tab) => (
-              <TabsTrigger 
+              <TabsTrigger
                 key={tab}
-                value={tab} 
+                value={tab}
                 className="relative px-4 py-2 rounded-md transition-all duration-300 data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700 data-[state=active]:text-[#003366] dark:data-[state=active]:text-[#66b2ff] data-[state=active]:shadow-sm hover:text-[#003366] dark:hover:text-[#66b2ff] group"
               >
                 <span>{tab.charAt(0).toUpperCase() + tab.slice(1)} {tab === "featured" ? "Projects" : tab === "ai" ? "Integration" : tab === "web" ? "Development" : "Prototypes"}</span>
@@ -264,9 +264,9 @@ export default function Portfolio() {
 
           <AnimatePresence mode="wait">
             {Object.entries(projects).map(([category, projectList]) => (
-              <TabsContent key={category} value={category} className="space-y-8">
+              <TabsContent key={category} value={category} className="space-y-16">
                 {isLoading ? (
-                  <div className="space-y-8">
+                  <div className="space-y-16">
                     {[...Array(projectList.length)].map((_, index) => (
                       <ProjectCardSkeleton key={index} />
                     ))}
@@ -277,11 +277,12 @@ export default function Portfolio() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.3 }}
+                    className="space-y-16"
                   >
                     {projectList.map((project, index) => (
-                      <ProjectCard 
-                        key={index} 
-                        project={project} 
+                      <ProjectCard
+                        key={index}
+                        project={project}
                         index={index}
                         category={category}
                       />
