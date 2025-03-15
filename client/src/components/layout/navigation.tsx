@@ -64,7 +64,7 @@ export default function Navigation() {
           </Button>
           <Link 
             href="/admin/login"
-            className="hover:scale-110 transition-all duration-300 flex items-center gap-2 text-sm font-medium text-white dark:text-white hover:bg-white/10 dark:hover:bg-white/10"
+            className="p-2 rounded-md hover:scale-110 transition-all duration-300 flex items-center gap-2 text-sm font-medium text-white dark:text-white hover:bg-white/10 dark:hover:bg-white/10"
           >
             <LogIn className="h-5 w-5" />
             <span className="sr-only">Admin Login</span>
@@ -113,7 +113,7 @@ export default function Navigation() {
               </Button>
               <Link
                 href="/admin/login"
-                className="flex items-center gap-2 text-white dark:text-white hover:bg-white/10 dark:hover:bg-white/10 hover:text-white dark:hover:text-white hover:translate-x-2 transition-all duration-300"
+                className="p-2 rounded-md flex items-center gap-2 text-white dark:text-white hover:bg-white/10 dark:hover:bg-white/10 hover:text-white dark:hover:text-white hover:translate-x-2 transition-all duration-300"
                 onClick={() => setOpen(false)}
               >
                 <LogIn className="h-5 w-5" />
