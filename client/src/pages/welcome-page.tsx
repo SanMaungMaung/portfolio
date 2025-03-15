@@ -159,7 +159,7 @@ export default function WelcomePage() {
                   <Input
                     placeholder="Your Name"
                     {...form.register("name")}
-                    className="relative bg-white/20 border-2 border-transparent text-white placeholder:text-white/50 focus:outline-none focus:ring-0 focus:bg-white/30 hover:bg-white/25 transition-all duration-300 focus:animate-border-travel rounded-md"
+                    className="relative bg-white/20 border-2 border-transparent text-white placeholder:text-white/50 focus:outline-none focus:ring-0 focus:bg-white/30 hover:bg-white/25 transition-all duration-300 focus:border-[#66b2ff]/50 rounded-md"
                   />
                   {form.formState.errors.name && (
                     <p className="text-red-300 text-sm mt-1">
@@ -172,7 +172,7 @@ export default function WelcomePage() {
                   <Input
                     placeholder="Your Company"
                     {...form.register("company")}
-                    className="relative bg-white/20 border-2 border-transparent text-white placeholder:text-white/50 focus:outline-none focus:ring-0 focus:bg-white/30 hover:bg-white/25 transition-all duration-300 focus:animate-border-travel rounded-md"
+                    className="relative bg-white/20 border-2 border-transparent text-white placeholder:text-white/50 focus:outline-none focus:ring-0 focus:bg-white/30 hover:bg-white/25 transition-all duration-300 focus:border-[#66b2ff]/50 rounded-md"
                   />
                   {form.formState.errors.company && (
                     <p className="text-red-300 text-sm mt-1">
@@ -185,7 +185,7 @@ export default function WelcomePage() {
                   <Input
                     placeholder="Your Position"
                     {...form.register("position")}
-                    className="relative bg-white/20 border-2 border-transparent text-white placeholder:text-white/50 focus:outline-none focus:ring-0 focus:bg-white/30 hover:bg-white/25 transition-all duration-300 focus:animate-border-travel rounded-md"
+                    className="relative bg-white/20 border-2 border-transparent text-white placeholder:text-white/50 focus:outline-none focus:ring-0 focus:bg-white/30 hover:bg-white/25 transition-all duration-300 focus:border-[#66b2ff]/50 rounded-md"
                   />
                   {form.formState.errors.position && (
                     <p className="text-red-300 text-sm mt-1">
@@ -199,7 +199,7 @@ export default function WelcomePage() {
                     type="email"
                     placeholder="Your Email"
                     {...form.register("email")}
-                    className="relative bg-white/20 border-2 border-transparent text-white placeholder:text-white/50 focus:outline-none focus:ring-0 focus:bg-white/30 hover:bg-white/25 transition-all duration-300 focus:animate-border-travel rounded-md"
+                    className="relative bg-white/20 border-2 border-transparent text-white placeholder:text-white/50 focus:outline-none focus:ring-0 focus:bg-white/30 hover:bg-white/25 transition-all duration-300 focus:border-[#66b2ff]/50 rounded-md"
                   />
                   {form.formState.errors.email && (
                     <p className="text-red-300 text-sm mt-1">
