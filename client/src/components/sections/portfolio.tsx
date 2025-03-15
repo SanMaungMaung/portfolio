@@ -177,45 +177,49 @@ const ProjectCard = ({ project, index, category }) => {
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
     >
-      <Card className="overflow-hidden bg-white dark:bg-gray-800 transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="h-64 md:h-auto overflow-hidden">
-            <motion.img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-full object-cover"
-              animate={{
-                scale: isHovered ? 1.05 : 1
-              }}
-              transition={{ duration: 0.3 }}
-            />
-          </div>
-          <div className="p-6">
-            <motion.h3
-              className="text-2xl font-bold text-[#003366] dark:text-[#66b2ff] mb-2"
-              animate={{
-                color: isHovered ? '#CC3333' : '#003366'
-              }}
-              transition={{ duration: 0.3 }}
-            >
-              {project.title}
-            </motion.h3>
-            {project.client && (
-              <p className="text-[#CC3333] dark:text-[#ff6666] font-medium mb-2">
-                Client: {project.client}
+      <Card className="overflow-hidden bg-white dark:bg-gray-800 transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 relative group">
+        {/* Shimmering border effect */}
+        <div className="absolute -inset-0.5 bg-gradient-to-r from-transparent via-[#003366] to-transparent group-hover:opacity-100 opacity-0 transition duration-1000 group-hover:duration-2000 animate-shimmer dark:via-[#66b2ff] blur"></div>
+        <div className="relative bg-white dark:bg-gray-800 p-2 rounded-lg">
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="h-64 md:h-auto overflow-hidden">
+              <motion.img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-full object-cover"
+                animate={{
+                  scale: isHovered ? 1.05 : 1
+                }}
+                transition={{ duration: 0.3 }}
+              />
+            </div>
+            <div className="p-6">
+              <motion.h3
+                className="text-2xl font-bold text-[#003366] dark:text-[#66b2ff] mb-2"
+                animate={{
+                  color: isHovered ? '#CC3333' : '#003366'
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                {project.title}
+              </motion.h3>
+              {project.client && (
+                <p className="text-[#CC3333] dark:text-[#ff6666] font-medium mb-2">
+                  Client: {project.client}
+                </p>
+              )}
+              <p className="text-[#336699] dark:text-gray-300 mb-4">{project.description}</p>
+              <p className="text-sm text-[#003366]/70 dark:text-gray-400 mb-4">
+                Technologies: {project.tech}
               </p>
-            )}
-            <p className="text-[#336699] dark:text-gray-300 mb-4">{project.description}</p>
-            <p className="text-sm text-[#003366]/70 dark:text-gray-400 mb-4">
-              Technologies: {project.tech}
-            </p>
-            <Button
-              variant="outline"
-              className="text-[#003366] dark:text-[#66b2ff] hover:bg-[#003366]/10 dark:hover:bg-[#66b2ff]/10 transform transition-all duration-300 hover:scale-105"
-              onClick={() => setLocation(`/project/${category}/${index}`)}
-            >
-              View Details
-            </Button>
+              <Button
+                variant="outline"
+                className="text-[#003366] dark:text-[#66b2ff] hover:bg-[#003366]/10 dark:hover:bg-[#66b2ff]/10 transform transition-all duration-300 hover:scale-105"
+                onClick={() => setLocation(`/project/${category}/${index}`)}
+              >
+                View Details
+              </Button>
+            </div>
           </div>
         </div>
       </Card>
