@@ -1,9 +1,10 @@
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
-import { Menu, LogIn } from "lucide-react";
+import { Menu, LogIn, Sun, Moon } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { useTheme } from "@/components/theme-provider";
 
 const links = [
   { href: "#welcome", label: "Home" },
@@ -18,6 +19,7 @@ const links = [
 export default function Navigation() {
   const [location] = useLocation();
   const [open, setOpen] = useState(false);
+  const { theme, setTheme } = useTheme();
 
   return (
     <header className="fixed top-0 w-full z-50 bg-[#CC3333] text-white">
@@ -45,8 +47,21 @@ export default function Navigation() {
           ))}
         </div>
 
-        {/* Admin Login - Right */}
-        <div className="hidden lg:block">
+        {/* Theme Toggle and Admin Login - Right */}
+        <div className="hidden lg:flex items-center gap-4">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            className="text-white hover:scale-110 transition-transform"
+          >
+            {theme === "dark" ? (
+              <Sun className="h-5 w-5" />
+            ) : (
+              <Moon className="h-5 w-5" />
+            )}
+            <span className="sr-only">Toggle theme</span>
+          </Button>
           <Link 
             href="/admin/login"
             className="hover:scale-110 transition-transform flex items-center gap-2 text-sm font-medium"
@@ -80,6 +95,22 @@ export default function Navigation() {
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
                 </a>
               ))}
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => {
+                  setTheme(theme === "dark" ? "light" : "dark");
+                  setOpen(false);
+                }}
+                className="flex items-center gap-2 justify-start hover:translate-x-2 transition-transform"
+              >
+                {theme === "dark" ? (
+                  <Sun className="h-5 w-5" />
+                ) : (
+                  <Moon className="h-5 w-5" />
+                )}
+                Toggle theme
+              </Button>
               <Link
                 href="/admin/login"
                 className="flex items-center gap-2 hover:translate-x-2 transition-transform"
