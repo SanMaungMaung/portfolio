@@ -211,7 +211,7 @@ export default function WelcomePage() {
                 <div className="space-y-2">
                   <Button
                     type="submit"
-                    className="w-full bg-white/10 hover:bg-white/20 text-white border-2 border-white/20 hover:border-white/30"
+                    className="w-full bg-gradient-to-r from-[#CC3333] to-[#FF6666] hover:from-[#FF6666] hover:to-[#CC3333] text-white border-none transition-all duration-300"
                     disabled={mutation.isPending}
                   >
                     {mutation.isPending ? "Submitting..." : "Submit"}
@@ -219,7 +219,7 @@ export default function WelcomePage() {
                   <Button
                     type="button"
                     variant="outline"
-                    className="w-full border-white/20 text-white hover:bg-white/20 hover:text-white"
+                    className="w-full border-[#CC3333] text-white hover:bg-[#CC3333]/20 hover:border-[#FF6666] transition-all duration-300"
                     onClick={continueAsGuest}
                   >
                     Continue as Guest
