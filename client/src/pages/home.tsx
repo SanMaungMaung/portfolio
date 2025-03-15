@@ -1,4 +1,5 @@
 import Navigation from "@/components/layout/navigation";
+import Footer from "@/components/layout/footer";
 import Welcome from "@/components/sections/welcome";
 import Portfolio from "@/components/sections/portfolio";
 import TechStack from "@/components/sections/tech-stack";
@@ -20,6 +21,7 @@ export default function Home() {
         <About />
         <Contact />
       </main>
+      <Footer />
     </>
   );
 }
