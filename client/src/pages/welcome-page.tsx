@@ -140,12 +140,15 @@ export default function WelcomePage() {
       />
 
       <Card className="w-full max-w-md bg-white/10 backdrop-blur-sm border-white/20">
-        <CardHeader>
-          <CardTitle className="text-2xl text-center text-white">
-            Hello! I am San Maung Maung, but you can also call me Zack.
-            Welcome to my portfolio!
-          </CardTitle>
-        </CardHeader>
+        {/*CardHeader removed conditionally*/}
+        { !submitted && (
+          <CardHeader>
+            <CardTitle className="text-2xl text-center text-white">
+              Hello! I am San Maung Maung, but you can also call me Zack.
+              Welcome to my portfolio!
+            </CardTitle>
+          </CardHeader>
+        )}
         <CardContent>
           {!submitted ? (
             <>
