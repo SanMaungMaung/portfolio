@@ -5,24 +5,19 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-
-const visitorSchema = z.object({
-  name: z.string().min(1, "Name is required"),
-  company: z.string().min(1, "Company is required"),
-  position: z.string().min(1, "Position is required"),
-  email: z.string().email("Please enter a valid email address")
-});
-
-type VisitorInfo = z.infer<typeof visitorSchema>;
+import { insertVisitorSchema, type InsertVisitor } from "@shared/schema";
+import { useMutation } from "@tanstack/react-query";
+import { apiRequest } from "@/lib/queryClient";
+import { useToast } from "@/hooks/use-toast";
 
 export default function WelcomePage() {
   const [submitted, setSubmitted] = useState(false);
   const [, setLocation] = useLocation();
+  const { toast } = useToast();
 
-  const form = useForm<VisitorInfo>({
-    resolver: zodResolver(visitorSchema),
+  const form = useForm<InsertVisitor>({
+    resolver: zodResolver(insertVisitorSchema),
     defaultValues: {
       name: "",
       company: "",
@@ -31,10 +26,25 @@ export default function WelcomePage() {
     }
   });
 
-  const onSubmit = (data: VisitorInfo) => {
-    // Store the visitor info in localStorage or state management
-    localStorage.setItem('visitorInfo', JSON.stringify(data));
-    setSubmitted(true);
+  const mutation = useMutation({
+    mutationFn: async (data: InsertVisitor) => {
+      await apiRequest("POST", "/api/visitors", data);
+    },
+    onSuccess: () => {
+      setSubmitted(true);
+      localStorage.setItem('visitorInfo', JSON.stringify(form.getValues()));
+    },
+    onError: () => {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Failed to save your information. Please try again.",
+      });
+    }
+  });
+
+  const onSubmit = (data: InsertVisitor) => {
+    mutation.mutate(data);
   };
 
   const continueAsGuest = () => {
@@ -116,8 +126,9 @@ export default function WelcomePage() {
                   <Button
                     type="submit"
                     className="w-full bg-[#003366] hover:bg-[#336699] text-white"
+                    disabled={mutation.isPending}
                   >
-                    Submit
+                    {mutation.isPending ? "Submitting..." : "Submit"}
                   </Button>
                   <Button
                     type="button"
