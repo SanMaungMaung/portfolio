@@ -1,6 +1,6 @@
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
-import { Menu } from "lucide-react";
+import { Menu, LogIn } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -42,6 +42,13 @@ export default function Navigation() {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
             </a>
           ))}
+          <Link 
+            href="/admin/login"
+            className="ml-4 hover:scale-110 transition-transform flex items-center gap-2 text-sm font-medium"
+          >
+            <LogIn className="h-5 w-5" />
+            <span className="sr-only">Admin Login</span>
+          </Link>
         </div>
 
         {/* Mobile Navigation */}
@@ -68,6 +75,14 @@ export default function Navigation() {
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
                 </a>
               ))}
+              <Link
+                href="/admin/login"
+                className="flex items-center gap-2 hover:translate-x-2 transition-transform"
+                onClick={() => setOpen(false)}
+              >
+                <LogIn className="h-5 w-5" />
+                <span>Admin Login</span>
+              </Link>
             </div>
           </SheetContent>
         </Sheet>
