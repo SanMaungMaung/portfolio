@@ -143,7 +143,7 @@ export default function WelcomePage() {
         {/*CardHeader removed conditionally*/}
         { !submitted && (
           <CardHeader>
-            <CardTitle className="text-2xl text-center text-white">
+            <CardTitle className="text-2xl text-center text-white dark:text-white">
               Hello! I am San Maung Maung, but you can also call me Zack.
               Welcome to my portfolio!
             </CardTitle>
@@ -152,7 +152,7 @@ export default function WelcomePage() {
         <CardContent>
           {!submitted ? (
             <>
-              <p className="text-white/80 mb-6 text-center">
+              <p className="text-white/80 mb-6 text-center dark:text-white">
                 Before we continue, I'd love to know a bit about you. This information
                 is solely for future contact purposes, and I assure you that your
                 details will never be shared.
@@ -162,10 +162,10 @@ export default function WelcomePage() {
                   <Input
                     placeholder="Your Name"
                     {...form.register("name")}
-                    className="relative bg-white/20 border border-transparent text-white placeholder:text-white/50 focus:outline-none focus:ring-0 focus:bg-white/30 hover:bg-white/25 transition-all duration-300 focus:border-[#66b2ff]/30 rounded-md"
+                    className="relative bg-white/20 border border-transparent text-white dark:text-white placeholder:text-white/50 focus:outline-none focus:ring-0 focus:bg-white/30 hover:bg-white/25 transition-all duration-300 focus:border-[#66b2ff]/30 rounded-md"
                   />
                   {form.formState.errors.name && (
-                    <p className="text-red-300 text-sm mt-1">
+                    <p className="text-red-300 dark:text-red-400 text-sm mt-1">
                       {form.formState.errors.name.message}
                     </p>
                   )}
@@ -175,10 +175,10 @@ export default function WelcomePage() {
                   <Input
                     placeholder="Your Company"
                     {...form.register("company")}
-                    className="relative bg-white/20 border border-transparent text-white placeholder:text-white/50 focus:outline-none focus:ring-0 focus:bg-white/30 hover:bg-white/25 transition-all duration-300 focus:border-[#66b2ff]/30 rounded-md"
+                    className="relative bg-white/20 border border-transparent text-white dark:text-white placeholder:text-white/50 focus:outline-none focus:ring-0 focus:bg-white/30 hover:bg-white/25 transition-all duration-300 focus:border-[#66b2ff]/30 rounded-md"
                   />
                   {form.formState.errors.company && (
-                    <p className="text-red-300 text-sm mt-1">
+                    <p className="text-red-300 dark:text-red-400 text-sm mt-1">
                       {form.formState.errors.company.message}
                     </p>
                   )}
@@ -188,10 +188,10 @@ export default function WelcomePage() {
                   <Input
                     placeholder="Your Position"
                     {...form.register("position")}
-                    className="relative bg-white/20 border border-transparent text-white placeholder:text-white/50 focus:outline-none focus:ring-0 focus:bg-white/30 hover:bg-white/25 transition-all duration-300 focus:border-[#66b2ff]/30 rounded-md"
+                    className="relative bg-white/20 border border-transparent text-white dark:text-white placeholder:text-white/50 focus:outline-none focus:ring-0 focus:bg-white/30 hover:bg-white/25 transition-all duration-300 focus:border-[#66b2ff]/30 rounded-md"
                   />
                   {form.formState.errors.position && (
-                    <p className="text-red-300 text-sm mt-1">
+                    <p className="text-red-300 dark:text-red-400 text-sm mt-1">
                       {form.formState.errors.position.message}
                     </p>
                   )}
@@ -202,10 +202,10 @@ export default function WelcomePage() {
                     type="email"
                     placeholder="Your Email"
                     {...form.register("email")}
-                    className="relative bg-white/20 border border-transparent text-white placeholder:text-white/50 focus:outline-none focus:ring-0 focus:bg-white/30 hover:bg-white/25 transition-all duration-300 focus:border-[#66b2ff]/30 rounded-md"
+                    className="relative bg-white/20 border border-transparent text-white dark:text-white placeholder:text-white/50 focus:outline-none focus:ring-0 focus:bg-white/30 hover:bg-white/25 transition-all duration-300 focus:border-[#66b2ff]/30 rounded-md"
                   />
                   {form.formState.errors.email && (
-                    <p className="text-red-300 text-sm mt-1">
+                    <p className="text-red-300 dark:text-red-400 text-sm mt-1">
                       {form.formState.errors.email.message}
                     </p>
                   )}
@@ -214,7 +214,7 @@ export default function WelcomePage() {
                 <div className="space-y-2">
                   <Button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-[#CC3333] to-[#FF6666] hover:from-[#FF6666] hover:to-[#CC3333] text-white border-none transition-all duration-300"
+                    className="w-full bg-gradient-to-r from-[#CC3333] to-[#FF6666] hover:from-[#FF6666] hover:to-[#CC3333] text-white dark:text-white border-none transition-all duration-300"
                     disabled={mutation.isPending}
                   >
                     {mutation.isPending ? "Submitting..." : "Submit"}
@@ -222,7 +222,7 @@ export default function WelcomePage() {
                   <Button
                     type="button"
                     variant="outline"
-                    className="w-full bg-gradient-to-r from-[#003366] to-[#336699] hover:from-[#336699] hover:to-[#003366] text-white hover:text-white border-none transition-all duration-300"
+                    className="w-full bg-gradient-to-r from-[#003366] to-[#336699] hover:from-[#336699] hover:to-[#003366] text-white dark:text-white border-none transition-all duration-300"
                     onClick={continueAsGuest}
                   >
                     Continue as Guest
@@ -236,12 +236,12 @@ export default function WelcomePage() {
               animate={{ opacity: 1 }}
               className="min-h-[300px] flex flex-col items-center justify-center space-y-8 py-8"
             >
-              <p className="text-white text-lg text-center px-4">
+              <p className="text-white dark:text-white text-lg text-center px-4">
                 Thank you so much for filling the information, let's explore my world of portfolio.
               </p>
               <Button
                 onClick={explorePortfolio}
-                className="bg-gradient-to-r from-[#CC3333] to-[#FF6666] hover:from-[#FF6666] hover:to-[#CC3333] text-white border-none transition-all duration-300"
+                className="bg-gradient-to-r from-[#CC3333] to-[#FF6666] hover:from-[#FF6666] hover:to-[#CC3333] text-white dark:text-white border-none transition-all duration-300"
               >
                 Explore
               </Button>
