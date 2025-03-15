@@ -2,6 +2,7 @@ import { useLocation } from "wouter";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Github, ExternalLink } from "lucide-react";
+import { projects } from "@/components/sections/portfolio";
 
 interface ProjectDetailsProps {
   params: {
@@ -13,47 +14,14 @@ interface ProjectDetailsProps {
 export default function ProjectDetails({ params }: ProjectDetailsProps) {
   const [, setLocation] = useLocation();
 
-  // This would be replaced with actual data fetching
-  const project = {
-    title: "Automatic Billing System (ABS)",
-    client: "Ministry of Electric Power Myanmar",
-    description: "Developed an intelligent and sophisticated electricity billing data analysis system that automates manual errors while increasing data accuracy and security.",
-    longDescription: `
-      The Automatic Billing System (ABS) is a comprehensive solution designed to revolutionize
-      the electricity billing process. This system features:
-      
-      • Automated data validation and error detection
-      • Real-time billing calculations
-      • Secure customer data management
-      • Interactive dashboards for monitoring
-      • Automated report generation
-      
-      The system has successfully reduced manual errors by 95% and improved data processing
-      speed by 80%.
-    `,
-    tech: "HTML, CSS, MySQL, Python, Django Framework, PostgreSQL",
-    image: "/project1.jpg",
-    challenges: [
-      "Integration with legacy systems",
-      "Data migration from paper-based records",
-      "Training staff on the new system",
-      "Ensuring 24/7 system availability"
-    ],
-    solutions: [
-      "Developed custom API adapters for legacy system integration",
-      "Created automated data entry and verification tools",
-      "Implemented comprehensive training programs",
-      "Built robust backup and failover systems"
-    ],
-    results: [
-      "95% reduction in billing errors",
-      "80% faster processing time",
-      "30% reduction in customer complaints",
-      "Improved data accuracy and security"
-    ],
-    githubUrl: "https://github.com/example/abs",
-    liveUrl: "https://abs.example.com"
-  };
+  // Get project data from the projects object
+  const project = projects[params.category]?.[parseInt(params.id)];
+
+  // If project not found, redirect to portfolio section
+  if (!project) {
+    setLocation('/home#portfolio');
+    return null;
+  }
 
   return (
     <div className="min-h-screen bg-[#F5F5F5] dark:bg-gray-900 pt-16">
@@ -82,25 +50,29 @@ export default function ProjectDetails({ params }: ProjectDetailsProps) {
               </p>
             )}
             <p className="text-[#336699] dark:text-gray-300 mb-6 whitespace-pre-line">
-              {project.longDescription}
+              {project.description}
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button
-                variant="outline"
-                className="bg-[#003366] hover:bg-[#336699] text-white dark:bg-[#003366] dark:hover:bg-[#66b2ff] dark:text-white dark:hover:text-[#003366] transition-all duration-300"
-                onClick={() => window.open(project.githubUrl, '_blank')}
-              >
-                <Github className="mr-2 h-4 w-4" />
-                View Source
-              </Button>
-              <Button
-                variant="outline"
-                className="bg-[#003366] hover:bg-[#336699] text-white dark:bg-[#003366] dark:hover:bg-[#66b2ff] dark:text-white dark:hover:text-[#003366] transition-all duration-300"
-                onClick={() => window.open(project.liveUrl, '_blank')}
-              >
-                <ExternalLink className="mr-2 h-4 w-4" />
-                Live Demo
-              </Button>
+              {project.githubUrl && (
+                <Button
+                  variant="outline"
+                  className="bg-[#003366] hover:bg-[#336699] text-white dark:bg-[#003366] dark:hover:bg-[#66b2ff] dark:text-white dark:hover:text-[#003366] transition-all duration-300"
+                  onClick={() => window.open(project.githubUrl, '_blank')}
+                >
+                  <Github className="mr-2 h-4 w-4" />
+                  View Source
+                </Button>
+              )}
+              {project.liveUrl && (
+                <Button
+                  variant="outline"
+                  className="bg-[#003366] hover:bg-[#336699] text-white dark:bg-[#003366] dark:hover:bg-[#66b2ff] dark:text-white dark:hover:text-[#003366] transition-all duration-300"
+                  onClick={() => window.open(project.liveUrl, '_blank')}
+                >
+                  <ExternalLink className="mr-2 h-4 w-4" />
+                  Live Demo
+                </Button>
+              )}
             </div>
           </motion.div>
 
@@ -129,7 +101,7 @@ export default function ProjectDetails({ params }: ProjectDetailsProps) {
               Challenges
             </h2>
             <ul className="list-disc list-inside text-[#336699] dark:text-gray-300 space-y-2">
-              {project.challenges.map((challenge, index) => (
+              {project.challenges?.map((challenge, index) => (
                 <li key={index}>{challenge}</li>
               ))}
             </ul>
@@ -145,7 +117,7 @@ export default function ProjectDetails({ params }: ProjectDetailsProps) {
               Solutions
             </h2>
             <ul className="list-disc list-inside text-[#336699] dark:text-gray-300 space-y-2">
-              {project.solutions.map((solution, index) => (
+              {project.solutions?.map((solution, index) => (
                 <li key={index}>{solution}</li>
               ))}
             </ul>
@@ -161,7 +133,7 @@ export default function ProjectDetails({ params }: ProjectDetailsProps) {
               Results
             </h2>
             <ul className="list-disc list-inside text-[#336699] dark:text-gray-300 space-y-2">
-              {project.results.map((result, index) => (
+              {project.results?.map((result, index) => (
                 <li key={index}>{result}</li>
               ))}
             </ul>
