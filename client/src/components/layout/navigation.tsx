@@ -27,13 +27,13 @@ export default function Navigation() {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-6 flex-nowrap overflow-x-auto">
+        <div className="hidden lg:flex items-center gap-6">
           {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
               className={cn(
-                "text-sm font-medium relative group transition-all duration-300 ease-in-out whitespace-nowrap",
+                "text-sm font-medium relative group transition-all duration-300 ease-in-out",
                 location === link.href && "text-white",
                 "hover:text-white/90 hover:scale-105"
               )}
@@ -44,7 +44,7 @@ export default function Navigation() {
           ))}
           <Link 
             href="/admin/login"
-            className="ml-4 hover:scale-110 transition-transform flex items-center gap-2 text-sm font-medium whitespace-nowrap"
+            className="ml-4 hover:scale-110 transition-transform flex items-center gap-2 text-sm font-medium"
           >
             <LogIn className="h-5 w-5" />
             <span className="sr-only">Admin Login</span>
@@ -53,7 +53,7 @@ export default function Navigation() {
 
         {/* Mobile Navigation */}
         <Sheet open={open} onOpenChange={setOpen}>
-          <SheetTrigger asChild className="md:hidden">
+          <SheetTrigger asChild className="lg:hidden">
             <Button variant="ghost" size="icon" className="text-white hover:scale-110 transition-transform">
               <Menu className="h-6 w-6" />
             </Button>
