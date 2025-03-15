@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 
@@ -71,7 +71,7 @@ const ProjectCard = ({ project, index }) => (
     transition={{ duration: 0.5, delay: index * 0.1 }}
     viewport={{ once: true }}
   >
-    <Card className="overflow-hidden">
+    <Card className="overflow-hidden bg-white dark:bg-gray-800">
       <div className="grid md:grid-cols-2 gap-6">
         <div className="h-64 md:h-auto">
           <img
@@ -81,19 +81,22 @@ const ProjectCard = ({ project, index }) => (
           />
         </div>
         <div className="p-6">
-          <h3 className="text-2xl font-bold text-[#003366] mb-2">
+          <h3 className="text-2xl font-bold text-[#003366] dark:text-[#66b2ff] mb-2">
             {project.title}
           </h3>
           {project.client && (
-            <p className="text-[#CC3333] font-medium mb-2">
+            <p className="text-[#CC3333] dark:text-[#ff6666] font-medium mb-2">
               Client: {project.client}
             </p>
           )}
-          <p className="text-[#336699] mb-4">{project.description}</p>
-          <p className="text-sm text-[#003366]/70 mb-4">
+          <p className="text-[#336699] dark:text-gray-300 mb-4">{project.description}</p>
+          <p className="text-sm text-[#003366]/70 dark:text-gray-400 mb-4">
             Technologies: {project.tech}
           </p>
-          <Button variant="outline" className="text-[#003366]">
+          <Button 
+            variant="outline" 
+            className="text-[#003366] dark:text-[#66b2ff] hover:bg-[#003366]/10 dark:hover:bg-[#66b2ff]/10"
+          >
             View Details
           </Button>
         </div>
@@ -104,7 +107,7 @@ const ProjectCard = ({ project, index }) => (
 
 export default function Portfolio() {
   return (
-    <section id="portfolio" className="py-20 bg-white">
+    <section id="portfolio" className="py-20 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -113,16 +116,24 @@ export default function Portfolio() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold text-[#003366] mb-4">Portfolio</h2>
-          <p className="text-[#336699]">Featured Projects</p>
+          <h2 className="text-4xl font-bold text-[#003366] dark:text-[#66b2ff] mb-4">Portfolio</h2>
+          <p className="text-[#336699] dark:text-gray-300">Featured Projects</p>
         </motion.div>
 
         <Tabs defaultValue="featured" className="space-y-8">
           <TabsList className="flex justify-center gap-2">
-            <TabsTrigger value="featured">Featured Projects</TabsTrigger>
-            <TabsTrigger value="web">Web Development</TabsTrigger>
-            <TabsTrigger value="ai">AI Integration</TabsTrigger>
-            <TabsTrigger value="design">Design Prototypes</TabsTrigger>
+            <TabsTrigger value="featured" className="data-[state=active]:text-[#003366] dark:data-[state=active]:text-[#66b2ff]">
+              Featured Projects
+            </TabsTrigger>
+            <TabsTrigger value="web" className="data-[state=active]:text-[#003366] dark:data-[state=active]:text-[#66b2ff]">
+              Web Development
+            </TabsTrigger>
+            <TabsTrigger value="ai" className="data-[state=active]:text-[#003366] dark:data-[state=active]:text-[#66b2ff]">
+              AI Integration
+            </TabsTrigger>
+            <TabsTrigger value="design" className="data-[state=active]:text-[#003366] dark:data-[state=active]:text-[#66b2ff]">
+              Design Prototypes
+            </TabsTrigger>
           </TabsList>
 
           {Object.entries(projects).map(([category, projectList]) => (
