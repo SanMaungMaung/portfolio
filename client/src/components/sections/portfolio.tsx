@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
+import { useLocation } from "wouter";
 
 const projects = {
   featured: [
@@ -64,46 +65,51 @@ const projects = {
   ]
 };
 
-const ProjectCard = ({ project, index }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5, delay: index * 0.1 }}
-    viewport={{ once: true }}
-  >
-    <Card className="overflow-hidden bg-white dark:bg-gray-800">
-      <div className="grid md:grid-cols-2 gap-6">
-        <div className="h-64 md:h-auto">
-          <img
-            src={project.image}
-            alt={project.title}
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="p-6">
-          <h3 className="text-2xl font-bold text-[#003366] dark:text-[#66b2ff] mb-2">
-            {project.title}
-          </h3>
-          {project.client && (
-            <p className="text-[#CC3333] dark:text-[#ff6666] font-medium mb-2">
-              Client: {project.client}
+const ProjectCard = ({ project, index, category }) => {
+  const [, setLocation] = useLocation();
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      viewport={{ once: true }}
+    >
+      <Card className="overflow-hidden bg-white dark:bg-gray-800">
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="h-64 md:h-auto">
+            <img
+              src={project.image}
+              alt={project.title}
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="p-6">
+            <h3 className="text-2xl font-bold text-[#003366] dark:text-[#66b2ff] mb-2">
+              {project.title}
+            </h3>
+            {project.client && (
+              <p className="text-[#CC3333] dark:text-[#ff6666] font-medium mb-2">
+                Client: {project.client}
+              </p>
+            )}
+            <p className="text-[#336699] dark:text-gray-300 mb-4">{project.description}</p>
+            <p className="text-sm text-[#003366]/70 dark:text-gray-400 mb-4">
+              Technologies: {project.tech}
             </p>
-          )}
-          <p className="text-[#336699] dark:text-gray-300 mb-4">{project.description}</p>
-          <p className="text-sm text-[#003366]/70 dark:text-gray-400 mb-4">
-            Technologies: {project.tech}
-          </p>
-          <Button 
-            variant="outline" 
-            className="text-[#003366] dark:text-[#66b2ff] hover:bg-[#003366]/10 dark:hover:bg-[#66b2ff]/10"
-          >
-            View Details
-          </Button>
+            <Button 
+              variant="outline" 
+              className="text-[#003366] dark:text-[#66b2ff] hover:bg-[#003366]/10 dark:hover:bg-[#66b2ff]/10"
+              onClick={() => setLocation(`/project/${category}/${index}`)}
+            >
+              View Details
+            </Button>
+          </div>
         </div>
-      </div>
-    </Card>
-  </motion.div>
-);
+      </Card>
+    </motion.div>
+  );
+};
 
 export default function Portfolio() {
   return (
@@ -155,7 +161,12 @@ export default function Portfolio() {
           {Object.entries(projects).map(([category, projectList]) => (
             <TabsContent key={category} value={category} className="space-y-8">
               {projectList.map((project, index) => (
-                <ProjectCard key={index} project={project} index={index} />
+                <ProjectCard 
+                  key={index} 
+                  project={project} 
+                  index={index}
+                  category={category}
+                />
               ))}
             </TabsContent>
           ))}
