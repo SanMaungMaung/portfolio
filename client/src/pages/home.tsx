@@ -7,6 +7,7 @@ import Experience from "@/components/sections/experience";
 import Education from "@/components/sections/education";
 import About from "@/components/sections/about";
 import Contact from "@/components/sections/contact";
+import { BackToTop } from "@/components/ui/back-to-top";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
         <Education />
         <About />
         <Contact />
+        <BackToTop />
       </main>
       <Footer />
     </>

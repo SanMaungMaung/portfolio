@@ -10,6 +10,7 @@ import { insertVisitorSchema, type InsertVisitor } from "@shared/schema";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
+import { BackToTop } from "@/components/ui/back-to-top";
 
 export default function WelcomePage() {
   const [submitted, setSubmitted] = useState(false);
@@ -249,6 +250,7 @@ export default function WelcomePage() {
           )}
         </CardContent>
       </Card>
+      <BackToTop />
     </div>
   );
 }
