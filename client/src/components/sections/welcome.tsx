@@ -14,7 +14,7 @@ export default function Welcome() {
         {[...Array(3)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute rounded-full bg-white/5"
+            className="absolute rounded-full bg-gradient-to-r from-white/20 to-transparent"
             animate={{
               x: ["0%", "100%", "0%"],
               y: ["0%", "100%", "0%"],
@@ -26,10 +26,11 @@ export default function Welcome() {
               ease: "linear",
             }}
             style={{
-              width: `${200 + i * 100}px`,
-              height: `${200 + i * 100}px`,
+              width: `${300 + i * 100}px`,
+              height: `${300 + i * 100}px`,
               left: `${-100 + i * 30}px`,
               top: `${-100 + i * 50}px`,
+              filter: 'blur(40px)',
             }}
           />
         ))}
@@ -38,12 +39,12 @@ export default function Welcome() {
         {[...Array(5)].map((_, i) => (
           <motion.div
             key={`shape-${i}`}
-            className="absolute bg-gradient-to-r from-white/10 to-transparent rounded-full"
+            className="absolute bg-gradient-to-r from-white/30 to-transparent"
             animate={{
               x: ["0vw", "100vw"],
               y: ["0vh", "100vh"],
               scale: [0.8, 1.2],
-              opacity: [0.1, 0.3, 0.1],
+              opacity: [0.3, 0.5, 0.3],
             }}
             transition={{
               duration: 20 + i * 3,
@@ -52,20 +53,35 @@ export default function Welcome() {
               delay: i * 2,
             }}
             style={{
-              width: `${150 + i * 50}px`,
-              height: `${150 + i * 50}px`,
+              width: `${200 + i * 50}px`,
+              height: `${200 + i * 50}px`,
               left: `${-20 - i * 10}%`,
               top: `${10 + i * 15}%`,
+              filter: 'blur(30px)',
             }}
           />
         ))}
+
+        {/* Wave animation */}
+        <motion.div
+          className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-[#004080]/40 to-transparent"
+          animate={{
+            y: [0, -20, 0],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
       </div>
 
-      {/* Gradient overlay */}
+      {/* Background pulse effect */}
       <motion.div 
-        className="absolute inset-0 bg-gradient-to-b from-[#003366]/50 to-transparent"
+        className="absolute inset-0 bg-gradient-to-b from-[#003366]/50 via-[#004080]/30 to-[#003366]/50"
         animate={{
-          opacity: [0.5, 0.7, 0.5]
+          opacity: [0.5, 0.7, 0.5],
+          scale: [1, 1.02, 1],
         }}
         transition={{
           duration: 3,
@@ -140,14 +156,12 @@ export default function Welcome() {
           className="order-1 md:order-2 relative"
         >
           <div className="relative">
-            {/* Decorative ring */}
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
               className="absolute inset-0 rounded-full border-2 border-white/20"
             />
 
-            {/* Profile image */}
             <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white/20 shadow-lg transform hover:scale-105 transition-transform duration-300">
               <motion.div
                 className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent"
