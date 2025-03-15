@@ -22,7 +22,7 @@ export default function Navigation() {
   return (
     <header className="fixed top-0 w-full z-50 bg-[#CC3333] text-white">
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <Link href="/" className="text-xl font-bold">
+        <Link href="/" className="text-xl font-bold hover:scale-105 transition-transform">
           Portfolio
         </Link>
 
@@ -33,11 +33,13 @@ export default function Navigation() {
               key={link.href}
               href={link.href}
               className={cn(
-                "text-sm font-medium transition-colors hover:text-white/80",
-                location === link.href && "text-white"
+                "text-sm font-medium relative group transition-all duration-300 ease-in-out",
+                location === link.href && "text-white",
+                "hover:text-white/90 hover:scale-105"
               )}
             >
               {link.label}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
             </a>
           ))}
         </div>
@@ -45,7 +47,7 @@ export default function Navigation() {
         {/* Mobile Navigation */}
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild className="md:hidden">
-            <Button variant="ghost" size="icon" className="text-white">
+            <Button variant="ghost" size="icon" className="text-white hover:scale-110 transition-transform">
               <Menu className="h-6 w-6" />
             </Button>
           </SheetTrigger>
@@ -56,12 +58,14 @@ export default function Navigation() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "text-lg transition-colors hover:text-white/80",
-                    location === link.href && "text-white"
+                    "text-lg relative group transition-all duration-300 ease-in-out",
+                    location === link.href && "text-white",
+                    "hover:text-white/90 hover:translate-x-2"
                   )}
                   onClick={() => setOpen(false)}
                 >
                   {link.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
                 </a>
               ))}
             </div>
