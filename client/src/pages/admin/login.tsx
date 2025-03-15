@@ -81,13 +81,24 @@ export default function AdminLogin() {
               )}
             </div>
 
-            <Button
-              type="submit"
-              className="w-full bg-[#003366] hover:bg-[#336699] text-white"
-              disabled={mutation.isPending}
-            >
-              {mutation.isPending ? "Logging in..." : "Login"}
-            </Button>
+            <div className="space-y-2">
+              <Button
+                type="submit"
+                className="w-full bg-[#003366] hover:bg-[#336699] text-white"
+                disabled={mutation.isPending}
+              >
+                {mutation.isPending ? "Logging in..." : "Login"}
+              </Button>
+
+              <Button
+                type="button"
+                variant="outline"
+                className="w-full"
+                onClick={() => setLocation("/home")}
+              >
+                Go Back Home
+              </Button>
+            </div>
           </form>
         </CardContent>
       </Card>
