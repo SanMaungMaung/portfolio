@@ -21,13 +21,14 @@ export default function Navigation() {
 
   return (
     <header className="fixed top-0 w-full z-50 bg-[#CC3333] text-white">
-      <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <Link href="/" className="text-xl font-bold hover:scale-105 transition-transform mr-8">
+      <nav className="container mx-auto px-4 h-16 flex items-center">
+        {/* Logo - Left */}
+        <Link href="/" className="text-xl font-bold hover:scale-105 transition-transform">
           Portfolio
         </Link>
 
-        {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center gap-6">
+        {/* Desktop Navigation - Center */}
+        <div className="hidden lg:flex items-center justify-center flex-1 gap-6">
           {links.map((link) => (
             <a
               key={link.href}
@@ -42,9 +43,13 @@ export default function Navigation() {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
             </a>
           ))}
+        </div>
+
+        {/* Admin Login - Right */}
+        <div className="hidden lg:block">
           <Link 
             href="/admin/login"
-            className="ml-4 hover:scale-110 transition-transform flex items-center gap-2 text-sm font-medium"
+            className="hover:scale-110 transition-transform flex items-center gap-2 text-sm font-medium"
           >
             <LogIn className="h-5 w-5" />
             <span className="sr-only">Admin Login</span>
@@ -53,7 +58,7 @@ export default function Navigation() {
 
         {/* Mobile Navigation */}
         <Sheet open={open} onOpenChange={setOpen}>
-          <SheetTrigger asChild className="lg:hidden">
+          <SheetTrigger asChild className="lg:hidden ml-auto">
             <Button variant="ghost" size="icon" className="text-white hover:scale-110 transition-transform">
               <Menu className="h-6 w-6" />
             </Button>
