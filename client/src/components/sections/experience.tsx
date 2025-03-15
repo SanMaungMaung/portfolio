@@ -38,8 +38,8 @@ export default function Experience() {
         </motion.div>
 
         <div className="relative">
-          {/* Vertical Line */}
-          <div className="absolute left-[50%] top-0 bottom-0 w-0.5 bg-[#003366]/20 dark:bg-[#66b2ff]/20" />
+          {/* Vertical Line - Hidden on mobile */}
+          <div className="absolute left-[50%] top-0 bottom-0 w-0.5 bg-[#003366]/20 dark:bg-[#66b2ff]/20 hidden md:block" />
 
           <div className="space-y-12">
             {experiences.map((exp, index) => (
@@ -53,12 +53,17 @@ export default function Experience() {
                   index % 2 === 0 ? 'md:text-right' : 'md:text-left md:flex-row-reverse'
                 }`}
               >
-                {/* Timeline dot */}
-                <div className="absolute left-[50%] top-[50%] w-4 h-4 rounded-full bg-[#CC3333] dark:bg-[#ff6666] transform -translate-x-1/2 -translate-y-1/2 z-10">
+                {/* Timeline dot - Adjusted for mobile */}
+                <div className="absolute left-4 md:left-[50%] top-0 md:top-[50%] w-4 h-4 rounded-full bg-[#CC3333] dark:bg-[#ff6666] transform md:-translate-x-1/2 md:-translate-y-1/2 z-10">
                   <div className="absolute w-8 h-8 rounded-full border-2 border-[#CC3333] dark:border-[#ff6666] transform -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2" />
                 </div>
 
-                <div className={`md:pr-12 ${index % 2 === 0 ? 'md:text-right' : 'md:order-2 md:pl-12 md:pr-0'}`}>
+                {/* Content with adjusted padding for mobile */}
+                <div className={`pl-12 md:pl-0 ${
+                  index % 2 === 0 
+                    ? 'md:pr-12' 
+                    : 'md:order-2 md:pl-12 md:pr-0'
+                }`}>
                   <Card className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-shadow">
                     <CardHeader>
                       <CardTitle className="text-[#003366] dark:text-[#66b2ff]">{exp.position}</CardTitle>
@@ -72,7 +77,7 @@ export default function Experience() {
                 </div>
 
                 {/* Empty column for timeline alignment */}
-                <div className={index % 2 === 0 ? 'md:order-2' : ''} />
+                <div className={`hidden md:block ${index % 2 === 0 ? 'md:order-2' : ''}`} />
               </motion.div>
             ))}
           </div>
