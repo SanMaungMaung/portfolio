@@ -1,3 +1,4 @@
+import Navigation from "@/components/layout/navigation";
 import Welcome from "@/components/sections/welcome";
 import Portfolio from "@/components/sections/portfolio";
 import TechStack from "@/components/sections/tech-stack";
@@ -8,14 +9,17 @@ import Contact from "@/components/sections/contact";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#F5F5F5]">
-      <Welcome />
-      <Portfolio />
-      <TechStack />
-      <Experience />
-      <Education />
-      <About />
-      <Contact />
-    </main>
+    <>
+      <Navigation />
+      <main className="min-h-screen bg-[#F5F5F5]">
+        <Welcome />
+        <Portfolio />
+        <TechStack />
+        <Experience />
+        <Education />
+        <About />
+        <Contact />
+      </main>
+    </>
   );
 }
