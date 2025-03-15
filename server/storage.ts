@@ -1,53 +1,47 @@
-import { db } from "./db";
 import { 
-  visitors, contactMessages,
   type Visitor, type InsertVisitor,
-  type ContactMessage, type InsertContact,
-  users, type User, type InsertUser
+  type ContactMessage, type InsertContact
 } from "@shared/schema";
 
 export interface IStorage {
-  getUser(id: number): Promise<User | undefined>;
-  getUserByUsername(username: string): Promise<User | undefined>;
-  createUser(user: InsertUser): Promise<User>;
   createVisitor(visitor: InsertVisitor): Promise<Visitor>;
   createMessage(message: InsertContact): Promise<ContactMessage>;
 }
 
-export class DatabaseStorage implements IStorage {
-  async getUser(id: number): Promise<User | undefined> {
-    const [user] = await db.select("*").from(users).where({id}).returning('*');
-    return user;
-  }
+export class MemStorage implements IStorage {
+  private visitors: Map<number, Visitor>;
+  private messages: Map<number, ContactMessage>;
+  private visitorId: number;
+  private messageId: number;
 
-  async getUserByUsername(username: string): Promise<User | undefined> {
-    const [user] = await db.select("*").from(users).where({username}).returning('*');
-    return user;
-  }
-
-  async createUser(insertUser: InsertUser): Promise<User> {
-    const [user] = await db
-      .insert(users)
-      .values(insertUser)
-      .returning();
-    return user;
+  constructor() {
+    this.visitors = new Map();
+    this.messages = new Map();
+    this.visitorId = 1;
+    this.messageId = 1;
   }
 
   async createVisitor(insertVisitor: InsertVisitor): Promise<Visitor> {
-    const [visitor] = await db
-      .insert(visitors)
-      .values(insertVisitor)
-      .returning();
+    const id = this.visitorId++;
+    const visitor: Visitor = {
+      ...insertVisitor,
+      id,
+      createdAt: new Date()
+    };
+    this.visitors.set(id, visitor);
     return visitor;
   }
 
   async createMessage(insertMessage: InsertContact): Promise<ContactMessage> {
-    const [message] = await db
-      .insert(contactMessages)
-      .values(insertMessage)
-      .returning();
+    const id = this.messageId++;
+    const message: ContactMessage = {
+      ...insertMessage,
+      id,
+      createdAt: new Date()
+    };
+    this.messages.set(id, message);
     return message;
   }
 }
 
-export const storage = new DatabaseStorage();
+export const storage = new MemStorage();
