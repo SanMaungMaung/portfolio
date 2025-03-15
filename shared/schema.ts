@@ -1,5 +1,11 @@
 import { z } from "zod";
 
+// Admin authentication schema
+export const adminLoginSchema = z.object({
+  username: z.string().min(1, "Username is required"),
+  password: z.string().min(6, "Password must be at least 6 characters")
+});
+
 // Visitor schema for form validation
 export const insertVisitorSchema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -13,6 +19,12 @@ export const insertContactSchema = z.object({
   email: z.string().email("Please enter a valid email address"),
   message: z.string().min(10, "Message must be at least 10 characters long")
 });
+
+export interface Admin {
+  id: number;
+  username: string;
+  password: string;
+}
 
 export interface Visitor {
   id: number;
@@ -33,3 +45,4 @@ export interface ContactMessage {
 
 export type InsertVisitor = z.infer<typeof insertVisitorSchema>;
 export type InsertContact = z.infer<typeof insertContactSchema>;
+export type AdminLogin = z.infer<typeof adminLoginSchema>;
