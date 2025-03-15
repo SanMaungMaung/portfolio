@@ -1,42 +1,52 @@
 import { motion } from "framer-motion";
-import SocialIcons from "../layout/social-icons";
+import { Button } from "@/components/ui/button";
+import { Download } from "lucide-react";
 
 export default function Welcome() {
   return (
     <section
       id="welcome"
-      className="min-h-screen pt-16 flex items-center bg-gradient-to-b from-[#F5F5F5] to-[#E0E0E0]"
+      className="min-h-screen pt-16 flex items-center bg-[#003366] text-white"
     >
-      <div className="container mx-auto px-4 py-20 grid md:grid-cols-2 gap-12 items-center">
+      <div className="container mx-auto px-4 py-12 md:py-20 grid md:grid-cols-[1fr,auto] gap-12 items-center">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
+          className="order-2 md:order-1"
         >
-          <h1 className="text-5xl font-bold text-[#003366] mb-4">
-            Hi, I'm <span className="text-[#CC3333]">John Doe</span>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            San Maung Maung @ Zack
           </h1>
-          <p className="text-xl text-[#336699] mb-6">
-            Full Stack Developer specializing in modern web technologies
+          <h2 className="text-xl md:text-2xl mb-6 text-white/90">
+            Full Stack Frontend Developer
+          </h2>
+          <p className="text-lg mb-8 text-white/80 max-w-2xl">
+            Designing the Future of the Web 👋 Hello! I'm Zack, a Full Stack and Frontend Developer dedicated to bringing your ideas to life. With over a decade of experience, I excel in UX/UI design and user-centered design (UCD). Skilled in HTML, CSS, JavaScript, React, Next.js, Joomla!, and WordPress for front-end development, I also possess strong back-end expertise with Python, Django Framework, Laravel, and Node.js, enabling me to design innovative solutions tailored to your needs.
           </p>
-          <p className="text-[#003366] mb-8">
-            I create beautiful, responsive, and user-friendly applications with a
-            focus on clean code and optimal performance.
-          </p>
-          <SocialIcons />
+          <Button 
+            variant="outline" 
+            size="lg"
+            className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#003366] transition-colors"
+          >
+            <Download className="mr-2 h-4 w-4" />
+            Download Resume
+          </Button>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="relative aspect-square max-w-md mx-auto"
+          className="order-1 md:order-2"
         >
-          <img
-            src="https://images.unsplash.com/photo-1507679799987-c73779587ccf"
-            alt="Professional headshot"
-            className="rounded-full object-cover w-full h-full border-4 border-[#003366]"
-          />
+          <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white/20">
+            <img
+              src="/profile-image.jpg"
+              alt="San Maung Maung"
+              className="w-full h-full object-cover"
+            />
+          </div>
         </motion.div>
       </div>
     </section>

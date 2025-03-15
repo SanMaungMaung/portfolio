@@ -1,13 +1,22 @@
 import { motion } from "framer-motion";
-import { SiTypescript, SiReact, SiNodedotjs, SiPostgresql, SiTailwindcss, SiDocker } from "react-icons/si";
+import { FaHtml5, FaCss3Alt, FaReact, FaWordpress, FaJoomla, FaGitAlt } from "react-icons/fa";
+import { SiTypescript, SiJavascript, SiPython, SiDjango, SiTailwindcss, SiLaravel, SiNextdotjs, SiNodedotjs } from "react-icons/si";
 
 const technologies = [
-  { icon: SiReact, name: "React" },
+  { icon: FaHtml5, name: "HTML5" },
+  { icon: FaCss3Alt, name: "CSS3" },
+  { icon: SiJavascript, name: "JavaScript" },
   { icon: SiTypescript, name: "TypeScript" },
+  { icon: FaReact, name: "React" },
+  { icon: SiNextdotjs, name: "Next.js" },
   { icon: SiNodedotjs, name: "Node.js" },
-  { icon: SiPostgresql, name: "PostgreSQL" },
+  { icon: SiPython, name: "Python" },
+  { icon: SiDjango, name: "Django" },
+  { icon: SiLaravel, name: "Laravel" },
+  { icon: FaWordpress, name: "WordPress" },
+  { icon: FaJoomla, name: "Joomla!" },
   { icon: SiTailwindcss, name: "Tailwind CSS" },
-  { icon: SiDocker, name: "Docker" }
+  { icon: FaGitAlt, name: "Git" }
 ];
 
 export default function TechStack() {
@@ -25,7 +34,7 @@ export default function TechStack() {
           <p className="text-[#336699]">Technologies I work with</p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-8">
           {technologies.map((tech, index) => (
             <motion.div
               key={index}
@@ -36,7 +45,7 @@ export default function TechStack() {
               className="flex flex-col items-center justify-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow"
             >
               <tech.icon className="w-12 h-12 text-[#003366] mb-4" />
-              <span className="text-[#336699] font-medium">{tech.name}</span>
+              <span className="text-[#336699] font-medium text-sm">{tech.name}</span>
             </motion.div>
           ))}
         </div>
