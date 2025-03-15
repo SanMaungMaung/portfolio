@@ -159,7 +159,7 @@ export default function WelcomePage() {
                   <Input
                     placeholder="Your Name"
                     {...form.register("name")}
-                    className="bg-white/20 border-white/30 text-white placeholder:text-white/50"
+                    className="bg-white/20 border-white/30 text-white placeholder:text-white/50 focus:border-white/50 focus:ring-1 focus:ring-white/50 transition-all duration-300"
                   />
                   {form.formState.errors.name && (
                     <p className="text-red-300 text-sm mt-1">
@@ -172,7 +172,7 @@ export default function WelcomePage() {
                   <Input
                     placeholder="Your Company"
                     {...form.register("company")}
-                    className="bg-white/20 border-white/30 text-white placeholder:text-white/50"
+                    className="bg-white/20 border-white/30 text-white placeholder:text-white/50 focus:border-white/50 focus:ring-1 focus:ring-white/50 transition-all duration-300"
                   />
                   {form.formState.errors.company && (
                     <p className="text-red-300 text-sm mt-1">
@@ -185,7 +185,7 @@ export default function WelcomePage() {
                   <Input
                     placeholder="Your Position"
                     {...form.register("position")}
-                    className="bg-white/20 border-white/30 text-white placeholder:text-white/50"
+                    className="bg-white/20 border-white/30 text-white placeholder:text-white/50 focus:border-white/50 focus:ring-1 focus:ring-white/50 transition-all duration-300"
                   />
                   {form.formState.errors.position && (
                     <p className="text-red-300 text-sm mt-1">
@@ -199,7 +199,7 @@ export default function WelcomePage() {
                     type="email"
                     placeholder="Your Email"
                     {...form.register("email")}
-                    className="bg-white/20 border-white/30 text-white placeholder:text-white/50"
+                    className="bg-white/20 border-white/30 text-white placeholder:text-white/50 focus:border-white/50 focus:ring-1 focus:ring-white/50 transition-all duration-300"
                   />
                   {form.formState.errors.email && (
                     <p className="text-red-300 text-sm mt-1">
