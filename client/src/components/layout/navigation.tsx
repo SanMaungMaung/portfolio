@@ -20,7 +20,7 @@ export default function Navigation() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-[#003366] text-white">
+    <header className="fixed top-0 w-full z-50 bg-[#CC3333] text-white">
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
         <Link href="/" className="text-xl font-bold">
           Portfolio
@@ -49,7 +49,7 @@ export default function Navigation() {
               <Menu className="h-6 w-6" />
             </Button>
           </SheetTrigger>
-          <SheetContent className="w-[300px] bg-[#003366] text-white">
+          <SheetContent className="w-[300px] bg-[#CC3333] text-white">
             <div className="flex flex-col gap-4 mt-8">
               {links.map((link) => (
                 <a
