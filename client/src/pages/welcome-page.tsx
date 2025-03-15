@@ -56,10 +56,92 @@ export default function WelcomePage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#003366] flex items-center justify-center p-4">
-      <Card className="w-full max-w-md">
+    <div className="min-h-screen bg-[#003366] flex items-center justify-center p-4 relative overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Large floating circles */}
+        {[...Array(3)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute rounded-full bg-gradient-to-r from-white/20 to-transparent"
+            animate={{
+              x: ["0%", "100%", "0%"],
+              y: ["0%", "100%", "0%"],
+              scale: [1, 1.2, 1],
+            }}
+            transition={{
+              duration: 15 + i * 2,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+            style={{
+              width: `${300 + i * 100}px`,
+              height: `${300 + i * 100}px`,
+              left: `${-100 + i * 30}px`,
+              top: `${-100 + i * 50}px`,
+              filter: 'blur(40px)',
+            }}
+          />
+        ))}
+
+        {/* Additional animated shapes */}
+        {[...Array(5)].map((_, i) => (
+          <motion.div
+            key={`shape-${i}`}
+            className="absolute bg-gradient-to-r from-white/30 to-transparent"
+            animate={{
+              x: ["0vw", "100vw"],
+              y: ["0vh", "100vh"],
+              scale: [0.8, 1.2],
+              opacity: [0.3, 0.5, 0.3],
+            }}
+            transition={{
+              duration: 20 + i * 3,
+              repeat: Infinity,
+              ease: "linear",
+              delay: i * 2,
+            }}
+            style={{
+              width: `${200 + i * 50}px`,
+              height: `${200 + i * 50}px`,
+              left: `${-20 - i * 10}%`,
+              top: `${10 + i * 15}%`,
+              filter: 'blur(30px)',
+            }}
+          />
+        ))}
+
+        {/* Wave animation */}
+        <motion.div
+          className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-[#004080]/40 to-transparent"
+          animate={{
+            y: [0, -20, 0],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+      </div>
+
+      {/* Background pulse effect */}
+      <motion.div 
+        className="absolute inset-0 bg-gradient-to-b from-[#003366]/50 via-[#004080]/30 to-[#003366]/50"
+        animate={{
+          opacity: [0.5, 0.7, 0.5],
+          scale: [1, 1.02, 1],
+        }}
+        transition={{
+          duration: 3,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+
+      <Card className="w-full max-w-md bg-white/10 backdrop-blur-sm border-white/20">
         <CardHeader>
-          <CardTitle className="text-2xl text-center text-[#003366]">
+          <CardTitle className="text-2xl text-center text-white">
             Hello! I am San Maung Maung, but you can also call me Zack.
             Welcome to my portfolio!
           </CardTitle>
@@ -67,7 +149,7 @@ export default function WelcomePage() {
         <CardContent>
           {!submitted ? (
             <>
-              <p className="text-[#336699] mb-6 text-center">
+              <p className="text-white/80 mb-6 text-center">
                 Before we continue, I'd love to know a bit about you. This information
                 is solely for future contact purposes, and I assure you that your
                 details will never be shared.
@@ -77,9 +159,10 @@ export default function WelcomePage() {
                   <Input
                     placeholder="Your Name"
                     {...form.register("name")}
+                    className="bg-white/20 border-white/30 text-white placeholder:text-white/50"
                   />
                   {form.formState.errors.name && (
-                    <p className="text-[#CC3333] text-sm mt-1">
+                    <p className="text-red-300 text-sm mt-1">
                       {form.formState.errors.name.message}
                     </p>
                   )}
@@ -89,9 +172,10 @@ export default function WelcomePage() {
                   <Input
                     placeholder="Your Company"
                     {...form.register("company")}
+                    className="bg-white/20 border-white/30 text-white placeholder:text-white/50"
                   />
                   {form.formState.errors.company && (
-                    <p className="text-[#CC3333] text-sm mt-1">
+                    <p className="text-red-300 text-sm mt-1">
                       {form.formState.errors.company.message}
                     </p>
                   )}
@@ -101,9 +185,10 @@ export default function WelcomePage() {
                   <Input
                     placeholder="Your Position"
                     {...form.register("position")}
+                    className="bg-white/20 border-white/30 text-white placeholder:text-white/50"
                   />
                   {form.formState.errors.position && (
-                    <p className="text-[#CC3333] text-sm mt-1">
+                    <p className="text-red-300 text-sm mt-1">
                       {form.formState.errors.position.message}
                     </p>
                   )}
@@ -114,9 +199,10 @@ export default function WelcomePage() {
                     type="email"
                     placeholder="Your Email"
                     {...form.register("email")}
+                    className="bg-white/20 border-white/30 text-white placeholder:text-white/50"
                   />
                   {form.formState.errors.email && (
-                    <p className="text-[#CC3333] text-sm mt-1">
+                    <p className="text-red-300 text-sm mt-1">
                       {form.formState.errors.email.message}
                     </p>
                   )}
@@ -125,7 +211,7 @@ export default function WelcomePage() {
                 <div className="space-y-2">
                   <Button
                     type="submit"
-                    className="w-full bg-[#003366] hover:bg-[#336699] text-white"
+                    className="w-full bg-white/10 hover:bg-white/20 text-white border-2 border-white/20 hover:border-white/30"
                     disabled={mutation.isPending}
                   >
                     {mutation.isPending ? "Submitting..." : "Submit"}
@@ -133,7 +219,7 @@ export default function WelcomePage() {
                   <Button
                     type="button"
                     variant="outline"
-                    className="w-full"
+                    className="w-full border-white/20 text-white hover:bg-white/20 hover:text-white"
                     onClick={continueAsGuest}
                   >
                     Continue as Guest
@@ -147,12 +233,12 @@ export default function WelcomePage() {
               animate={{ opacity: 1 }}
               className="text-center space-y-6"
             >
-              <p className="text-[#336699] text-lg">
+              <p className="text-white text-lg">
                 Thank you so much for filling the information, let's explore my world of portfolio.
               </p>
               <Button
                 onClick={explorePortfolio}
-                className="bg-[#003366] hover:bg-[#336699] text-white"
+                className="bg-white/10 hover:bg-white/20 text-white border-2 border-white/20 hover:border-white/30"
               >
                 Explore
               </Button>
