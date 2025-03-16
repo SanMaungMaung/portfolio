@@ -15,7 +15,7 @@ const certificates = [
   {
     title: "Meta Front-End Developer Professional Certificate",
     image: "/Meta Front-end Developer.jpg",
-    verificationUrl: "https://coursera.org/verify/professional-cert/F2OAPYNJVLM",
+    verificationUrl: "https://coursera.org/verify/professional-cert/F2OAPYNPJVLM",
     issuer: "Meta",
     issueDate: "Feb 17, 2025",
     description: "This 9-course program prepares learners for an entry-level career as a front-end developer.",
