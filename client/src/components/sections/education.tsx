@@ -179,6 +179,16 @@ const certificates = [
     featured: true,
     icon: SiMeta
   },
+  {
+    title: "Introduction to Back-End Development",
+    image: "/Introduction to Back-end Development_page-0001.jpg",
+    verificationUrl: "https://coursera.org/verify/BQLX3LCSS7Z6",
+    issuer: "Meta",
+    issueDate: "Feb 17, 2025",
+    description: "An online non-credit course authorized by Meta and offered through Coursera",
+    featured: true,
+    icon: SiMeta
+  },
   // Placeholder for future certificates
   ...Array(10).fill({
     title: "Certificate Title",
