@@ -119,6 +119,16 @@ const certificates = [
     featured: true,
     icon: SiMeta
   },
+  {
+    title: "UX Design in Practice: Accessibility and Collaboration",
+    image: "/Microsoft UX Design Pro_page-0005.jpg",
+    verificationUrl: "https://coursera.org/verify/GGHFKRPOTOVI",
+    issuer: "Microsoft",
+    issueDate: "Jan 4, 2025",
+    description: "An online non-credit course authorized by Microsoft and offered through Coursera",
+    featured: true,
+    icon: BsWindows
+  },
   // Placeholder for future certificates
   ...Array(10).fill({
     title: "Certificate Title",
