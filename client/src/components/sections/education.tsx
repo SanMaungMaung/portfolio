@@ -60,8 +60,18 @@ const certificates = [
     featured: true,
     icon: SiMeta
   },
+  {
+    title: "Fundamentals of UX/UI Design",
+    image: "/Microsoft UX Design Pro_page-0002.jpg",
+    verificationUrl: "https://coursera.org/verify/LG4U4A6HAMYY",
+    issuer: "Microsoft",
+    issueDate: "Dec 23, 2024",
+    description: "An online non-credit course authorized by Microsoft and offered through Coursera",
+    featured: true,
+    icon: BsWindows
+  },
   // Placeholder for other certificates
-  ...Array(5).fill({
+  ...Array(4).fill({
     title: "Certificate Title",
     image: "placeholder-certificate.jpg",
     verificationUrl: "https://example.com/verify",
