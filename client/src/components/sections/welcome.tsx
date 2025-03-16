@@ -171,7 +171,13 @@ export default function Welcome() {
               <img
                 src="/images/profile/zprofile.jpg"
                 alt="San Maung Maung"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover rounded-full"
+                onError={(e) => {
+                  console.error('Image failed to load:', e);
+                  e.currentTarget.src = `data:image/svg+xml,${encodeURIComponent(
+                    '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><rect width="200" height="200" fill="#003366"/><text x="100" y="100" font-family="Arial" font-size="14" fill="white" text-anchor="middle">Profile Image</text></svg>'
+                  )}`;
+                }}
               />
             </div>
           </div>
