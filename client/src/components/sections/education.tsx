@@ -50,8 +50,18 @@ const certificates = [
       "UX Design in Practice: Accessibility and Collaboration"
     ]
   },
+  {
+    title: "Introduction to Front-End Development",
+    image: "/Meta Front-End Developer Pro_page-0002.jpg",
+    verificationUrl: "https://coursera.org/verify/DNQT875KDJOF",
+    issuer: "Meta",
+    issueDate: "Jan 5, 2025",
+    description: "An online non-credit course authorized by Meta and offered through Coursera",
+    featured: true,
+    icon: SiMeta
+  },
   // Placeholder for other certificates
-  ...Array(6).fill({
+  ...Array(5).fill({
     title: "Certificate Title",
     image: "placeholder-certificate.jpg",
     verificationUrl: "https://example.com/verify",
