@@ -22,7 +22,15 @@ const ProjectCardSkeleton = () => (
 );
 
 const generatePlaceholderImage = (title: string) => {
-  return `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600"><rect width="800" height="600" fill="%23003366"/><text x="400" y="300" font-family="Arial" font-size="30" fill="white" text-anchor="middle">${title}</text></svg>`;
+  // Create a base64 encoded SVG that will work in production
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+    <rect width="800" height="600" fill="#003366"/>
+    <text x="400" y="300" font-family="Arial" font-size="30" fill="white" text-anchor="middle" dominant-baseline="middle">
+      ${title}
+    </text>
+  </svg>`;
+
+  return `data:image/svg+xml;base64,${btoa(svg)}`;
 };
 
 export const projects = {
