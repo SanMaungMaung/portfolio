@@ -188,14 +188,7 @@ const certificates = [
     description: "An online non-credit course authorized by Meta and offered through Coursera",
     featured: true,
     icon: SiMeta
-  },
-  // Placeholder for future certificates
-  ...Array(10).fill({
-    title: "Certificate Title",
-    image: "placeholder-certificate.jpg",
-    verificationUrl: "https://example.com/verify",
-    featured: false
-  })
+  }
 ];
 
 interface CertificateCardProps {
