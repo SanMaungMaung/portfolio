@@ -149,6 +149,16 @@ const certificates = [
     featured: true,
     icon: SiMeta
   },
+  {
+    title: "Principles of UX/UI Design",
+    image: "/Meta Front-End Developer Pro_page-0008.jpg",
+    verificationUrl: "https://coursera.org/verify/62Y0G4NCTTCJ",
+    issuer: "Meta",
+    issueDate: "Jan 30, 2025",
+    description: "An online non-credit course authorized by Meta and offered through Coursera",
+    featured: true,
+    icon: SiMeta
+  },
   // Placeholder for future certificates
   ...Array(10).fill({
     title: "Certificate Title",
