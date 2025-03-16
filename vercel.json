@@ -7,6 +7,10 @@
     {
       "src": "dist/index.js",
       "use": "@vercel/node"
+    },
+    {
+      "src": "dist/public/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
@@ -15,11 +19,15 @@
       "dest": "dist/index.js"
     },
     {
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
+    },
+    {
       "handle": "filesystem"
     },
     {
       "src": "/(.*)",
-      "dest": "dist/public/index.html"
+      "dest": "/index.html"
     }
   ]
 }
