@@ -121,7 +121,7 @@ function CertificateCard({ certificate, index }: CertificateCardProps) {
       <DialogContent className="max-w-3xl">
         <DialogHeader>
           <DialogTitle className="text-[#003366] dark:text-[#66b2ff] flex items-center gap-2">
-            {certificate.icon && <certificate.icon className="w-6 h-6 text-[#0668E1]" />}
+            {certificate.icon && <certificate.icon className="w-5 h-5 text-[#0668E1]" />}
             {certificate.title}
           </DialogTitle>
           {certificate.issueDate && (
