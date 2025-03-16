@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { FaHtml5, FaCss3Alt, FaReact, FaWordpress, FaJoomla, FaGitAlt } from "react-icons/fa";
-import { SiTypescript, SiJavascript, SiPython, SiDjango, SiTailwindcss, SiLaravel, SiNextdotjs, SiNodedotjs, SiAdobephotoshop, SiAdobexd, SiFigma, SiAdobedreamweaver, SiDrupal, SiShopify, SiSass } from "react-icons/si";
+import { SiTypescript, SiJavascript, SiPython, SiDjango, SiTailwindcss, SiLaravel, SiNextdotjs, SiNodedotjs, SiAdobephotoshop, SiAdobexd, SiFigma, SiAdobedreamweaver, SiDrupal, SiShopify } from "react-icons/si";
 import { VscCode, VscExtensions } from "react-icons/vsc";
 
 const techCategories = [
@@ -14,7 +14,6 @@ const techCategories = [
       { icon: FaReact, name: "React" },
       { icon: SiNextdotjs, name: "Next.js" },
       { icon: SiTailwindcss, name: "Tailwind CSS" },
-      { icon: SiSass, name: "Sass" },
     ]
   },
   {
