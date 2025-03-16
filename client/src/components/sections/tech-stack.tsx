@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { FaHtml5, FaCss3Alt, FaReact, FaWordpress, FaJoomla, FaGitAlt } from "react-icons/fa";
-import { SiTypescript, SiJavascript, SiPython, SiDjango, SiTailwindcss, SiLaravel, SiNextdotjs, SiNodedotjs, SiAdobephotoshop, SiAdobexd, SiFigma, SiAdobedreamweaver, SiDrupal, SiShopify } from "react-icons/si";
-import { VscCode } from "react-icons/vsc";
+import { SiTypescript, SiJavascript, SiPython, SiDjango, SiTailwindcss, SiLaravel, SiNextdotjs, SiNodedotjs, SiAdobephotoshop, SiAdobexd, SiFigma, SiAdobedreamweaver, SiDrupal, SiShopify, SiSass } from "react-icons/si";
+import { VscCode, VscExtensions } from "react-icons/vsc";
 
 const techCategories = [
   {
@@ -14,6 +14,7 @@ const techCategories = [
       { icon: FaReact, name: "React" },
       { icon: SiNextdotjs, name: "Next.js" },
       { icon: SiTailwindcss, name: "Tailwind CSS" },
+      { icon: SiSass, name: "Sass" },
     ]
   },
   {
@@ -40,6 +41,7 @@ const techCategories = [
       { icon: SiAdobephotoshop, name: "Photoshop" },
       { icon: SiAdobexd, name: "XD" },
       { icon: SiFigma, name: "Figma" },
+      { icon: VscExtensions, name: "Zeplin" },
       { icon: VscCode, name: "VS Code" },
       { icon: SiAdobedreamweaver, name: "Dreamweaver" },
       { icon: FaGitAlt, name: "Git" },
