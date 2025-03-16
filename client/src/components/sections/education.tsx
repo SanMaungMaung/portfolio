@@ -58,9 +58,7 @@ function CertificateCard({ certificate, index }: CertificateCardProps) {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: index * 0.1 }}
           viewport={{ once: true }}
-          className={`cursor-pointer group relative ${
-            isMetaCertificate ? 'col-span-2 row-span-2' : ''
-          } bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow`}
+          className="cursor-pointer group relative bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow aspect-video"
         >
           <div className="relative w-full h-full">
             {isMetaCertificate ? (
@@ -140,7 +138,7 @@ export default function Education() {
           <p className="text-[#336699] dark:text-gray-300">Certificates and Qualifications</p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {certificates.map((cert, index) => (
             <CertificateCard
               key={index}
