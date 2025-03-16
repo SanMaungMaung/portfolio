@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { FaHtml5, FaCss3Alt, FaReact, FaWordpress, FaJoomla, FaGitAlt } from "react-icons/fa";
-import { SiTypescript, SiJavascript, SiPython, SiDjango, SiTailwindcss, SiLaravel, SiNextdotjs, SiNodedotjs, SiAdobephotoshop, SiAdobexd, SiFigma } from "react-icons/si";
+import { SiTypescript, SiJavascript, SiPython, SiDjango, SiTailwindcss, SiLaravel, SiNextdotjs, SiNodedotjs, SiAdobephotoshop, SiAdobexd, SiFigma, SiAdobedreamweaver } from "react-icons/si";
+import { VscCode } from "react-icons/vsc";
 
 const technologies = [
   { icon: FaHtml5, name: "HTML5" },
@@ -19,7 +20,9 @@ const technologies = [
   { icon: FaGitAlt, name: "Git" },
   { icon: SiAdobephotoshop, name: "Photoshop" },
   { icon: SiAdobexd, name: "XD" },
-  { icon: SiFigma, name: "Figma" }
+  { icon: SiFigma, name: "Figma" },
+  { icon: VscCode, name: "VS Code" },
+  { icon: SiAdobedreamweaver, name: "Dreamweaver" }
 ];
 
 export default function TechStack() {
