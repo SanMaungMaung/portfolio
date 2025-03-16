@@ -8,6 +8,14 @@
       "destination": "/api/$1"
     },
     {
+      "source": "/images/(.*)",
+      "destination": "/public/images/$1"
+    },
+    {
+      "source": "/certificates/(.*)",
+      "destination": "/public/certificates/$1"
+    },
+    {
       "source": "/(.*)",
       "destination": "/"
     }

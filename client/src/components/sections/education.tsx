@@ -14,7 +14,7 @@ import { BsWindows } from "react-icons/bs";
 const certificates = [
   {
     title: "Meta Front-End Developer Professional Certificate",
-    image: "./certificates/Meta/Meta Front-end Developer.jpg",
+    image: "/certificates/Meta/Meta Front-end Developer.jpg",
     verificationUrl: "https://coursera.org/verify/professional-cert/F2OAPYNPJVLM",
     issuer: "Meta",
     issueDate: "Feb 17, 2025",
@@ -24,7 +24,7 @@ const certificates = [
   },
   {
     title: "Microsoft UX Design Professional Certificate",
-    image: "./certificates/Microsoft/Microsoft UX Design Pro_page-0001.jpg",
+    image: "/certificates/Microsoft/Microsoft UX Design Pro_page-0001.jpg",
     verificationUrl: "https://coursera.org/verify/professionalal-cert/EZ51MOA140J8",
     issuer: "Microsoft",
     issueDate: "Jan 4, 2025",
@@ -34,7 +34,7 @@ const certificates = [
   },
   {
     title: "Introduction to Front-End Development",
-    image: "./certificates/Meta/Meta Front-End Developer Pro_page-0002.jpg",
+    image: "/certificates/Meta/Meta Front-End Developer Pro_page-0002.jpg",
     verificationUrl: "https://coursera.org/verify/DNQT875KDJOF",
     issuer: "Meta",
     issueDate: "Jan 5, 2025",
@@ -44,7 +44,7 @@ const certificates = [
   },
   {
     title: "Fundamentals of UX/UI Design",
-    image: "./certificates/Microsoft/Microsoft UX Design Pro_page-0002.jpg",
+    image: "/certificates/Microsoft/Microsoft UX Design Pro_page-0002.jpg",
     verificationUrl: "https://coursera.org/verify/LG4U4A6HAMYY",
     issuer: "Microsoft",
     issueDate: "Dec 23, 2024",
@@ -54,7 +54,7 @@ const certificates = [
   },
   {
     title: "Programming with JavaScript",
-    image: "./certificates/Meta/Meta Front-End Developer Pro_page-0003.jpg",
+    image: "/certificates/Meta/Meta Front-End Developer Pro_page-0003.jpg",
     verificationUrl: "https://coursera.org/verify/X4ZA6W90MCEH",
     issuer: "Meta",
     issueDate: "Jan 9, 2025",
@@ -64,7 +64,7 @@ const certificates = [
   },
   {
     title: "Designing for User Experience",
-    image: "./certificates/Microsoft/Microsoft UX Design Pro_page-0003.jpg",
+    image: "/certificates/Microsoft/Microsoft UX Design Pro_page-0003.jpg",
     verificationUrl: "https://coursera.org/verify/K260DLK5IG2M",
     issuer: "Microsoft",
     issueDate: "Jan 1, 2025",
@@ -74,7 +74,7 @@ const certificates = [
   },
   {
     title: "Version Control",
-    image: "./certificates/Meta/Meta Front-End Developer Pro_page-0004.jpg",
+    image: "/certificates/Meta/Meta Front-End Developer Pro_page-0004.jpg",
     verificationUrl: "https://coursera.org/verify/TRNJAZCNXOBN",
     issuer: "Meta",
     issueDate: "Jan 9, 2025",
@@ -84,7 +84,7 @@ const certificates = [
   },
   {
     title: "User Interface Design and Prototyping",
-    image: "./certificates/Microsoft/Microsoft UX Design Pro_page-0004.jpg",
+    image: "/certificates/Microsoft/Microsoft UX Design Pro_page-0004.jpg",
     verificationUrl: "https://coursera.org/verify/CDOZY4VGBF0T",
     issuer: "Microsoft",
     issueDate: "Jan 3, 2025",
@@ -94,7 +94,7 @@ const certificates = [
   },
   {
     title: "HTML and CSS in Depth",
-    image: "./certificates/Meta/Meta Front-End Developer Pro_page-0005.jpg",
+    image: "/certificates/Meta/Meta Front-End Developer Pro_page-0005.jpg",
     verificationUrl: "https://coursera.org/verify/IJVQDKNFFKIM",
     issuer: "Meta",
     issueDate: "Jan 16, 2025",
@@ -104,7 +104,7 @@ const certificates = [
   },
   {
     title: "UX Design in Practice: Accessibility and Collaboration",
-    image: "./certificates/Microsoft/Microsoft UX Design Pro_page-0005.jpg",
+    image: "/certificates/Microsoft/Microsoft UX Design Pro_page-0005.jpg",
     verificationUrl: "https://coursera.org/verify/GGHFKRPOTOVI",
     issuer: "Microsoft",
     issueDate: "Jan 4, 2025",
@@ -114,7 +114,7 @@ const certificates = [
   },
   {
     title: "React Basics",
-    image: "./certificates/Meta/Meta Front-End Developer Pro_page-0006.jpg",
+    image: "/certificates/Meta/Meta Front-End Developer Pro_page-0006.jpg",
     verificationUrl: "https://coursera.org/verify/CQEO6TF0ZN3G",
     issuer: "Meta",
     issueDate: "Jan 21, 2025",
@@ -124,7 +124,7 @@ const certificates = [
   },
   {
     title: "Advanced React",
-    image: "./certificates/Meta/Meta Front-End Developer Pro_page-0007.jpg",
+    image: "/certificates/Meta/Meta Front-End Developer Pro_page-0007.jpg",
     verificationUrl: "https://coursera.org/verify/PCEZFWCBJBDH",
     issuer: "Meta",
     issueDate: "Jan 24, 2025",
@@ -134,7 +134,7 @@ const certificates = [
   },
   {
     title: "Principles of UX/UI Design",
-    image: "./certificates/Meta/Meta Front-End Developer Pro_page-0008.jpg",
+    image: "/certificates/Meta/Meta Front-End Developer Pro_page-0008.jpg",
     verificationUrl: "https://coursera.org/verify/62Y0G4NCTTCJ",
     issuer: "Meta",
     issueDate: "Jan 30, 2025",
@@ -144,7 +144,7 @@ const certificates = [
   },
   {
     title: "Front-End Developer Capstone",
-    image: "./certificates/Meta/Meta Front-End Developer Pro_page-0009.jpg",
+    image: "/certificates/Meta/Meta Front-End Developer Pro_page-0009.jpg",
     verificationUrl: "https://coursera.org/verify/2B03XAAFFJZZ",
     issuer: "Meta",
     issueDate: "Feb 11, 2025",
@@ -154,7 +154,7 @@ const certificates = [
   },
   {
     title: "Coding Interview Preparation",
-    image: "./certificates/Meta/Meta Front-End Developer Pro_page-0010.jpg",
+    image: "/certificates/Meta/Meta Front-End Developer Pro_page-0010.jpg",
     verificationUrl: "https://coursera.org/verify/G54GEKYQIMKE",
     issuer: "Meta",
     issueDate: "Feb 17, 2025",
@@ -164,7 +164,7 @@ const certificates = [
   },
   {
     title: "Introduction to Back-End Development",
-    image: "./certificates/Meta/Introduction to Back-end Development_page-0001.jpg",
+    image: "/certificates/Meta/Introduction to Back-end Development_page-0001.jpg",
     verificationUrl: "https://coursera.org/verify/BQLX3LCSS7Z6",
     issuer: "Meta",
     issueDate: "Feb 17, 2025",
