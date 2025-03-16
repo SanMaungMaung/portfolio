@@ -24,7 +24,7 @@ export default function About() {
             className="prose prose-lg mx-auto dark:prose-invert"
           >
             <p className="text-[#003366] dark:text-gray-300">
-              I'm a passionate Full Stack Developer with over 6 years of experience in
+              I'm a passionate Full Stack Developer with over a decade of experience in
               creating web applications. My journey in software development started
               during my university years, and since then, I've been constantly
               learning and growing in this ever-evolving field.
