@@ -17,8 +17,8 @@ const technologies = [
   { icon: FaJoomla, name: "Joomla!" },
   { icon: SiTailwindcss, name: "Tailwind CSS" },
   { icon: FaGitAlt, name: "Git" },
-  { icon: SiAdobephotoshop, name: "Adobe Photoshop" },
-  { icon: SiAdobexd, name: "Adobe XD" },
+  { icon: SiAdobephotoshop, name: "Photoshop" },
+  { icon: SiAdobexd, name: "XD" },
   { icon: SiFigma, name: "Figma" }
 ];
 
