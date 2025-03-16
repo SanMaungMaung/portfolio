@@ -63,21 +63,22 @@ function CertificateCard({ certificate, index }: CertificateCardProps) {
           } bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow`}
         >
           <div className="relative w-full h-full">
-            {isMetaCertificate && (
-              <div className="absolute top-4 left-4 z-10 bg-white dark:bg-gray-800 rounded-full p-2">
-                <certificate.icon className="w-8 h-8 text-[#0668E1]" />
+            {isMetaCertificate ? (
+              <div className="w-full h-full flex flex-col items-center justify-center p-8 bg-gradient-to-br from-[#0668E1]/10 to-[#0668E1]/5">
+                <certificate.icon className="w-24 h-24 text-[#0668E1] mb-6" />
+                <h3 className="text-xl font-semibold text-[#003366] dark:text-[#66b2ff] text-center">
+                  {certificate.title}
+                </h3>
+                <p className="text-[#336699] dark:text-gray-300 mt-2 text-sm">
+                  {certificate.issueDate}
+                </p>
               </div>
-            )}
-            <img
-              src={certificate.image}
-              alt={certificate.title}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-            />
-            {isMetaCertificate && (
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
-                <h3 className="text-white text-lg font-semibold">{certificate.title}</h3>
-                <p className="text-white/80 text-sm">{certificate.issueDate}</p>
-              </div>
+            ) : (
+              <img
+                src={certificate.image}
+                alt={certificate.title}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
             )}
           </div>
         </motion.div>
