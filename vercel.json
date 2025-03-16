@@ -18,19 +18,19 @@
       "dest": "dist/index.js"
     },
     {
-      "src": "/images/(.*)",
-      "dest": "dist/public/images/$1"
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
     },
     {
-      "src": "/assets/(.*)",
-      "dest": "dist/public/assets/$1"
+      "src": "/images/(.*)",
+      "dest": "/images/$1"
     },
     {
       "handle": "filesystem"
     },
     {
       "src": "/(.*)",
-      "dest": "dist/public/index.html"
+      "dest": "/index.html"
     }
   ]
 }
