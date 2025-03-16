@@ -90,7 +90,8 @@ export default function TechStack() {
                       className="absolute -inset-[1px] opacity-0 group-hover:opacity-100 rounded-lg transition-opacity duration-500"
                       style={{
                         background: 'linear-gradient(90deg, transparent, #003366, transparent)',
-                        backgroundSize: '200% 100%'
+                        backgroundSize: '200% 100%',
+                        animation: 'border-travel 2s ease-in-out infinite'
                       }}
                     >
                       <div className="absolute inset-0 rounded-lg animate-border-travel dark:bg-gradient-to-r dark:from-transparent dark:via-[#66b2ff] dark:to-transparent"></div>

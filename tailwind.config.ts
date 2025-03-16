@@ -13,15 +13,15 @@ export default {
       keyframes: {
         "border-travel": {
           "0%": {
-            backgroundPosition: "0% 50%",
+            backgroundPosition: "200% 0",
             opacity: "0.5",
           },
           "50%": {
-            backgroundPosition: "100% 50%",
+            backgroundPosition: "0% 0",
             opacity: "1",
           },
           "100%": {
-            backgroundPosition: "0% 50%",
+            backgroundPosition: "-200% 0",
             opacity: "0.5",
           },
         },
@@ -40,7 +40,7 @@ export default {
         },
       },
       animation: {
-        "border-travel": "border-travel 2s ease-in-out infinite",
+        "border-travel": "border-travel 2s linear infinite",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         shimmer: "shimmer 2s infinite",
