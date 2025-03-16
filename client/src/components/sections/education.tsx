@@ -129,6 +129,16 @@ const certificates = [
     featured: true,
     icon: BsWindows
   },
+  {
+    title: "React Basics",
+    image: "/Meta Front-End Developer Pro_page-0006.jpg",
+    verificationUrl: "https://coursera.org/verify/CQEO6TF0ZN3G",
+    issuer: "Meta",
+    issueDate: "Jan 21, 2025",
+    description: "An online non-credit course authorized by Meta and offered through Coursera",
+    featured: true,
+    icon: SiMeta
+  },
   // Placeholder for future certificates
   ...Array(10).fill({
     title: "Certificate Title",
