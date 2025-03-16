@@ -11,7 +11,7 @@ import {
 import { SiMeta } from "react-icons/si";
 import { BsWindows } from "react-icons/bs";
 
-// Certificate data with Meta Front-End Developer Certificate
+// Add the new certificate to the certificates array
 const certificates = [
   {
     title: "Meta Front-End Developer Professional Certificate",
@@ -70,8 +70,18 @@ const certificates = [
     featured: true,
     icon: BsWindows
   },
+  {
+    title: "Programming with JavaScript",
+    image: "/Meta Front-End Developer Pro_page-0003.jpg",
+    verificationUrl: "https://coursera.org/verify/X4ZA6W90MCEH",
+    issuer: "Meta",
+    issueDate: "Jan 9, 2025",
+    description: "An online non-credit course authorized by Meta and offered through Coursera",
+    featured: true,
+    icon: SiMeta
+  },
   // Placeholder for other certificates
-  ...Array(4).fill({
+  ...Array(3).fill({
     title: "Certificate Title",
     image: "placeholder-certificate.jpg",
     verificationUrl: "https://example.com/verify",
