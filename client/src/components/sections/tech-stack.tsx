@@ -24,7 +24,8 @@ const techCategories = [
       { icon: SiDjango, name: "Django" },
       { icon: SiLaravel, name: "Laravel" },
     ],
-    centerContent: true
+    centerContent: true,
+    gridCols: "grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4"
   },
   {
     title: "Content Management",
@@ -34,7 +35,8 @@ const techCategories = [
       { icon: SiDrupal, name: "Drupal" },
       { icon: SiShopify, name: "Shopify" },
     ],
-    centerContent: true
+    centerContent: true,
+    gridCols: "grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4"
   },
   {
     title: "Design & Development Tools",
@@ -77,8 +79,8 @@ export default function TechStack() {
               <h3 className="text-2xl font-semibold text-[#003366] dark:text-[#66b2ff] mb-8 text-center">
                 {category.title}
               </h3>
-              <div className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-8 ${
-                category.centerContent ? 'justify-items-center place-items-center' : ''
+              <div className={`grid ${category.gridCols || 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7'} gap-8 ${
+                category.centerContent ? 'mx-auto max-w-4xl justify-center' : ''
               }`}>
                 {category.technologies.map((tech, index) => (
                   <motion.div
@@ -87,7 +89,7 @@ export default function TechStack() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className={`relative group ${category.centerContent ? 'col-span-1' : ''}`}
+                    className={`relative group ${category.centerContent ? 'mx-auto w-full' : ''}`}
                   >
                     <div 
                       className="absolute -inset-[1px] opacity-0 group-hover:opacity-100 group-hover:animate-border-travel rounded-lg transition-opacity duration-500"
