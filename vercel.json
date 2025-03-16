@@ -5,7 +5,7 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "/api/$1"
+      "destination": "/server/routes.ts"
     },
     {
       "source": "/images/(.*)",
@@ -21,7 +21,7 @@
     }
   ],
   "functions": {
-    "api/*": {
+    "server/routes.ts": {
       "memory": 1024,
       "maxDuration": 60
     }
