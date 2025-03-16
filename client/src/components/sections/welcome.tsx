@@ -169,7 +169,7 @@ export default function Welcome() {
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               />
               <img
-                src="/images/profile/zprofile.jpg"
+                src="/static/images/profile/zprofile.jpg"
                 alt="San Maung Maung"
                 className="w-full h-full object-cover rounded-full"
                 onLoad={() => console.log('Image loaded successfully')}
