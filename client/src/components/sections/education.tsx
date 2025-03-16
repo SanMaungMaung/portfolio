@@ -90,8 +90,18 @@ const certificates = [
     featured: true,
     icon: BsWindows
   },
-  // Placeholder for other certificates
-  ...Array(2).fill({
+  {
+    title: "Version Control",
+    image: "/Meta Front-End Developer Pro_page-0004.jpg",
+    verificationUrl: "https://coursera.org/verify/TRNJAZCNXOBN",
+    issuer: "Meta",
+    issueDate: "Jan 9, 2025",
+    description: "An online non-credit course authorized by Meta and offered through Coursera",
+    featured: true,
+    icon: SiMeta
+  },
+  // Placeholder for other certificate
+  ...Array(1).fill({
     title: "Certificate Title",
     image: "placeholder-certificate.jpg",
     verificationUrl: "https://example.com/verify",
