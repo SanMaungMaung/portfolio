@@ -20,18 +20,7 @@ const certificates = [
     issueDate: "Feb 17, 2025",
     description: "This 9-course program prepares learners for an entry-level career as a front-end developer.",
     featured: true,
-    icon: SiMeta,
-    courses: [
-      "Introduction to Front-End Development",
-      "Programming with JavaScript",
-      "Version Control",
-      "HTML and CSS in depth",
-      "React Basics",
-      "Advanced React",
-      "Principles of UX/UI Design",
-      "Front-End Developer Capstone",
-      "Coding Interview Preparation"
-    ]
+    icon: SiMeta
   },
   {
     title: "Microsoft UX Design Professional Certificate",
@@ -41,13 +30,7 @@ const certificates = [
     issueDate: "Jan 4, 2025",
     description: "Gain in-demand UX design skills through this Professional Certificate. You'll become proficient in user research, information architecture, wireframing, prototyping, visual design, and accessibility considerations.",
     featured: true,
-    icon: BsWindows,
-    courses: [
-      "Fundamentals of UI/UX Design",
-      "Designing for User Experience",
-      "User Interface Design and Prototyping",
-      "UX Design in Practice: Accessibility and Collaboration"
-    ]
+    icon: BsWindows
   },
   {
     title: "Introduction to Front-End Development",
