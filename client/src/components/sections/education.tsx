@@ -100,7 +100,11 @@ function CertificateCard({ certificate, index }: CertificateCardProps) {
           <div className="relative w-full h-full">
             {isMetaCertificate ? (
               <div className="w-full h-full flex flex-col items-center justify-center p-8 bg-gradient-to-br from-[#0668E1]/10 to-[#0668E1]/5">
-                <certificate.icon className="w-16 h-16 text-[#0668E1] mb-6" />
+                {certificate.icon && (
+                  <div className="flex items-center justify-center w-16 h-16">
+                    <certificate.icon className="w-full h-full text-[#0668E1] mb-6" style={{ maxWidth: '4rem', maxHeight: '4rem' }} />
+                  </div>
+                )}
                 <h3 className="text-xl font-semibold text-[#003366] dark:text-[#66b2ff] text-center">
                   {certificate.title}
                 </h3>
