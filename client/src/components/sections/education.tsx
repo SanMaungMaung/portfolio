@@ -9,6 +9,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { SiMeta } from "react-icons/si";
+import { BsWindows } from "react-icons/bs";
 
 // Certificate data with Meta Front-End Developer Certificate
 const certificates = [
@@ -33,8 +34,24 @@ const certificates = [
       "Coding Interview Preparation"
     ]
   },
+  {
+    title: "Microsoft UX Design Professional Certificate",
+    image: "/Microsoft UX Design Pro_page-0001.jpg",
+    verificationUrl: "https://coursera.org/verify/professionalal-cert/EZ51MOA140J8",
+    issuer: "Microsoft",
+    issueDate: "Jan 4, 2025",
+    description: "Gain in-demand UX design skills through this Professional Certificate. You'll become proficient in user research, information architecture, wireframing, prototyping, visual design, and accessibility considerations.",
+    featured: true,
+    icon: BsWindows,
+    courses: [
+      "Fundamentals of UI/UX Design",
+      "Designing for User Experience",
+      "User Interface Design and Prototyping",
+      "UX Design in Practice: Accessibility and Collaboration"
+    ]
+  },
   // Placeholder for other certificates
-  ...Array(7).fill({
+  ...Array(6).fill({
     title: "Certificate Title",
     image: "placeholder-certificate.jpg",
     verificationUrl: "https://example.com/verify",
