@@ -1,25 +1,4 @@
-import { z } from "zod";
-
-// Admin authentication schema
-export const adminLoginSchema = z.object({
-  username: z.string().min(1, "Username is required"),
-  password: z.string().min(6, "Password must be at least 6 characters")
-});
-
-// Visitor schema for form validation
-export const insertVisitorSchema = z.object({
-  name: z.string().min(1, "Name is required"),
-  company: z.string().min(1, "Company is required"),
-  position: z.string().min(1, "Position is required"),
-  email: z.string().email("Please enter a valid email address")
-});
-
-export const insertContactSchema = z.object({
-  name: z.string().min(1, "Name is required"),
-  email: z.string().email("Please enter a valid email address"),
-  message: z.string().min(10, "Message must be at least 10 characters long")
-});
-
+// Type definitions without zod dependencies
 export interface Admin {
   id: number;
   username: string;
@@ -43,6 +22,6 @@ export interface ContactMessage {
   createdAt: Date;
 }
 
-export type InsertVisitor = z.infer<typeof insertVisitorSchema>;
-export type InsertContact = z.infer<typeof insertContactSchema>;
-export type AdminLogin = z.infer<typeof adminLoginSchema>;
+export type InsertVisitor = Omit<Visitor, "id" | "createdAt">;
+export type InsertContact = Omit<ContactMessage, "id" | "createdAt">;
+export type AdminLogin = Omit<Admin, "id">;
