@@ -169,7 +169,7 @@ export default function Welcome() {
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               />
               <img
-                src="54113232300.jpg"
+                src="/images/profile/54113232300.jpg"
                 alt="San Maung Maung"
                 className="w-full h-full object-cover"
               />
