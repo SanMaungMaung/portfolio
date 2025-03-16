@@ -2,11 +2,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { useLocation } from "wouter";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useState } from "react";
-import { Search } from "lucide-react";
 
 const ProjectCardSkeleton = () => (
   <div className="overflow-hidden bg-white dark:bg-gray-800 rounded-lg shadow-lg">
@@ -166,17 +164,6 @@ export const projects = {
   ]
 };
 
-// Get unique technologies from all projects
-const getAllTechnologies = () => {
-  const techSet = new Set<string>();
-  Object.values(projects).forEach(projectList => {
-    projectList.forEach(project => {
-      project.tech.split(", ").forEach(tech => techSet.add(tech.trim()));
-    });
-  });
-  return Array.from(techSet).sort();
-};
-
 const ProjectCard = ({ project, index, category }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [, setLocation] = useLocation();
@@ -242,9 +229,6 @@ const ProjectCard = ({ project, index, category }) => {
 
 export default function Portfolio() {
   const [isLoading, setIsLoading] = useState(true);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [selectedTech, setSelectedTech] = useState<string[]>([]);
-  const allTechnologies = getAllTechnologies();
 
   // Simulate loading state
   useState(() => {
@@ -253,27 +237,6 @@ export default function Portfolio() {
     }, 1000);
     return () => clearTimeout(timer);
   }, []);
-
-  const filterProjects = (projectList: typeof projects["featured"]) => {
-    return projectList.filter(project => {
-      const matchesSearch = project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        project.description.toLowerCase().includes(searchTerm.toLowerCase());
-
-      const projectTechs = project.tech.split(", ").map(tech => tech.trim());
-      const matchesTech = selectedTech.length === 0 ||
-        selectedTech.every(tech => projectTechs.includes(tech));
-
-      return matchesSearch && matchesTech;
-    });
-  };
-
-  const toggleTech = (tech: string) => {
-    setSelectedTech(prev =>
-      prev.includes(tech)
-        ? prev.filter(t => t !== tech)
-        : [...prev, tech]
-    );
-  };
 
   return (
     <section id="portfolio" className="py-20 bg-white dark:bg-gray-900">
@@ -287,45 +250,6 @@ export default function Portfolio() {
         >
           <h2 className="text-4xl font-bold text-[#003366] dark:text-[#66b2ff] mb-4">Portfolio</h2>
           <p className="text-[#336699] dark:text-gray-300">Featured Projects</p>
-        </motion.div>
-
-        {/* Search and Filter Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mb-8"
-        >
-          <div className="flex flex-col md:flex-row gap-4 mb-6">
-            <div className="relative flex-1">
-              <Input
-                type="text"
-                placeholder="Search projects..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10"
-              />
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
-            </div>
-          </div>
-
-          <div className="flex flex-wrap gap-2">
-            {allTechnologies.map((tech) => (
-              <Button
-                key={tech}
-                variant="outline"
-                size="sm"
-                onClick={() => toggleTech(tech)}
-                className={`${
-                  selectedTech.includes(tech)
-                    ? 'bg-[#003366] text-white dark:bg-[#66b2ff] dark:text-white'
-                    : 'bg-transparent text-[#003366] dark:text-[#66b2ff]'
-                } transition-all duration-300`}
-              >
-                {tech}
-              </Button>
-            ))}
-          </div>
         </motion.div>
 
         <Tabs defaultValue="featured" className="space-y-8">
@@ -343,46 +267,34 @@ export default function Portfolio() {
           </TabsList>
 
           <AnimatePresence mode="wait">
-            {Object.entries(projects).map(([category, projectList]) => {
-              const filteredProjects = filterProjects(projectList);
-
-              return (
-                <TabsContent key={category} value={category} className="space-y-16">
-                  {isLoading ? (
-                    <div className="space-y-16">
-                      {[...Array(projectList.length)].map((_, index) => (
-                        <ProjectCardSkeleton key={index} />
-                      ))}
-                    </div>
-                  ) : filteredProjects.length > 0 ? (
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -20 }}
-                      transition={{ duration: 0.3 }}
-                      className="space-y-16"
-                    >
-                      {filteredProjects.map((project, index) => (
-                        <ProjectCard
-                          key={index}
-                          project={project}
-                          index={index}
-                          category={category}
-                        />
-                      ))}
-                    </motion.div>
-                  ) : (
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      className="text-center py-8"
-                    >
-                      <p className="text-[#336699] dark:text-gray-300">No projects found matching your criteria.</p>
-                    </motion.div>
-                  )}
-                </TabsContent>
-              );
-            })}
+            {Object.entries(projects).map(([category, projectList]) => (
+              <TabsContent key={category} value={category} className="space-y-16">
+                {isLoading ? (
+                  <div className="space-y-16">
+                    {[...Array(projectList.length)].map((_, index) => (
+                      <ProjectCardSkeleton key={index} />
+                    ))}
+                  </div>
+                ) : (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.3 }}
+                    className="space-y-16"
+                  >
+                    {projectList.map((project, index) => (
+                      <ProjectCard
+                        key={index}
+                        project={project}
+                        index={index}
+                        category={category}
+                      />
+                    ))}
+                  </motion.div>
+                )}
+              </TabsContent>
+            ))}
           </AnimatePresence>
         </Tabs>
       </div>
