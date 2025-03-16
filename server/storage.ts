@@ -49,5 +49,72 @@ export class DatabaseStorage implements IStorage {
   }
 }
 
-// Export a single instance to be used throughout the application
-export const storage = new DatabaseStorage();
+import { 
+  type Admin, type AdminLogin,
+  type Visitor, type InsertVisitor,
+  type ContactMessage, type InsertContact
+} from "@shared/schema";
+
+
+export class MemStorage implements IStorage {
+  private visitors: Map<number, Visitor>;
+  private messages: Map<number, ContactMessage>;
+  private admins: Map<number, Admin>;
+  private visitorId: number;
+  private messageId: number;
+
+  constructor() {
+    this.visitors = new Map();
+    this.messages = new Map();
+    this.admins = new Map();
+    this.visitorId = 1;
+    this.messageId = 1;
+
+    // Initialize with a default admin account
+    this.admins.set(1, {
+      id: 1,
+      username: 'admin',
+      password: 'admin123' // This should be hashed in production
+    });
+  }
+
+  async validateAdmin(credentials: AdminLogin): Promise<Admin | null> {
+    const admin = Array.from(this.admins.values()).find(
+      admin => admin.username === credentials.username && 
+               admin.password === credentials.password
+    );
+    return admin || null;
+  }
+
+  async getVisitors(): Promise<Visitor[]> {
+    return Array.from(this.visitors.values());
+  }
+
+  async getMessages(): Promise<ContactMessage[]> {
+    return Array.from(this.messages.values());
+  }
+
+  async createVisitor(insertVisitor: InsertVisitor): Promise<Visitor> {
+    const id = this.visitorId++;
+    const visitor: Visitor = {
+      ...insertVisitor,
+      id,
+      createdAt: new Date()
+    };
+    this.visitors.set(id, visitor);
+    return visitor;
+  }
+
+  async createMessage(insertMessage: InsertContact): Promise<ContactMessage> {
+    const id = this.messageId++;
+    const message: ContactMessage = {
+      ...insertMessage,
+      id,
+      createdAt: new Date()
+    };
+    this.messages.set(id, message);
+    return message;
+  }
+}
+
+export const storage = new MemStorage();
