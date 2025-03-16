@@ -141,12 +141,10 @@ export default function WelcomePage() {
       />
 
       <Card className="w-full max-w-md bg-white/10 backdrop-blur-sm border-white/20">
-        {/*CardHeader removed conditionally*/}
         { !submitted && (
           <CardHeader>
             <CardTitle className="text-2xl text-center text-white dark:text-white">
-              Hello! I am San Maung Maung, but you can also call me Zack.
-              Welcome to my portfolio!
+              Welcome! I'm San Maung Maung—feel free to call me Zack. Thank you for visiting my portfolio!
             </CardTitle>
           </CardHeader>
         )}
@@ -154,9 +152,7 @@ export default function WelcomePage() {
           {!submitted ? (
             <>
               <p className="text-white/80 mb-6 text-center dark:text-white">
-                Before we continue, I'd love to know a bit about you. This information
-                is solely for future contact purposes, and I assure you that your
-                details will never be shared.
+                Before we proceed, I'd appreciate learning a bit about you. Rest assured, any information you provide will be used solely for future contact purposes and will remain completely confidential.
               </p>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
                 <div>
