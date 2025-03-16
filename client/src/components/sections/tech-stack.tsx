@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { FaHtml5, FaCss3Alt, FaReact, FaWordpress, FaJoomla, FaGitAlt } from "react-icons/fa";
-import { SiTypescript, SiJavascript, SiPython, SiDjango, SiTailwindcss, SiLaravel, SiNextdotjs, SiNodedotjs, SiAdobephotoshop, SiAdobexd, SiFigma, SiAdobedreamweaver } from "react-icons/si";
+import { SiTypescript, SiJavascript, SiPython, SiDjango, SiTailwindcss, SiLaravel, SiNextdotjs, SiNodedotjs, SiAdobephotoshop, SiAdobexd, SiFigma, SiAdobedreamweaver, SiDrupal, SiShopify } from "react-icons/si";
 import { VscCode } from "react-icons/vsc";
 
 const techCategories = [
@@ -30,6 +30,8 @@ const techCategories = [
     technologies: [
       { icon: FaWordpress, name: "WordPress" },
       { icon: FaJoomla, name: "Joomla!" },
+      { icon: SiDrupal, name: "Drupal" },
+      { icon: SiShopify, name: "Shopify" },
     ]
   },
   {
