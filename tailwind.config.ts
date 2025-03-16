@@ -12,14 +12,17 @@ export default {
       },
       keyframes: {
         "border-travel": {
-          "0%, 100%": {
-            borderColor: "transparent",
-          },
-          "25%, 75%": {
-            borderColor: "rgb(0 51 102 / 0.5)",
+          "0%": {
+            backgroundPosition: "0% 50%",
+            opacity: "0.5",
           },
           "50%": {
-            borderColor: "transparent",
+            backgroundPosition: "100% 50%",
+            opacity: "1",
+          },
+          "100%": {
+            backgroundPosition: "0% 50%",
+            opacity: "0.5",
           },
         },
         "accordion-down": {
