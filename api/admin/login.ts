@@ -8,7 +8,6 @@ const adminLoginSchema = z.object({
   password: z.string().min(6, "Password must be at least 6 characters")
 });
 
-// Using JWT for stateless authentication instead of sessions
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
@@ -17,7 +16,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
     const credentials = adminLoginSchema.parse(req.body);
     const admin = await storage.validateAdmin(credentials);
-    
+
     if (admin) {
       // Generate JWT token
       const token = sign(
@@ -25,7 +24,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         process.env.JWT_SECRET || 'your-jwt-secret',
         { expiresIn: '24h' }
       );
-      
+
       return res.status(200).json({ success: true, token });
     } else {
       return res.status(401).json({ error: "Invalid credentials" });

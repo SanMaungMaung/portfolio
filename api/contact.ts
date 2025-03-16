@@ -1,5 +1,4 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import type { InsertContact } from '@shared/schema';
 import { storage } from '../server/storage';
 import { z } from "zod";
 
