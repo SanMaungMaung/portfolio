@@ -28,7 +28,7 @@ export const projects = {
       client: "Ministry of Electric Power Myanmar",
       description: "Developed an intelligent and sophisticated electricity billing data analysis system that automates manual errors while increasing data accuracy and security.",
       tech: "HTML, CSS, MySQL, Python, Django Framework, PostgreSQL",
-      image: "/project1.jpg",
+      image: "https://placehold.co/800x600/003366/FFFFFF/png?text=Automatic+Billing+System&font=raleway",
       challenges: [
         "Integration with legacy systems",
         "Data migration from paper-based records",
@@ -55,7 +55,7 @@ export const projects = {
       client: "Ministry of Electric Power Myanmar",
       description: "Experimental smart system and IoT technology to reduce Non-Technical Losses, enabling real-time remote meter readings, load management, usage analytics, and billing accuracy.",
       tech: "HTML, CSS, JavaScript, React, Python, Django Framework, PostgreSQL",
-      image: "/project2.jpg",
+      image: "https://placehold.co/800x600/003366/FFFFFF/png?text=Advanced+Metering+Infrastructure&font=raleway",
       challenges: [
         "Real-time data collection at scale",
         "Secure communication protocols",
@@ -83,7 +83,7 @@ export const projects = {
       title: "E-commerce Platform",
       description: "A modern e-commerce platform built with React and Node.js, featuring real-time inventory management, secure payment processing, and responsive design.",
       tech: "React, Node.js, PostgreSQL, Stripe API",
-      image: "/ecommerce.jpg",
+      image: "https://placehold.co/800x600/003366/FFFFFF/png?text=E-commerce+Platform&font=raleway",
       challenges: [
         "Real-time inventory synchronization",
         "Secure payment processing",
@@ -111,7 +111,7 @@ export const projects = {
       title: "ML-Powered Content Generator",
       description: "AI-driven content generation tool that creates SEO-optimized articles and blog posts using advanced natural language processing.",
       tech: "Python, TensorFlow, FastAPI, React",
-      image: "/ai-content.jpg",
+      image: "https://placehold.co/800x600/003366/FFFFFF/png?text=ML-Powered+Content+Generator&font=raleway",
       challenges: [
         "Training large language models",
         "Ensuring content quality",
@@ -139,7 +139,7 @@ export const projects = {
       title: "Healthcare Portal UX Design",
       description: "User-centered design for a healthcare management system focusing on patient engagement and medical record access.",
       tech: "Figma, Adobe XD, Principle",
-      image: "/healthcare.jpg",
+      image: "https://placehold.co/800x600/003366/FFFFFF/png?text=Healthcare+Portal+UX+Design&font=raleway",
       challenges: [
         "Complex information architecture",
         "Accessibility compliance",
