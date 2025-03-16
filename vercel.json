@@ -8,7 +8,7 @@
       "use": "@vercel/node"
     },
     {
-      "src": "dist/**",
+      "src": "dist/public/**",
       "use": "@vercel/static"
     }
   ],
@@ -18,11 +18,19 @@
       "dest": "dist/index.js"
     },
     {
+      "src": "/assets/(.*)",
+      "dest": "dist/public/assets/$1"
+    },
+    {
+      "src": "/images/(.*)",
+      "dest": "dist/public/images/$1"
+    },
+    {
       "handle": "filesystem"
     },
     {
       "src": "/(.*)",
-      "dest": "dist/index.html"
+      "dest": "dist/public/index.html"
     }
   ]
 }

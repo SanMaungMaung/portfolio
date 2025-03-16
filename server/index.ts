@@ -14,7 +14,7 @@ app.use(express.static(path.join(process.cwd(), 'public')));
 // Add session middleware
 app.use(
   session({
-    secret: 'your-secret-key',
+    secret: process.env.SESSION_SECRET || 'your-secret-key', // Fallback for development
     resave: false,
     saveUninitialized: false,
     cookie: {
@@ -71,7 +71,7 @@ app.use((req, res, next) => {
     serveStatic(app);
   }
 
-  const port = 5000;
+  const port = process.env.PORT || 5000;
   server.listen({
     port,
     host: "0.0.0.0",
