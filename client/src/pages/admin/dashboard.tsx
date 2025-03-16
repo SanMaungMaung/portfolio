@@ -3,7 +3,7 @@ import { useLocation } from "wouter";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { type Visitor, type ContactMessage } from "@shared/schema";
 
@@ -12,14 +12,45 @@ export default function AdminDashboard() {
 
   const { data: visitors = [], isLoading: loadingVisitors } = useQuery<Visitor[]>({
     queryKey: ["/api/admin/visitors"],
+    queryFn: async () => {
+      const token = localStorage.getItem('adminToken');
+      if (!token) {
+        throw new Error('No auth token');
+      }
+      const response = await fetch('/api/admin/visitors', {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+      if (!response.ok) {
+        throw new Error('Failed to fetch visitors');
+      }
+      return response.json();
+    }
   });
 
   const { data: messages = [], isLoading: loadingMessages } = useQuery<ContactMessage[]>({
     queryKey: ["/api/admin/messages"],
+    queryFn: async () => {
+      const token = localStorage.getItem('adminToken');
+      if (!token) {
+        throw new Error('No auth token');
+      }
+      const response = await fetch('/api/admin/messages', {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+      if (!response.ok) {
+        throw new Error('Failed to fetch messages');
+      }
+      return response.json();
+    }
   });
 
   const logoutMutation = useMutation({
     mutationFn: async () => {
+      localStorage.removeItem('adminToken');
       await apiRequest("POST", "/api/admin/logout");
     },
     onSuccess: () => {
@@ -29,14 +60,10 @@ export default function AdminDashboard() {
 
   // Check if admin is logged in
   useEffect(() => {
-    const checkAuth = async () => {
-      try {
-        await apiRequest("GET", "/api/admin/visitors");
-      } catch (error) {
-        setLocation("/admin/login");
-      }
-    };
-    checkAuth();
+    const token = localStorage.getItem('adminToken');
+    if (!token) {
+      setLocation("/admin/login");
+    }
   }, [setLocation]);
 
   return (

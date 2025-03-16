@@ -25,7 +25,13 @@ export default function AdminLogin() {
 
   const mutation = useMutation({
     mutationFn: async (data: AdminLogin) => {
-      await apiRequest("POST", "/api/admin/login", data);
+      const response = await apiRequest("POST", "/api/admin/login", data);
+      const result = await response.json();
+      if (result.token) {
+        // Store the JWT token
+        localStorage.setItem('adminToken', result.token);
+      }
+      return result;
     },
     onSuccess: () => {
       toast({
@@ -95,7 +101,7 @@ export default function AdminLogin() {
                 type="button"
                 variant="outline"
                 className="w-full"
-                onClick={() => setLocation("/home")}
+                onClick={() => setLocation("/")}
               >
                 Go Back Home
               </Button>
