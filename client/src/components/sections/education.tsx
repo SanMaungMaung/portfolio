@@ -11,7 +11,6 @@ import {
 import { SiMeta } from "react-icons/si";
 import { BsWindows } from "react-icons/bs";
 
-// Add the new certificate to the certificates array
 const certificates = [
   {
     title: "Meta Front-End Developer Professional Certificate",
@@ -100,13 +99,16 @@ const certificates = [
     featured: true,
     icon: SiMeta
   },
-  // Placeholder for other certificate
-  ...Array(1).fill({
-    title: "Certificate Title",
-    image: "placeholder-certificate.jpg",
-    verificationUrl: "https://example.com/verify",
-    featured: false
-  })
+  {
+    title: "User Interface Design and Prototyping",
+    image: "/Microsoft UX Design Pro_page-0004.jpg",
+    verificationUrl: "https://coursera.org/verify/CDOZY4VGBF0T",
+    issuer: "Microsoft",
+    issueDate: "Jan 3, 2025",
+    description: "An online non-credit course authorized by Microsoft and offered through Coursera",
+    featured: true,
+    icon: BsWindows
+  }
 ];
 
 interface CertificateCardProps {
