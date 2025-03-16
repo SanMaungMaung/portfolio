@@ -169,6 +169,16 @@ const certificates = [
     featured: true,
     icon: SiMeta
   },
+  {
+    title: "Coding Interview Preparation",
+    image: "/Meta Front-End Developer Pro_page-0010.jpg",
+    verificationUrl: "https://coursera.org/verify/G54GEKYQIMKE",
+    issuer: "Meta",
+    issueDate: "Feb 17, 2025",
+    description: "An online non-credit course authorized by Meta and offered through Coursera",
+    featured: true,
+    icon: SiMeta
+  },
   // Placeholder for future certificates
   ...Array(10).fill({
     title: "Certificate Title",
