@@ -87,14 +87,13 @@ export default function TechStack() {
                     className="relative group"
                   >
                     <div 
-                      className="absolute -inset-[1px] opacity-0 group-hover:opacity-100 rounded-lg transition-opacity duration-500"
+                      className="absolute -inset-[1px] opacity-0 group-hover:opacity-100 group-hover:animate-border-travel rounded-lg transition-opacity duration-500"
                       style={{
                         background: 'linear-gradient(90deg, transparent, #003366, transparent)',
                         backgroundSize: '200% 100%',
-                        animation: 'border-travel 2s ease-in-out infinite'
                       }}
                     >
-                      <div className="absolute inset-0 rounded-lg animate-border-travel dark:bg-gradient-to-r dark:from-transparent dark:via-[#66b2ff] dark:to-transparent"></div>
+                      <div className="absolute inset-0 rounded-lg dark:bg-gradient-to-r dark:from-transparent dark:via-[#66b2ff] dark:to-transparent"></div>
                     </div>
                     <div className="relative flex flex-col items-center justify-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md group-hover:shadow-lg transition-shadow">
                       <tech.icon className="w-12 h-12 text-[#003366] dark:text-[#66b2ff] mb-4 transform transition-transform duration-300 group-hover:scale-110" />
