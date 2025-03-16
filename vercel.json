@@ -4,22 +4,22 @@
   "installCommand": "npm install",
   "builds": [
     {
-      "src": "client/dist/**",
+      "src": "dist/**",
       "use": "@vercel/static"
     },
     {
-      "src": "server/index.ts",
+      "src": "dist/index.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "server/index.ts"
+      "dest": "dist/index.js"
     },
     {
       "src": "/(.*)",
-      "dest": "client/dist/$1"
+      "dest": "dist/$1"
     }
   ]
 }
