@@ -8,7 +8,18 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// Serve static files from public directory
+// Serve static files from public directory with specific paths
+app.use('/images', express.static(path.join(process.cwd(), 'public', 'images'), {
+  maxAge: '1d',
+  fallthrough: true
+}));
+
+app.use('/certificates', express.static(path.join(process.cwd(), 'public', 'certificates'), {
+  maxAge: '1d',
+  fallthrough: true
+}));
+
+// General static file serving
 app.use(express.static(path.join(process.cwd(), 'public')));
 
 // Add session middleware
