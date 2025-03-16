@@ -109,6 +109,16 @@ const certificates = [
     featured: true,
     icon: BsWindows
   },
+  {
+    title: "HTML and CSS in Depth",
+    image: "/Meta Front-End Developer Pro_page-0005.jpg",
+    verificationUrl: "https://coursera.org/verify/IJVQDKNFFKIM",
+    issuer: "Meta",
+    issueDate: "Jan 16, 2025",
+    description: "An online non-credit course authorized by Meta and offered through Coursera",
+    featured: true,
+    icon: SiMeta
+  },
   // Placeholder for future certificates
   ...Array(10).fill({
     title: "Certificate Title",
