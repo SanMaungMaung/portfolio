@@ -21,6 +21,10 @@ const ProjectCardSkeleton = () => (
   </div>
 );
 
+const generatePlaceholderImage = (title: string) => {
+  return `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600"><rect width="800" height="600" fill="%23003366"/><text x="400" y="300" font-family="Arial" font-size="30" fill="white" text-anchor="middle">${title}</text></svg>`;
+};
+
 export const projects = {
   featured: [
     {
@@ -28,7 +32,7 @@ export const projects = {
       client: "Ministry of Electric Power Myanmar",
       description: "Developed an intelligent and sophisticated electricity billing data analysis system that automates manual errors while increasing data accuracy and security.",
       tech: "HTML, CSS, MySQL, Python, Django Framework, PostgreSQL",
-      image: "/images/abs-placeholder.jpg",
+      image: generatePlaceholderImage("Automatic Billing System"),
       challenges: [
         "Integration with legacy systems",
         "Data migration from paper-based records",
@@ -55,7 +59,7 @@ export const projects = {
       client: "Ministry of Electric Power Myanmar",
       description: "Experimental smart system and IoT technology to reduce Non-Technical Losses, enabling real-time remote meter readings, load management, usage analytics, and billing accuracy.",
       tech: "HTML, CSS, JavaScript, React, Python, Django Framework, PostgreSQL",
-      image: "/images/ami-placeholder.jpg",
+      image: generatePlaceholderImage("Advanced Metering Infrastructure"),
       challenges: [
         "Real-time data collection at scale",
         "Secure communication protocols",
@@ -83,7 +87,7 @@ export const projects = {
       title: "E-commerce Platform",
       description: "A modern e-commerce platform built with React and Node.js, featuring real-time inventory management, secure payment processing, and responsive design.",
       tech: "React, Node.js, PostgreSQL, Stripe API",
-      image: "/images/ecommerce-placeholder.jpg",
+      image: generatePlaceholderImage("E-commerce Platform"),
       challenges: [
         "Real-time inventory synchronization",
         "Secure payment processing",
@@ -111,7 +115,7 @@ export const projects = {
       title: "ML-Powered Content Generator",
       description: "AI-driven content generation tool that creates SEO-optimized articles and blog posts using advanced natural language processing.",
       tech: "Python, TensorFlow, FastAPI, React",
-      image: "/images/ml-placeholder.jpg",
+      image: generatePlaceholderImage("ML-Powered Content Generator"),
       challenges: [
         "Training large language models",
         "Ensuring content quality",
@@ -139,7 +143,7 @@ export const projects = {
       title: "Healthcare Portal UX Design",
       description: "User-centered design for a healthcare management system focusing on patient engagement and medical record access.",
       tech: "Figma, Adobe XD, Principle",
-      image: "/images/healthcare-placeholder.jpg",
+      image: generatePlaceholderImage("Healthcare Portal UX Design"),
       challenges: [
         "Complex information architecture",
         "Accessibility compliance",
