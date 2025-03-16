@@ -28,7 +28,7 @@ export const projects = {
       client: "Ministry of Electric Power Myanmar",
       description: "Developed an intelligent and sophisticated electricity billing data analysis system that automates manual errors while increasing data accuracy and security.",
       tech: "HTML, CSS, MySQL, Python, Django Framework, PostgreSQL",
-      image: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iNjAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMDAzMzY2Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMzAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGFsaWdubWVudC1iYXNlbGluZT0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9IkFyaWFsIj5BdXRvbWF0aWMgQmlsbGluZyBTeXN0ZW08L3RleHQ+PC9zdmc+",
+      image: "/images/abs-placeholder.jpg",
       challenges: [
         "Integration with legacy systems",
         "Data migration from paper-based records",
@@ -55,7 +55,7 @@ export const projects = {
       client: "Ministry of Electric Power Myanmar",
       description: "Experimental smart system and IoT technology to reduce Non-Technical Losses, enabling real-time remote meter readings, load management, usage analytics, and billing accuracy.",
       tech: "HTML, CSS, JavaScript, React, Python, Django Framework, PostgreSQL",
-      image: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iNjAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMDAzMzY2Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMzAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGFsaWdubWVudC1iYXNlbGluZT0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9IkFyaWFsIj5BZHZhbmNlZCBNZXRlcmluZyBJbmZyYXN0cnVjdHVyZTwvdGV4dD48L3N2Zz4=",
+      image: "/images/ami-placeholder.jpg",
       challenges: [
         "Real-time data collection at scale",
         "Secure communication protocols",
@@ -83,7 +83,7 @@ export const projects = {
       title: "E-commerce Platform",
       description: "A modern e-commerce platform built with React and Node.js, featuring real-time inventory management, secure payment processing, and responsive design.",
       tech: "React, Node.js, PostgreSQL, Stripe API",
-      image: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iNjAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMDAzMzY2Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMzAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGFsaWdubWVudC1iYXNlbGluZT0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9IkFyaWFsIj5FLWNvbW1lcmNlIFBsYXRmb3JtPC90ZXh0Pjwvc3ZnPg==",
+      image: "/images/ecommerce-placeholder.jpg",
       challenges: [
         "Real-time inventory synchronization",
         "Secure payment processing",
@@ -111,7 +111,7 @@ export const projects = {
       title: "ML-Powered Content Generator",
       description: "AI-driven content generation tool that creates SEO-optimized articles and blog posts using advanced natural language processing.",
       tech: "Python, TensorFlow, FastAPI, React",
-      image: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iNjAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMDAzMzY2Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMzAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGFsaWdubWVudC1iYXNlbGluZT0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9IkFyaWFsIj5NTC1Qb3dlcmVkIENvbnRlbnQgR2VuZXJhdG9yPC90ZXh0Pjwvc3ZnPg==",
+      image: "/images/ml-placeholder.jpg",
       challenges: [
         "Training large language models",
         "Ensuring content quality",
@@ -139,7 +139,7 @@ export const projects = {
       title: "Healthcare Portal UX Design",
       description: "User-centered design for a healthcare management system focusing on patient engagement and medical record access.",
       tech: "Figma, Adobe XD, Principle",
-      image: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iNjAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMDAzMzY2Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMzAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGFsaWdubWVudC1iYXNlbGluZT0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9IkFyaWFsIj5IZWFsdGhjYXJlIFBvcnRhbCBVWCBEZXNpZ248L3RleHQ+PC9zdmc+",
+      image: "/images/healthcare-placeholder.jpg",
       challenges: [
         "Complex information architecture",
         "Accessibility compliance",
