@@ -169,11 +169,12 @@ export default function Welcome() {
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               />
               <img
-                src="/images/profile/zprofile.jpg"
+                src="../../../public/images/profile/zprofile.jpg"
                 alt="San Maung Maung"
                 className="w-full h-full object-cover rounded-full"
+                onLoad={() => console.log('Image loaded successfully')}
                 onError={(e) => {
-                  console.error('Image failed to load:', e);
+                  console.error('Image failed to load:', e.currentTarget.src);
                   e.currentTarget.src = `data:image/svg+xml,${encodeURIComponent(
                     '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><rect width="200" height="200" fill="#003366"/><text x="100" y="100" font-family="Arial" font-size="14" fill="white" text-anchor="middle">Profile Image</text></svg>'
                   )}`;
