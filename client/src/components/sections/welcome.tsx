@@ -171,36 +171,30 @@ export default function Welcome() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
           className="order-1 md:order-2 relative z-20"
-        >
-          <div className="relative">
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-0 rounded-full border-2 border-white/20"
-            />
-
-            <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white/20 shadow-lg transform hover:scale-105 transition-transform duration-300">
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent"
-                animate={{ opacity: [0.5, 0.8, 0.5] }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
-              <img
-                src={imageSrc}
-                alt="San Maung Maung"
-                className="w-full h-full object-cover rounded-full"
-                onError={() => {
-                  console.error("Profile image failed to load:", imageSrc);
-                  setImageSrc(placeholderSVG);
-                }}
-              />
+          >
+            <div className="relative">
+              <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white/20 shadow-lg transform hover:scale-105 transition-transform duration-300">
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent"
+                  animate={{ opacity: [0.5, 0.8, 0.5] }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                />
+                <img
+                  src={imageSrc}
+                  alt="San Maung Maung"
+                  className="w-full h-full object-cover rounded-full"
+                  onError={() => {
+                    console.error("Profile image failed to load:", imageSrc);
+                    setImageSrc(placeholderSVG);
+                  }}
+                />
+              </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
       </div>
     </section>
   );
