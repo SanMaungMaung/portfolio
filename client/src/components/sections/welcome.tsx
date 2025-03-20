@@ -110,7 +110,7 @@ export default function Welcome() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.5 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-relaxed bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80"
           >
             San Maung Maung @ Zack
           </motion.h1>
@@ -119,7 +119,7 @@ export default function Welcome() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.5 }}
-            className="text-xl md:text-2xl mb-6 text-white/90"
+            className="text-xl md:text-2xl mb-8 text-white/90"
           >
             Full Stack Frontend Developer
           </motion.h2>
