@@ -190,16 +190,19 @@ function CertificateCard({ certificate, index }: CertificateCardProps) {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: index * 0.1 }}
           viewport={{ once: true }}
-          className="cursor-pointer group relative bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow aspect-[4/3]"
+          className="cursor-pointer group relative bg-white/10 dark:bg-gray-800/10 rounded-lg overflow-hidden hover:shadow-xl transition-all aspect-[4/3]"
         >
-          {/* Shimmering border container */}
-          <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-[#003366]/20 via-[#0668E1]/40 to-[#003366]/20 animate-shimmer" 
+          {/* Shimmering border effect */}
+          <div 
+            className="absolute inset-0 rounded-lg bg-gradient-to-r from-[#003366]/50 via-[#0668E1]/80 to-[#003366]/50 animate-shimmer" 
             style={{ 
               backgroundSize: '200% 100%',
               animation: 'shimmer 8s linear infinite'
             }} 
           />
-          <div className="relative w-full h-full m-[1px] rounded-lg bg-white dark:bg-gray-800 overflow-hidden">
+
+          {/* Content container with margin for border effect */}
+          <div className="absolute inset-[1px] rounded-lg bg-white dark:bg-gray-800 overflow-hidden">
             {isMetaCertificate ? (
               <div className="w-full h-full flex flex-col items-center justify-center p-4 bg-gradient-to-br from-[#0668E1]/10 to-[#0668E1]/5 group-hover:bg-gradient-to-br group-hover:from-[#0668E1]/20 group-hover:to-[#0668E1]/10 transition-all duration-300">
                 {certificate.icon && (
