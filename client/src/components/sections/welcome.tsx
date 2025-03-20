@@ -5,11 +5,13 @@ import { useState } from "react";
 
 export default function Welcome() {
   // Change the imageSrc initialization to use the VITE_PUBLIC_PATH environment variable
-  const [imageSrc, setImageSrc] = useState(`${import.meta.env.VITE_PUBLIC_PATH || '/'}images/profile/zprofile.jpg`);
+  const [imageSrc, setImageSrc] = useState(
+    `${import.meta.env.VITE_PUBLIC_PATH || "/"}public/images/profile/zprofile.jpg`,
+  );
 
   // Define SVG placeholder directly
   const placeholderSVG = `data:image/svg+xml,${encodeURIComponent(
-    '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><rect width="200" height="200" fill="#003366"/><text x="100" y="100" font-family="Arial" font-size="14" fill="white" text-anchor="middle">Profile Image</text></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><rect width="200" height="200" fill="#003366"/><text x="100" y="100" font-family="Arial" font-size="14" fill="white" text-anchor="middle">Profile Image</text></svg>',
   )}`;
 
   return (
@@ -107,7 +109,9 @@ export default function Welcome() {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="mb-6"
           >
-            <span className="text-white/80 text-lg">Welcome to my portfolio</span>
+            <span className="text-white/80 text-lg">
+              Welcome to my portfolio
+            </span>
           </motion.div>
 
           <motion.h1
@@ -134,7 +138,14 @@ export default function Welcome() {
             transition={{ delay: 0.5, duration: 0.5 }}
             className="text-lg mb-8 text-white/80 max-w-2xl leading-relaxed"
           >
-            Designing the Future of the Web 👋 Hello! I'm Zack, a Full Stack and Frontend Developer dedicated to bringing your ideas to life. With over a decade of experience, I excel in UX/UI design and user-centered design (UCD). Skilled in HTML, CSS, JavaScript, React, Next.js, Joomla!, and WordPress for front-end development, I also possess strong back-end expertise with Python, Django Framework, Laravel, and Node.js, enabling me to design innovative solutions tailored to your needs.
+            Designing the Future of the Web 👋 Hello! I'm Zack, a Full Stack and
+            Frontend Developer dedicated to bringing your ideas to life. With
+            over a decade of experience, I excel in UX/UI design and
+            user-centered design (UCD). Skilled in HTML, CSS, JavaScript, React,
+            Next.js, Joomla!, and WordPress for front-end development, I also
+            possess strong back-end expertise with Python, Django Framework,
+            Laravel, and Node.js, enabling me to design innovative solutions
+            tailored to your needs.
           </motion.p>
 
           <motion.div
@@ -170,7 +181,11 @@ export default function Welcome() {
               <motion.div
                 className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent"
                 animate={{ opacity: [0.5, 0.8, 0.5] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
               />
               <img
                 src={imageSrc}
