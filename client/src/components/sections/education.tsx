@@ -201,7 +201,7 @@ function CertificateCard({ certificate, index }: CertificateCardProps) {
           >
             <div className="absolute inset-0 rounded-lg dark:bg-gradient-to-r dark:from-transparent dark:via-[#66b2ff] dark:to-transparent"></div>
           </div>
-          <div className="relative flex flex-col items-center justify-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md group-hover:shadow-lg transition-shadow aspect-[4/3]">
+          <div className="relative flex flex-col items-center justify-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md group-hover:shadow-lg transition-shadow h-[280px]">
             {isMetaCertificate ? (
               <>
                 {certificate.icon && (
@@ -283,7 +283,7 @@ export default function Education() {
           <p className="text-[#336699] dark:text-gray-300">Certificates and Qualifications</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {certificates.map((cert, index) => (
             <CertificateCard
               key={index}
