@@ -1,7 +1,8 @@
 {
   "version": 2,
   "buildCommand": "npm run build",
-  "outputDirectory": "dist",
+  "outputDirectory": "dist/public",
+  "installCommand": "npm install",
   "rewrites": [
     {
       "source": "/api/(.*)",
@@ -9,16 +10,22 @@
     },
     {
       "source": "/images/(.*)",
-      "destination": "/public/images/$1"
+      "destination": "/images/$1"
     },
     {
       "source": "/certificates/(.*)",
-      "destination": "/public/certificates/$1"
+      "destination": "/certificates/$1"
     },
     {
       "source": "/(.*)",
       "destination": "/"
     }
   ],
-  "public": true
+  "framework": "vite",
+  "public": true,
+  "functions": {
+    "api/**/*.ts": {
+      "runtime": "@vercel/node@latest"
+    }
+  }
 }
