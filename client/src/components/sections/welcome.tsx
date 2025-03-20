@@ -33,11 +33,12 @@ export default function Welcome() {
               ease: "linear",
             }}
             style={{
-              width: `${30 + i * 10}vw`,
-              height: `${30 + i * 10}vw`,
-              left: `${-10 + i * 3}vw`,
-              top: `${-10 + i * 5}vh`,
-              filter: "blur(calc(2vw + 20px))",
+              width: `${20 + i * 5}vw`,
+              height: `${20 + i * 5}vw`,
+              left: `${-5 + i * 2}vw`,
+              top: `${-5 + i * 3}vh`,
+              filter: "blur(calc(1.5vw + 10px))",
+              zIndex: 0,
             }}
           />
         ))}
@@ -59,11 +60,12 @@ export default function Welcome() {
               delay: i * 2,
             }}
             style={{
-              width: `${20 + i * 5}vw`,
-              height: `${20 + i * 5}vw`,
-              left: `${-2 - i}vw`,
-              top: `${1 + i * 1.5}vh`,
-              filter: "blur(calc(1.5vw + 15px))",
+              width: `${15 + i * 3}vw`,
+              height: `${15 + i * 3}vw`,
+              left: `${-1 - i}vw`,
+              top: `${1 + i}vh`,
+              filter: "blur(calc(1vw + 8px))",
+              zIndex: 0,
             }}
           />
         ))}
@@ -78,6 +80,7 @@ export default function Welcome() {
             repeat: Infinity,
             ease: "easeInOut",
           }}
+          style={{ zIndex: 0 }}
         />
       </div>
 
@@ -92,6 +95,7 @@ export default function Welcome() {
           repeat: Infinity,
           ease: "easeInOut",
         }}
+        style={{ zIndex: 1 }}
       />
 
       <div className="container mx-auto px-4 py-12 md:py-20 grid md:grid-cols-[1fr,auto] gap-12 items-center relative z-10">
