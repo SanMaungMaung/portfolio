@@ -9,7 +9,7 @@
       "destination": "/index.html"
     }
   ],
-  "framework": "vite",
+  "framework": null,
   "public": true,
   "regions": ["iad1"],
   "headers": [
