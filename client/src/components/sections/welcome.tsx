@@ -9,8 +9,8 @@ export default function Welcome() {
     '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><rect width="200" height="200" fill="#003366"/><text x="100" y="100" font-family="Arial" font-size="14" fill="white" text-anchor="middle">Profile Image</text></svg>'
   )}`;
 
-  // Use state to manage image source
-  const [imageSrc, setImageSrc] = useState(placeholderSVG);
+  // Initialize with profile image path
+  const [imageSrc, setImageSrc] = useState("/profile/zprofile.jpg");
 
   return (
     <section
@@ -182,8 +182,13 @@ export default function Welcome() {
                 alt="San Maung Maung"
                 className="w-full h-full object-cover rounded-full"
                 onError={() => {
-                  console.error("Profile image failed to load");
-                  setImageSrc(placeholderSVG);
+                  console.error("Profile image failed to load:", imageSrc);
+                  // Try fallback path
+                  if (imageSrc === "/profile/zprofile.jpg") {
+                    setImageSrc("/images/profile/zprofile.jpg");
+                  } else {
+                    setImageSrc(placeholderSVG);
+                  }
                 }}
               />
             </div>
