@@ -4,13 +4,14 @@ import { Download } from "lucide-react";
 import { useState } from "react";
 
 export default function Welcome() {
+  // Change the imageSrc initialization to use the VITE_PUBLIC_PATH environment variable
+  const [imageSrc, setImageSrc] = useState(`${import.meta.env.VITE_PUBLIC_PATH || '/'}images/profile/zprofile.jpg`);
+
   // Define SVG placeholder directly
   const placeholderSVG = `data:image/svg+xml,${encodeURIComponent(
     '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><rect width="200" height="200" fill="#003366"/><text x="100" y="100" font-family="Arial" font-size="14" fill="white" text-anchor="middle">Profile Image</text></svg>'
   )}`;
 
-  // Initialize with profile image path
-  const [imageSrc, setImageSrc] = useState("/images/profile/zprofile.jpg");
 
   return (
     <section
