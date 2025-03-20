@@ -170,7 +170,7 @@ export default function Welcome() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="order-1 md:order-2 relative"
+          className="order-1 md:order-2 relative z-20"
         >
           <div className="relative">
             <motion.div
