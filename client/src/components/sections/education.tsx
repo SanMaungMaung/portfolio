@@ -190,20 +190,20 @@ function CertificateCard({ certificate, index }: CertificateCardProps) {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: index * 0.1 }}
           viewport={{ once: true }}
-          className="cursor-pointer group relative bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow aspect-video"
+          className="cursor-pointer group relative bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow aspect-[4/3]"
         >
           <div className="relative w-full h-full">
             {isMetaCertificate ? (
-              <div className="w-full h-full flex flex-col items-center justify-center p-8 bg-gradient-to-br from-[#0668E1]/10 to-[#0668E1]/5">
+              <div className="w-full h-full flex flex-col items-center justify-center p-4 bg-gradient-to-br from-[#0668E1]/10 to-[#0668E1]/5">
                 {certificate.icon && (
-                  <div className="flex items-center justify-center w-16 h-16">
-                    <certificate.icon className="w-full h-full text-[#0668E1] mb-6" style={{ maxWidth: '4rem', maxHeight: '4rem' }} />
+                  <div className="flex items-center justify-center w-12 h-12 mb-3">
+                    <certificate.icon className="w-full h-full text-[#0668E1]" style={{ maxWidth: '3rem', maxHeight: '3rem' }} />
                   </div>
                 )}
-                <h3 className="text-xl font-semibold text-[#003366] dark:text-[#66b2ff] text-center">
+                <h3 className="text-base font-semibold text-[#003366] dark:text-[#66b2ff] text-center line-clamp-2">
                   {certificate.title}
                 </h3>
-                <p className="text-[#336699] dark:text-gray-300 mt-2 text-sm">
+                <p className="text-[#336699] dark:text-gray-300 mt-1 text-xs">
                   {certificate.issueDate}
                 </p>
               </div>
