@@ -1,0 +1,45 @@
+[17:27:53.268] Cloning github.com/SanMaungMaung/portfolio (Branch: main, Commit: f72822f)
+[17:27:54.933] Cloning completed: 1.665s
+[17:27:55.032] Restored build cache from previous deployment (9VLNJTZmJT17j5U8ovz4nbnSoUec)
+[17:27:55.124] Running build in Washington, D.C., USA (East) – iad1
+[17:27:55.611] Running "vercel build"
+[17:27:56.002] Vercel CLI 41.4.1
+[17:27:56.804] Running "install" command: `npm install`...
+[17:27:59.190] 
+[17:27:59.191] up to date, audited 591 packages in 2s
+[17:27:59.191] 
+[17:27:59.192] 68 packages are looking for funding
+[17:27:59.192]   run `npm fund` for details
+[17:27:59.224] 
+[17:27:59.224] 12 vulnerabilities (10 moderate, 2 high)
+[17:27:59.224] 
+[17:27:59.225] To address issues that do not require attention, run:
+[17:27:59.225]   npm audit fix
+[17:27:59.225] 
+[17:27:59.225] To address all issues (including breaking changes), run:
+[17:27:59.225]   npm audit fix --force
+[17:27:59.226] 
+[17:27:59.226] Run `npm audit` for details.
+[17:27:59.523] 
+[17:27:59.527] > rest-express@1.0.0 build
+[17:27:59.527] > vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
+[17:27:59.527] 
+[17:27:59.955] [36mvite v5.4.14 [32mbuilding for production...[36m[39m
+[17:28:00.302] transforming...
+[17:28:02.037] [32m✓[39m 92 modules transformed.
+[17:28:02.043] [31mx[39m Build failed in 2.06s
+[17:28:02.044] [31merror during build:
+[17:28:02.044] [31m[vite]: Rollup failed to resolve import "/images/profile/zprofile.jpg" from "/vercel/path0/client/src/components/sections/welcome.tsx".
+[17:28:02.044] This is most likely unintended because it can break your application at runtime.
+[17:28:02.044] If you do want to externalize this module explicitly add it to
+[17:28:02.044] `build.rollupOptions.external`[31m
+[17:28:02.044]     at viteWarn (file:///vercel/path0/node_modules/vite/dist/node/chunks/dep-CHZK6zbr.js:65747:17)
+[17:28:02.044]     at onwarn (file:///vercel/path0/node_modules/@vitejs/plugin-react/dist/index.mjs:280:9)
+[17:28:02.044]     at onRollupWarning (file:///vercel/path0/node_modules/vite/dist/node/chunks/dep-CHZK6zbr.js:65777:5)
+[17:28:02.045]     at onwarn (file:///vercel/path0/node_modules/vite/dist/node/chunks/dep-CHZK6zbr.js:65442:7)
+[17:28:02.045]     at file:///vercel/path0/node_modules/rollup/dist/es/shared/node-entry.js:19452:13
+[17:28:02.045]     at Object.logger [as onLog] (file:///vercel/path0/node_modules/rollup/dist/es/shared/node-entry.js:21178:9)
+[17:28:02.045]     at ModuleLoader.handleInvalidResolvedId (file:///vercel/path0/node_modules/rollup/dist/es/shared/node-entry.js:20067:26)
+[17:28:02.045]     at file:///vercel/path0/node_modules/rollup/dist/es/shared/node-entry.js:20025:26[39m
+[17:28:02.064] Error: Command "npm run build" exited with 1
+[17:28:02.512] 

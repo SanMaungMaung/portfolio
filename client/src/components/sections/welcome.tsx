@@ -1,9 +1,12 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
-import zProfile from '@/assets/images/profile/zprofile.jpg';
+import { useState } from "react";
+import profileImage from "@/assets/images/profile/zprofile.jpg";
 
 export default function Welcome() {
+  const [imageSrc, setImageSrc] = useState(profileImage);
+
   return (
     <section
       id="welcome"
@@ -31,7 +34,7 @@ export default function Welcome() {
               height: `${300 + i * 100}px`,
               left: `${-100 + i * 30}px`,
               top: `${-100 + i * 50}px`,
-              filter: 'blur(40px)',
+              filter: "blur(40px)",
             }}
           />
         ))}
@@ -58,7 +61,7 @@ export default function Welcome() {
               height: `${200 + i * 50}px`,
               left: `${-20 - i * 10}%`,
               top: `${10 + i * 15}%`,
-              filter: 'blur(30px)',
+              filter: "blur(30px)",
             }}
           />
         ))}
@@ -87,7 +90,7 @@ export default function Welcome() {
         transition={{
           duration: 3,
           repeat: Infinity,
-          ease: "easeInOut"
+          ease: "easeInOut",
         }}
       />
 
@@ -170,15 +173,16 @@ export default function Welcome() {
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               />
               <img
-                src="./images/profile/zprofile.jpg"
+                src={imageSrc}
                 alt="San Maung Maung"
                 className="w-full h-full object-cover rounded-full"
-                onLoad={() => console.log('Profile image loaded successfully')}
-                onError={(e) => {
-                  console.error('Profile image failed to load:', e.currentTarget.src);
-                  e.currentTarget.src = `data:image/svg+xml,${encodeURIComponent(
-                    '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><rect width="200" height="200" fill="#003366"/><text x="100" y="100" font-family="Arial" font-size="14" fill="white" text-anchor="middle">Profile Image</text></svg>'
-                  )}`;
+                onError={() => {
+                  console.error("Profile image failed to load:", imageSrc);
+                  setImageSrc(
+                    `data:image/svg+xml,${encodeURIComponent(
+                      '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><rect width="200" height="200" fill="#003366"/><text x="100" y="100" font-family="Arial" font-size="14" fill="white" text-anchor="middle">Profile Image</text></svg>'
+                    )}`
+                  );
                 }}
               />
             </div>
