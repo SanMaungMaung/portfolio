@@ -8,19 +8,24 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// Determine the static files directory based on environment
+const staticDir = process.env.NODE_ENV === 'production' 
+  ? path.join(process.cwd(), 'dist', 'public')
+  : path.join(process.cwd(), 'public');
+
 // Serve static files from public directory with specific paths
-app.use('/images', express.static(path.join(process.cwd(), 'public', 'images'), {
+app.use('/images', express.static(path.join(staticDir, 'images'), {
   maxAge: '1d',
   fallthrough: true
 }));
 
-app.use('/certificates', express.static(path.join(process.cwd(), 'public', 'certificates'), {
+app.use('/certificates', express.static(path.join(staticDir, 'certificates'), {
   maxAge: '1d',
   fallthrough: true
 }));
 
 // General static file serving
-app.use(express.static(path.join(process.cwd(), 'public')));
+app.use(express.static(staticDir));
 
 // Add session middleware
 app.use(
