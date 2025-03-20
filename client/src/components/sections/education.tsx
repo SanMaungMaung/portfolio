@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -190,24 +189,23 @@ function CertificateCard({ certificate, index }: CertificateCardProps) {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: index * 0.1 }}
           viewport={{ once: true }}
-          className="cursor-pointer group relative bg-white/10 dark:bg-gray-800/10 rounded-lg overflow-hidden hover:shadow-xl transition-all aspect-[4/3]"
+          className={`relative group ${index % 4 === 0 ? 'md:col-start-1' : ''}`}
         >
-          {/* Shimmering border effect */}
           <div 
-            className="absolute inset-0 rounded-lg bg-gradient-to-r from-[#003366]/50 via-[#0668E1]/80 to-[#003366]/50 animate-shimmer" 
-            style={{ 
+            className="absolute -inset-[1px] opacity-0 group-hover:opacity-100 group-hover:animate-border-travel rounded-lg transition-opacity duration-500"
+            style={{
+              background: 'linear-gradient(90deg, transparent, #003366, transparent)',
               backgroundSize: '200% 100%',
-              animation: 'shimmer 8s linear infinite'
-            }} 
-          />
-
-          {/* Content container with margin for border effect */}
-          <div className="absolute inset-[1px] rounded-lg bg-white dark:bg-gray-800 overflow-hidden">
+            }}
+          >
+            <div className="absolute inset-0 rounded-lg dark:bg-gradient-to-r dark:from-transparent dark:via-[#66b2ff] dark:to-transparent"></div>
+          </div>
+          <div className="relative flex flex-col items-center justify-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md group-hover:shadow-lg transition-shadow aspect-[4/3]">
             {isMetaCertificate ? (
-              <div className="w-full h-full flex flex-col items-center justify-center p-4 bg-gradient-to-br from-[#0668E1]/10 to-[#0668E1]/5 group-hover:bg-gradient-to-br group-hover:from-[#0668E1]/20 group-hover:to-[#0668E1]/10 transition-all duration-300">
+              <>
                 {certificate.icon && (
-                  <div className="flex items-center justify-center w-12 h-12 mb-3 relative">
-                    <certificate.icon className="w-full h-full text-[#0668E1]" style={{ maxWidth: '3rem', maxHeight: '3rem' }} />
+                  <div className="flex items-center justify-center w-12 h-12 mb-3">
+                    <certificate.icon className="w-full h-full text-[#003366] dark:text-[#66b2ff] mb-4 transform transition-transform duration-300 group-hover:scale-110" style={{ maxWidth: '3rem', maxHeight: '3rem' }} />
                   </div>
                 )}
                 <h3 className="text-base font-semibold text-[#003366] dark:text-[#66b2ff] text-center line-clamp-2">
@@ -216,15 +214,13 @@ function CertificateCard({ certificate, index }: CertificateCardProps) {
                 <p className="text-[#336699] dark:text-gray-300 mt-1 text-xs">
                   {certificate.issueDate}
                 </p>
-              </div>
+              </>
             ) : (
-              <div className="relative w-full h-full overflow-hidden">
-                <img
-                  src={certificate.image}
-                  alt={certificate.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
+              <img
+                src={certificate.image}
+                alt={certificate.title}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
             )}
           </div>
         </motion.div>
