@@ -177,7 +177,7 @@ export default function Welcome() {
                   const img = e.currentTarget;
                   console.error('Profile image failed to load:', img.src);
 
-                  // Try different path combinations
+                  // Try fallback path if initial load fails
                   const paths = [
                     'images/profile/zprofile.jpg',
                     '/images/profile/zprofile.jpg',
