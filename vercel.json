@@ -14,7 +14,7 @@
   "regions": ["iad1"],
   "headers": [
     {
-      "source": "/assets/(.*)",
+      "source": "/(images|certificates)/(.*)",
       "headers": [
         {
           "key": "Cache-Control",

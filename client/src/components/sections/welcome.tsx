@@ -77,7 +77,7 @@ export default function Welcome() {
       </div>
 
       {/* Background pulse effect */}
-      <motion.div 
+      <motion.div
         className="absolute inset-0 bg-gradient-to-b from-[#003366]/50 via-[#004080]/30 to-[#003366]/50"
         animate={{
           opacity: [0.5, 0.7, 0.5],
@@ -138,8 +138,8 @@ export default function Welcome() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.5 }}
           >
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               size="lg"
               className="bg-white/10 backdrop-blur-sm border-2 border-white/20 text-white hover:bg-white/20 hover:border-white/30 transition-all duration-300"
             >
@@ -169,15 +169,23 @@ export default function Welcome() {
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               />
               <img
-                src="./images/profile/zprofile.jpg"
+                src="/images/profile/zprofile.jpg"
                 alt="San Maung Maung"
                 className="w-full h-full object-cover rounded-full"
                 onLoad={() => console.log('Profile image loaded successfully')}
                 onError={(e) => {
                   console.error('Profile image failed to load:', e.currentTarget.src);
-                  e.currentTarget.src = `data:image/svg+xml,${encodeURIComponent(
-                    '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><rect width="200" height="200" fill="#003366"/><text x="100" y="100" font-family="Arial" font-size="14" fill="white" text-anchor="middle">Profile Image</text></svg>'
-                  )}`;
+                  // Try fallback path if initial load fails
+                  const fallbackPath = e.currentTarget.src.replace('/images/', '/public/images/');
+                  console.log('Trying fallback path:', fallbackPath);
+                  e.currentTarget.src = fallbackPath;
+
+                  // If fallback fails, use SVG placeholder
+                  e.currentTarget.onerror = () => {
+                    e.currentTarget.src = `data:image/svg+xml,${encodeURIComponent(
+                      '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><rect width="200" height="200" fill="#003366"/><text x="100" y="100" font-family="Arial" font-size="14" fill="white" text-anchor="middle">Profile Image</text></svg>'
+                    )}`;
+                  };
                 }}
               />
             </div>
