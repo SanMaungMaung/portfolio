@@ -169,38 +169,21 @@ export default function Welcome() {
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               />
               <img
-                src={import.meta.env.BASE_URL + 'images/profile/zprofile.jpg'}
-                alt="San Maung Maung"
-                className="w-full h-full object-cover rounded-full"
-                onLoad={() => console.log('Profile image loaded successfully')}
-                onError={(e) => {
-                  const img = e.currentTarget;
-                  console.error('Profile image failed to load:', img.src);
+                  src="images/profile/zprofile.jpg"
+                  alt="San Maung Maung"
+                  className="w-full h-full object-cover rounded-full"
+                  onLoad={() => console.log('Profile image loaded successfully')}
+                  onError={(e) => {
+                    const img = e.currentTarget;
+                    console.error('Profile image failed to load:', img.src);
 
-                  // Try fallback path if initial load fails
-                  const paths = [
-                    'images/profile/zprofile.jpg',
-                    '/images/profile/zprofile.jpg',
-                    '../images/profile/zprofile.jpg',
-                    '../../images/profile/zprofile.jpg'
-                  ];
-
-                  const tryNextPath = (index = 0) => {
-                    if (index < paths.length) {
-                      img.src = paths[index];
-                      img.onerror = () => tryNextPath(index + 1);
-                    } else {
-                      // If all paths fail, use SVG placeholder
-                      img.src = `data:image/svg+xml,${encodeURIComponent(
-                        '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><rect width="200" height="200" fill="#003366"/><text x="100" y="100" font-family="Arial" font-size="14" fill="white" text-anchor="middle">Profile Image</text></svg>'
-                      )}`;
-                      img.onerror = null; // Clear error handler after setting placeholder
-                    }
-                  };
-
-                  tryNextPath();
-                }}
-              />
+                    // Use SVG placeholder if image fails to load
+                    img.src = `data:image/svg+xml,${encodeURIComponent(
+                      '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><rect width="200" height="200" fill="#003366"/><text x="100" y="100" font-family="Arial" font-size="14" fill="white" text-anchor="middle">Profile Image</text></svg>'
+                    )}`;
+                    img.onerror = null; // Clear error handler after setting placeholder
+                  }}
+                />
             </div>
           </div>
         </motion.div>
