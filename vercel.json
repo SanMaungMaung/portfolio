@@ -5,6 +5,14 @@
   "installCommand": "npm install",
   "rewrites": [
     {
+      "source": "/api/(.*)",
+      "destination": "/server/index.ts"
+    },
+    {
+      "source": "/(images|certificates)/(.*)",
+      "destination": "/$1/$2"
+    },
+    {
       "source": "/((?!api/.*).*)",
       "destination": "/index.html"
     }

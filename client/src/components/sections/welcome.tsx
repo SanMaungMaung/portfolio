@@ -12,7 +12,6 @@ export default function Welcome() {
     '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><rect width="200" height="200" fill="#003366"/><text x="100" y="100" font-family="Arial" font-size="14" fill="white" text-anchor="middle">Profile Image</text></svg>'
   )}`;
 
-
   return (
     <section
       id="welcome"
