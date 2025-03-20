@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
-import profileImage from '/images/profile/zprofile.jpg';
+import zProfile from '@/assets/images/profile/zprofile.jpg';
 
 export default function Welcome() {
   return (
@@ -170,19 +170,15 @@ export default function Welcome() {
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               />
               <img
-                src={profileImage}
+                src={zProfile}
                 alt="San Maung Maung"
                 className="w-full h-full object-cover rounded-full"
                 onLoad={() => console.log('Profile image loaded successfully')}
                 onError={(e) => {
-                  const img = e.currentTarget;
-                  console.error('Profile image failed to load:', img.src);
-
-                  // Use SVG placeholder if image fails to load
-                  img.src = `data:image/svg+xml,${encodeURIComponent(
+                  console.error('Profile image failed to load:', e.currentTarget.src);
+                  e.currentTarget.src = `data:image/svg+xml,${encodeURIComponent(
                     '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><rect width="200" height="200" fill="#003366"/><text x="100" y="100" font-family="Arial" font-size="14" fill="white" text-anchor="middle">Profile Image</text></svg>'
                   )}`;
-                  img.onerror = null; // Clear error handler after setting placeholder
                 }}
               />
             </div>
