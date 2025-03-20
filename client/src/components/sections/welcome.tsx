@@ -118,7 +118,7 @@ export default function Welcome() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.5 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-[1.4] bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-[1.6] pb-2 bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80"
           >
             San Maung Maung @ Zack
           </motion.h1>
