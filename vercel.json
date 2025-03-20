@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "cp -r public dist/ && npm run build",
+  "buildCommand": "cp -r public/* dist/public/ && npm run build",
   "outputDirectory": "dist/public",
   "installCommand": "npm install",
   "rewrites": [
