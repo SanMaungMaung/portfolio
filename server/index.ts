@@ -13,19 +13,25 @@ const staticDir = process.env.NODE_ENV === 'production'
   ? path.join(process.cwd(), 'dist', 'public')
   : path.join(process.cwd(), 'public');
 
-// Serve static files from public directory with specific paths
-app.use('/images', express.static(path.join(staticDir, 'images'), {
-  maxAge: '1d',
-  fallthrough: true
-}));
+// Serve static files with proper caching headers
+const serveStaticWithCache = (route: string, dir: string) => {
+  app.use(route, express.static(path.join(staticDir, dir), {
+    maxAge: '1d', // Cache for 1 day
+    etag: true,
+    lastModified: true,
+    fallthrough: true
+  }));
+};
 
-app.use('/certificates', express.static(path.join(staticDir, 'certificates'), {
-  maxAge: '1d',
-  fallthrough: true
-}));
+// Configure static file serving with proper caching
+serveStaticWithCache('/images', 'images');
+serveStaticWithCache('/certificates', 'certificates');
 
 // General static file serving
-app.use(express.static(staticDir));
+app.use(express.static(staticDir, {
+  etag: true,
+  lastModified: true
+}));
 
 // Add session middleware
 app.use(
