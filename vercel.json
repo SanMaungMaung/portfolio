@@ -15,9 +15,5 @@
   ],
   "framework": "vite",
   "public": true,
-  "functions": {
-    "api/**/*": {
-      "runtime": "@vercel/node@18"
-    }
-  }
+  "regions": ["iad1"]
 }
