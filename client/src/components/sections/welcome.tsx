@@ -10,16 +10,14 @@ export default function Welcome() {
   )}`;
 
   // Initialize with profile image path
-  const [imageSrc, setImageSrc] = useState("/profile/zprofile.jpg");
+  const [imageSrc, setImageSrc] = useState("/images/profile/zprofile.jpg");
 
   return (
     <section
       id="welcome"
       className="min-h-screen pt-16 flex items-center relative overflow-hidden bg-gradient-to-br from-[#003366] via-[#004080] to-[#003366]"
     >
-      {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Large floating circles */}
         {[...Array(3)].map((_, i) => (
           <motion.div
             key={i}
@@ -44,7 +42,6 @@ export default function Welcome() {
           />
         ))}
 
-        {/* Additional animated shapes */}
         {[...Array(5)].map((_, i) => (
           <motion.div
             key={`shape-${i}`}
@@ -71,7 +68,6 @@ export default function Welcome() {
           />
         ))}
 
-        {/* Wave animation */}
         <motion.div
           className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-[#004080]/40 to-transparent"
           animate={{
@@ -85,7 +81,6 @@ export default function Welcome() {
         />
       </div>
 
-      {/* Background pulse effect */}
       <motion.div
         className="absolute inset-0 bg-gradient-to-b from-[#003366]/50 via-[#004080]/30 to-[#003366]/50"
         animate={{
@@ -183,12 +178,7 @@ export default function Welcome() {
                 className="w-full h-full object-cover rounded-full"
                 onError={() => {
                   console.error("Profile image failed to load:", imageSrc);
-                  // Try fallback path
-                  if (imageSrc === "/profile/zprofile.jpg") {
-                    setImageSrc("/images/profile/zprofile.jpg");
-                  } else {
-                    setImageSrc(placeholderSVG);
-                  }
+                  setImageSrc(placeholderSVG);
                 }}
               />
             </div>
