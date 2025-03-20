@@ -201,15 +201,15 @@ function CertificateCard({ certificate, index }: CertificateCardProps) {
           >
             <div className="absolute inset-0 rounded-lg dark:bg-gradient-to-r dark:from-transparent dark:via-[#66b2ff] dark:to-transparent"></div>
           </div>
-          <div className="relative flex flex-col items-center justify-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md group-hover:shadow-lg transition-shadow h-[280px]">
+          <div className="relative flex flex-col items-center justify-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md group-hover:shadow-lg transition-shadow h-[220px]">
             {isMetaCertificate ? (
               <>
                 {certificate.icon && (
-                  <div className="flex items-center justify-center w-12 h-12 mb-3">
-                    <certificate.icon className="w-full h-full text-[#003366] dark:text-[#66b2ff] mb-4 transform transition-transform duration-300 group-hover:scale-110" style={{ maxWidth: '3rem', maxHeight: '3rem' }} />
+                  <div className="flex items-center justify-center w-10 h-10 mb-2">
+                    <certificate.icon className="w-full h-full text-[#003366] dark:text-[#66b2ff] mb-4 transform transition-transform duration-300 group-hover:scale-110" style={{ maxWidth: '2.5rem', maxHeight: '2.5rem' }} />
                   </div>
                 )}
-                <h3 className="text-base font-semibold text-[#003366] dark:text-[#66b2ff] text-center line-clamp-2">
+                <h3 className="text-sm font-semibold text-[#003366] dark:text-[#66b2ff] text-center line-clamp-2">
                   {certificate.title}
                 </h3>
                 <p className="text-[#336699] dark:text-gray-300 mt-1 text-xs">
