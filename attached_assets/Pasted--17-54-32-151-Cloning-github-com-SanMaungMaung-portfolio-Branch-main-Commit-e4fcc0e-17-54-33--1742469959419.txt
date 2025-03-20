@@ -1,0 +1,58 @@
+[17:54:32.151] Cloning github.com/SanMaungMaung/portfolio (Branch: main, Commit: e4fcc0e)
+[17:54:33.895] Cloning completed: 1.744s
+[17:54:34.261] Restored build cache from previous deployment (6NauXx3Zu62zyJhKpJqUPy5tpzwh)
+[17:54:34.351] Running build in Washington, D.C., USA (East) – iad1
+[17:54:34.826] Running "vercel build"
+[17:54:35.228] Vercel CLI 41.4.1
+[17:54:35.945] Running "install" command: `npm install`...
+[17:54:38.492] 
+[17:54:38.493] added 20 packages, and audited 611 packages in 2s
+[17:54:38.493] 
+[17:54:38.493] 68 packages are looking for funding
+[17:54:38.494]   run `npm fund` for details
+[17:54:38.527] 
+[17:54:38.527] 12 vulnerabilities (10 moderate, 2 high)
+[17:54:38.528] 
+[17:54:38.528] To address issues that do not require attention, run:
+[17:54:38.528]   npm audit fix
+[17:54:38.529] 
+[17:54:38.529] To address all issues (including breaking changes), run:
+[17:54:38.529]   npm audit fix --force
+[17:54:38.529] 
+[17:54:38.529] Run `npm audit` for details.
+[17:54:38.836] 
+[17:54:38.836] > rest-express@1.0.0 build
+[17:54:38.836] > vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
+[17:54:38.836] 
+[17:54:39.258] [36mvite v5.4.14 [32mbuilding for production...[36m[39m
+[17:54:39.567] transforming...
+[17:54:46.187] [32m✓[39m 2070 modules transformed.
+[17:54:46.653] rendering chunks...
+[17:54:46.673] computing gzip size...
+[17:54:46.693] [2m../dist/public/[22m[32mindex.html                 [39m[1m[2m  1.66 kB[22m[1m[22m[2m │ gzip:   0.65 kB[22m
+[17:54:46.693] [2m../dist/public/[22m[2massets/[22m[35mindex-lkS9QWpD.css  [39m[1m[2m 94.41 kB[22m[1m[22m[2m │ gzip:  14.64 kB[22m
+[17:54:46.693] [2m../dist/public/[22m[2massets/[22m[36mindex-O5nYmk7a.js   [39m[1m[33m560.14 kB[39m[22m[2m │ gzip: 175.79 kB[22m
+[17:54:46.694] [33m
+[17:54:46.694] (!) Some chunks are larger than 500 kB after minification. Consider:
+[17:54:46.694] - Using dynamic import() to code-split the application
+[17:54:46.694] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[17:54:46.694] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+[17:54:46.695] [32m✓ built in 7.16s[39m
+[17:54:46.766] 
+[17:54:46.766]   dist/index.js  10.5kb
+[17:54:46.767] 
+[17:54:46.767] ⚡ Done in 10ms
+[17:54:46.809] file:///vercel/path0/scripts/copy-assets.js:1
+[17:54:46.809] const shell = require('shelljs');
+[17:54:46.809]               ^
+[17:54:46.809] 
+[17:54:46.809] ReferenceError: require is not defined in ES module scope, you can use import instead
+[17:54:46.809] This file is being treated as an ES module because it has a '.js' file extension and '/vercel/path0/package.json' contains "type": "module". To treat it as a CommonJS script, rename it to use the '.cjs' file extension.
+[17:54:46.810]     at file:///vercel/path0/scripts/copy-assets.js:1:15
+[17:54:46.810]     at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+[17:54:46.810]     at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
+[17:54:46.810]     at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+[17:54:46.810] 
+[17:54:46.810] Node.js v22.14.0
+[17:54:46.819] Error: Command "npm run build && node scripts/copy-assets.js" exited with 1
+[17:54:47.178] 
