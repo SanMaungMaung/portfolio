@@ -4,12 +4,10 @@ import { Download } from "lucide-react";
 import { useState } from "react";
 
 export default function Welcome() {
-  // Change the imageSrc initialization to use the VITE_PUBLIC_PATH environment variable
   const [imageSrc, setImageSrc] = useState(
     `${import.meta.env.VITE_PUBLIC_PATH || "/"}images/profile/zprofile.jpg`,
   );
 
-  // Define SVG placeholder directly
   const placeholderSVG = `data:image/svg+xml,${encodeURIComponent(
     '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><rect width="200" height="200" fill="#003366"/><text x="100" y="100" font-family="Arial" font-size="14" fill="white" text-anchor="middle">Profile Image</text></svg>',
   )}`;
@@ -35,11 +33,11 @@ export default function Welcome() {
               ease: "linear",
             }}
             style={{
-              width: `${300 + i * 100}px`,
-              height: `${300 + i * 100}px`,
-              left: `${-100 + i * 30}px`,
-              top: `${-100 + i * 50}px`,
-              filter: "blur(40px)",
+              width: `${30 + i * 10}vw`,
+              height: `${30 + i * 10}vw`,
+              left: `${-10 + i * 3}vw`,
+              top: `${-10 + i * 5}vh`,
+              filter: "blur(calc(2vw + 20px))",
             }}
           />
         ))}
@@ -61,17 +59,17 @@ export default function Welcome() {
               delay: i * 2,
             }}
             style={{
-              width: `${200 + i * 50}px`,
-              height: `${200 + i * 50}px`,
-              left: `${-20 - i * 10}%`,
-              top: `${10 + i * 15}%`,
-              filter: "blur(30px)",
+              width: `${20 + i * 5}vw`,
+              height: `${20 + i * 5}vw`,
+              left: `${-2 - i}vw`,
+              top: `${1 + i * 1.5}vh`,
+              filter: "blur(calc(1.5vw + 15px))",
             }}
           />
         ))}
 
         <motion.div
-          className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-[#004080]/40 to-transparent"
+          className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-[#004080]/40 to-transparent"
           animate={{
             y: [0, -20, 0],
           }}
