@@ -192,27 +192,30 @@ function CertificateCard({ certificate, index }: CertificateCardProps) {
           viewport={{ once: true }}
           className="cursor-pointer group relative bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow aspect-[4/3]"
         >
-          <div className="relative w-full h-full">
+          {/* Shimmering border container */}
+          <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-[#003366]/20 via-[#0668E1]/40 to-[#003366]/20 animate-shimmer" 
+            style={{ 
+              backgroundSize: '200% 100%',
+              animation: 'shimmer 8s linear infinite'
+            }} 
+          />
+          <div className="relative w-full h-full m-[1px] rounded-lg bg-white dark:bg-gray-800 overflow-hidden">
             {isMetaCertificate ? (
               <div className="w-full h-full flex flex-col items-center justify-center p-4 bg-gradient-to-br from-[#0668E1]/10 to-[#0668E1]/5 group-hover:bg-gradient-to-br group-hover:from-[#0668E1]/20 group-hover:to-[#0668E1]/10 transition-all duration-300">
                 {certificate.icon && (
                   <div className="flex items-center justify-center w-12 h-12 mb-3 relative">
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-[100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out" />
-                    <certificate.icon className="w-full h-full text-[#0668E1] relative z-10" style={{ maxWidth: '3rem', maxHeight: '3rem' }} />
+                    <certificate.icon className="w-full h-full text-[#0668E1]" style={{ maxWidth: '3rem', maxHeight: '3rem' }} />
                   </div>
                 )}
-                <h3 className="text-base font-semibold text-[#003366] dark:text-[#66b2ff] text-center line-clamp-2 relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-[100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out delay-100" />
-                  <span className="relative z-10">{certificate.title}</span>
+                <h3 className="text-base font-semibold text-[#003366] dark:text-[#66b2ff] text-center line-clamp-2">
+                  {certificate.title}
                 </h3>
-                <p className="text-[#336699] dark:text-gray-300 mt-1 text-xs relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-[100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out delay-200" />
-                  <span className="relative z-10">{certificate.issueDate}</span>
+                <p className="text-[#336699] dark:text-gray-300 mt-1 text-xs">
+                  {certificate.issueDate}
                 </p>
               </div>
             ) : (
               <div className="relative w-full h-full overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-[100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out z-10" />
                 <img
                   src={certificate.image}
                   alt={certificate.title}
