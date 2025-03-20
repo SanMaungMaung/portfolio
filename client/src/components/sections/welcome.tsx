@@ -5,7 +5,9 @@ import { useState } from "react";
 
 export default function Welcome() {
   // Change the imageSrc initialization to use the VITE_PUBLIC_PATH environment variable
-  const [imageSrc, setImageSrc] = useState("/images/profile/zprofile.jpg");
+  const [imageSrc, setImageSrc] = useState(
+    `${import.meta.env.VITE_PUBLIC_PATH || "/"}images/profile/zprofile.jpg`,
+  );
 
   // Define SVG placeholder directly
   const placeholderSVG = `data:image/svg+xml,${encodeURIComponent(

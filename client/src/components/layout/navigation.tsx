@@ -1,7 +1,7 @@
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
 import { Menu, LogIn, Sun, Moon } from "lucide-react";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useTheme } from "@/components/theme-provider";
@@ -21,6 +21,17 @@ export default function Navigation() {
   const [open, setOpen] = useState(false);
   const { theme, setTheme } = useTheme();
 
+  const handleScroll = useCallback((e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const element = document.querySelector(id);
+    if (element) {
+      const navHeight = 64; // Height of the navigation bar
+      const y = element.getBoundingClientRect().top + window.pageYOffset - navHeight;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+      setOpen(false); // Close mobile menu after clicking
+    }
+  }, []);
+
   return (
     <header className="fixed top-0 w-full z-50 bg-[#CC3333] dark:bg-[#CC3333] text-white dark:text-white">
       <nav className="container mx-auto px-4 h-16 flex items-center">
@@ -35,6 +46,7 @@ export default function Navigation() {
             <a
               key={link.href}
               href={link.href}
+              onClick={(e) => handleScroll(e, link.href)}
               className={cn(
                 "text-sm font-medium relative group transition-all duration-300 ease-in-out",
                 location === link.href ? "text-white dark:text-white" : "text-white/90 dark:text-white/90",
@@ -84,12 +96,12 @@ export default function Navigation() {
                 <a
                   key={link.href}
                   href={link.href}
+                  onClick={(e) => handleScroll(e, link.href)}
                   className={cn(
                     "text-lg relative group transition-all duration-300 ease-in-out",
                     location === link.href ? "text-white dark:text-white" : "text-white/90 dark:text-white/90",
                     "hover:text-white dark:hover:text-white hover:translate-x-2"
                   )}
-                  onClick={() => setOpen(false)}
                 >
                   {link.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white dark:bg-white transition-all duration-300 group-hover:w-full"></span>
