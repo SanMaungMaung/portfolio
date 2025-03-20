@@ -24,8 +24,8 @@
   "framework": "vite",
   "public": true,
   "functions": {
-    "api/**/*.ts": {
-      "runtime": "@vercel/node@latest"
+    "api/**/*": {
+      "runtime": "nodejs18.x"
     }
   }
 }
