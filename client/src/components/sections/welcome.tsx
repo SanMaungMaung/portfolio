@@ -174,15 +174,6 @@ export default function Welcome() {
           >
             <div className="relative">
               <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white/20 shadow-lg transform hover:scale-105 transition-transform duration-300">
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent"
-                  animate={{ opacity: [0.5, 0.8, 0.5] }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                />
                 <img
                   src={imageSrc}
                   alt="San Maung Maung"
