@@ -15,7 +15,10 @@ import { IconType } from 'react-icons';
 
 // Helper function to get the correct path for assets
 const getAssetPath = (path: string) => {
-  return `${import.meta.env.VITE_PUBLIC_PATH || "/"}${path.startsWith("/") ? path.slice(1) : path}`;
+  // Ensure proper formatting with slashes
+  const basePath = import.meta.env.VITE_PUBLIC_PATH || "/";
+  const cleanPath = path.startsWith("/") ? path.slice(1) : path;
+  return `${basePath}${cleanPath}`;
 };
 
 // Define the certificate type
@@ -257,8 +260,25 @@ function CertificateCard({ certificate, index }: CertificateCardProps) {
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 onError={(e) => {
                   console.error("Certificate image failed to load:", certificate.image);
-                  // Try alternative path format
-                  (e.target as HTMLImageElement).src = getAssetPath(certificate.image.replace(/^\//, ''));
+                  
+                  // Extract image path components
+                  const pathParts = certificate.image.replace(/^\//, '').split('/');
+                  if (pathParts.length >= 2) {
+                    const fileName = pathParts[pathParts.length - 1];
+                    const folder = pathParts[pathParts.length - 2];
+                    
+                    // Try multiple alternative path formats
+                    const altPath1 = `/certificates/${folder}/${fileName}`;
+                    const altPath2 = `certificates/${folder}/${fileName}`;
+                    
+                    // Try first alternative
+                    (e.target as HTMLImageElement).src = altPath1;
+                    
+                    // Set up a secondary error handler in case first alternative fails
+                    (e.target as HTMLImageElement).onerror = () => {
+                      (e.target as HTMLImageElement).src = altPath2;
+                    };
+                  }
                 }}
               />
             )}
@@ -284,8 +304,30 @@ function CertificateCard({ certificate, index }: CertificateCardProps) {
             className="w-full h-auto rounded-lg"
             onError={(e) => {
               console.error("Certificate dialog image failed to load:", certificate.image);
-              // Try alternative path format
-              (e.target as HTMLImageElement).src = getAssetPath(certificate.image.replace(/^\//, ''));
+              
+              // Extract image path components
+              const pathParts = certificate.image.replace(/^\//, '').split('/');
+              if (pathParts.length >= 2) {
+                const fileName = pathParts[pathParts.length - 1];
+                const folder = pathParts[pathParts.length - 2];
+                
+                // Try multiple alternative path formats
+                const altPath1 = `/certificates/${folder}/${fileName}`;
+                const altPath2 = `certificates/${folder}/${fileName}`;
+                const altPath3 = `/${certificate.image.replace(/^\//, '')}`;
+                
+                // Try first alternative
+                (e.target as HTMLImageElement).src = altPath1;
+                
+                // Set up a cascade of fallbacks
+                (e.target as HTMLImageElement).onerror = () => {
+                  (e.target as HTMLImageElement).src = altPath2;
+                  
+                  (e.target as HTMLImageElement).onerror = () => {
+                    (e.target as HTMLImageElement).src = altPath3;
+                  };
+                };
+              }
             }}
           />
         </div>

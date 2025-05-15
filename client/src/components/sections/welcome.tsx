@@ -6,7 +6,10 @@ import { useState } from "react";
 export default function Welcome() {
   // Helper function to get the correct path for assets
   const getAssetPath = (path: string) => {
-    return `${import.meta.env.VITE_PUBLIC_PATH || "/"}${path.startsWith("/") ? path.slice(1) : path}`;
+    // Ensure proper formatting with slashes
+    const basePath = import.meta.env.VITE_PUBLIC_PATH || "/";
+    const cleanPath = path.startsWith("/") ? path.slice(1) : path;
+    return `${basePath}${cleanPath}`;
   };
 
   const [imageSrc, setImageSrc] = useState(
@@ -185,14 +188,24 @@ export default function Welcome() {
                   className="w-full h-full object-cover rounded-full"
                   onError={(e) => {
                     console.error("Profile image failed to load:", imageSrc);
-                    // Try alternative path format
-                    const altPath = getAssetPath(imageSrc.replace(/^\//, '').replace(`${import.meta.env.VITE_PUBLIC_PATH || ""}`, ''));
-                    console.log("Trying alternative path:", altPath);
-                    if (altPath !== imageSrc) {
-                      (e.target as HTMLImageElement).src = altPath;
-                    } else {
-                      setImageSrc(placeholderSVG);
-                    }
+                    // Try multiple alternative path formats
+                    const altPath1 = `/images/profile/zprofile.jpg`;
+                    const altPath2 = `images/profile/zprofile.jpg`;
+                    
+                    console.log("Trying alternative paths");
+                    
+                    // Try first alternative
+                    (e.target as HTMLImageElement).src = altPath1;
+                    
+                    // Set up a secondary error handler in case first alternative fails
+                    (e.target as HTMLImageElement).onerror = () => {
+                      (e.target as HTMLImageElement).src = altPath2;
+                      
+                      // Set up a third error handler for final fallback
+                      (e.target as HTMLImageElement).onerror = () => {
+                        setImageSrc(placeholderSVG);
+                      };
+                    };
                   }}
                 />
               </div>
