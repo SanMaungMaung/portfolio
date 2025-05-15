@@ -4,8 +4,13 @@ import { Download } from "lucide-react";
 import { useState } from "react";
 
 export default function Welcome() {
+  // Helper function to get the correct path for assets
+  const getAssetPath = (path: string) => {
+    return `${import.meta.env.VITE_PUBLIC_PATH || "/"}${path.startsWith("/") ? path.slice(1) : path}`;
+  };
+
   const [imageSrc, setImageSrc] = useState(
-    `${import.meta.env.VITE_PUBLIC_PATH || "/"}images/profile/zprofile.jpg`,
+    getAssetPath("images/profile/zprofile.jpg"),
   );
 
   const placeholderSVG = `data:image/svg+xml,${encodeURIComponent(
@@ -178,9 +183,16 @@ export default function Welcome() {
                   src={imageSrc}
                   alt="San Maung Maung"
                   className="w-full h-full object-cover rounded-full"
-                  onError={() => {
+                  onError={(e) => {
                     console.error("Profile image failed to load:", imageSrc);
-                    setImageSrc(placeholderSVG);
+                    // Try alternative path format
+                    const altPath = getAssetPath(imageSrc.replace(/^\//, '').replace(`${import.meta.env.VITE_PUBLIC_PATH || ""}`, ''));
+                    console.log("Trying alternative path:", altPath);
+                    if (altPath !== imageSrc) {
+                      (e.target as HTMLImageElement).src = altPath;
+                    } else {
+                      setImageSrc(placeholderSVG);
+                    }
                   }}
                 />
               </div>
