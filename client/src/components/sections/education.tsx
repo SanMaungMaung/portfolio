@@ -54,7 +54,7 @@ const certificates: Certificate[] = [
   },
   {
     title: "Introduction to Front-End Development",
-    image: "/certificates/Meta/Meta Front-End Developer Pro_page-0002.jpg",
+    image: getAssetPath("certificates/Meta/Meta Front-End Developer Pro_page-0002.jpg"),
     verificationUrl: "https://coursera.org/verify/DNQT875KDJOF",
     issuer: "Meta",
     issueDate: "Jan 5, 2025",
@@ -255,6 +255,11 @@ function CertificateCard({ certificate, index }: CertificateCardProps) {
                 src={certificate.image}
                 alt={certificate.title}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                onError={(e) => {
+                  console.error("Certificate image failed to load:", certificate.image);
+                  // Try alternative path format
+                  (e.target as HTMLImageElement).src = getAssetPath(certificate.image.replace(/^\//, ''));
+                }}
               />
             )}
           </div>
@@ -277,13 +282,18 @@ function CertificateCard({ certificate, index }: CertificateCardProps) {
             src={certificate.image}
             alt={certificate.title}
             className="w-full h-auto rounded-lg"
+            onError={(e) => {
+              console.error("Certificate dialog image failed to load:", certificate.image);
+              // Try alternative path format
+              (e.target as HTMLImageElement).src = getAssetPath(certificate.image.replace(/^\//, ''));
+            }}
           />
         </div>
         {certificate.courses && (
           <div className="mt-4">
             <h4 className="font-semibold text-[#003366] dark:text-[#66b2ff] mb-2">Courses Completed:</h4>
             <ul className="list-disc list-inside space-y-1 text-[#336699] dark:text-gray-300">
-              {certificate.courses.map((course, idx) => (
+              {certificate.courses.map((course: string, idx: number) => (
                 <li key={idx}>{course}</li>
               ))}
             </ul>
