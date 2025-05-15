@@ -10,7 +10,7 @@
     },
     {
       "source": "/(images|certificates)/(.*)",
-      "destination": "/$1/$2"
+      "destination": "/public/$1/$2"
     },
     {
       "source": "/((?!api/.*).*)",
