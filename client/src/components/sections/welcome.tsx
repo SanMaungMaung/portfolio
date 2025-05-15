@@ -2,23 +2,11 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
 import { useState } from "react";
+import { ProfileFallback } from "@/components/ui/profile-fallback";
 
 export default function Welcome() {
-  // Helper function to get the correct path for assets
-  const getAssetPath = (path: string) => {
-    // Ensure proper formatting with slashes
-    const basePath = import.meta.env.VITE_PUBLIC_PATH || "/";
-    const cleanPath = path.startsWith("/") ? path.slice(1) : path;
-    return `${basePath}${cleanPath}`;
-  };
-
-  // Always start with absolute path for Vercel compatibility
-  const [imageSrc, setImageSrc] = useState("/images/profile/zprofile.jpg");
-
-  const placeholderSVG = `data:image/svg+xml,${encodeURIComponent(
-    '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><rect width="200" height="200" fill="#003366"/><text x="100" y="100" font-family="Arial" font-size="14" fill="white" text-anchor="middle">Profile Image</text></svg>',
-  )}`;
-
+  const [imageLoaded, setImageLoaded] = useState(true);
+  
   return (
     <section
       id="welcome"
@@ -178,54 +166,14 @@ export default function Welcome() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
           className="order-1 md:order-2 relative z-20"
-          >
-            <div className="relative">
-              <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white/20 shadow-lg transform hover:scale-105 transition-transform duration-300">
-                <img
-                  src={imageSrc}
-                  alt="San Maung Maung"
-                  className="w-full h-full object-cover rounded-full"
-                  onError={(e) => {
-                    console.error("Profile image failed to load:", imageSrc);
-                    
-                    // Try multiple alternative path formats in sequence
-                    const paths = [
-                      "/images/profile/zprofile.jpg",
-                      "images/profile/zprofile.jpg",
-                      "/public/images/profile/zprofile.jpg",
-                      "public/images/profile/zprofile.jpg",
-                      "/assets/images/profile/zprofile.jpg",
-                      "assets/images/profile/zprofile.jpg"
-                    ];
-                    
-                    // Keep track of which path we're trying
-                    let pathIndex = 0;
-                    
-                    // Function to try the next path
-                    const tryNextPath = () => {
-                      if (pathIndex < paths.length) {
-                        console.log(`Trying path: ${paths[pathIndex]}`);
-                        (e.target as HTMLImageElement).src = paths[pathIndex];
-                        pathIndex++;
-                      } else {
-                        // If we've tried all paths, use SVG placeholder
-                        console.log("All paths failed, using placeholder");
-                        setImageSrc(placeholderSVG);
-                        // Remove error handler to prevent infinite loop
-                        (e.target as HTMLImageElement).onerror = null;
-                      }
-                    };
-                    
-                    // Set up error handler that tries the next path
-                    (e.target as HTMLImageElement).onerror = () => tryNextPath();
-                    
-                    // Try the first alternative path
-                    tryNextPath();
-                  }}
-                />
-              </div>
+        >
+          <div className="relative">
+            <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white/20 shadow-lg transform hover:scale-105 transition-transform duration-300">
+              {/* Always use the fallback for Vercel */}
+              <ProfileFallback />
             </div>
-          </motion.div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
