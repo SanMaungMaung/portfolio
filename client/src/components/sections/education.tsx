@@ -11,11 +11,30 @@ import { Button } from "@/components/ui/button"; // Added import for Button comp
 import { SiMeta } from "react-icons/si";
 import { BsWindows } from "react-icons/bs";
 import React from 'react';
+import { IconType } from 'react-icons';
 
-const certificates = [
+// Helper function to get the correct path for assets
+const getAssetPath = (path: string) => {
+  return `${import.meta.env.VITE_PUBLIC_PATH || "/"}${path.startsWith("/") ? path.slice(1) : path}`;
+};
+
+// Define the certificate type
+interface Certificate {
+  title: string;
+  image: string;
+  verificationUrl: string;
+  issuer: string;
+  issueDate: string;
+  description: string;
+  featured: boolean;
+  icon: IconType;
+  courses?: string[];
+}
+
+const certificates: Certificate[] = [
   {
     title: "Meta Front-End Developer Professional Certificate",
-    image: "/certificates/Meta/Meta Front-end Developer.jpg",
+    image: getAssetPath("certificates/Meta/Meta Front-end Developer.jpg"),
     verificationUrl: "https://coursera.org/verify/professional-cert/F2OAPYNPJVLM",
     issuer: "Meta",
     issueDate: "Feb 17, 2025",
@@ -25,7 +44,7 @@ const certificates = [
   },
   {
     title: "Microsoft UX Design Professional Certificate",
-    image: "/certificates/Microsoft/Microsoft UX Design Pro_page-0001.jpg",
+    image: getAssetPath("certificates/Microsoft/Microsoft UX Design Pro_page-0001.jpg"),
     verificationUrl: "https://coursera.org/verify/professionalal-cert/EZ51MOA140J8",
     issuer: "Microsoft",
     issueDate: "Jan 4, 2025",
