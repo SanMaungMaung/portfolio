@@ -12,9 +12,8 @@ export default function Welcome() {
     return `${basePath}${cleanPath}`;
   };
 
-  const [imageSrc, setImageSrc] = useState(
-    getAssetPath("images/profile/zprofile.jpg"),
-  );
+  // Always start with absolute path for Vercel compatibility
+  const [imageSrc, setImageSrc] = useState("/images/profile/zprofile.jpg");
 
   const placeholderSVG = `data:image/svg+xml,${encodeURIComponent(
     '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><rect width="200" height="200" fill="#003366"/><text x="100" y="100" font-family="Arial" font-size="14" fill="white" text-anchor="middle">Profile Image</text></svg>',
@@ -188,24 +187,40 @@ export default function Welcome() {
                   className="w-full h-full object-cover rounded-full"
                   onError={(e) => {
                     console.error("Profile image failed to load:", imageSrc);
-                    // Try multiple alternative path formats
-                    const altPath1 = `/images/profile/zprofile.jpg`;
-                    const altPath2 = `images/profile/zprofile.jpg`;
                     
-                    console.log("Trying alternative paths");
+                    // Try multiple alternative path formats in sequence
+                    const paths = [
+                      "/images/profile/zprofile.jpg",
+                      "images/profile/zprofile.jpg",
+                      "/public/images/profile/zprofile.jpg",
+                      "public/images/profile/zprofile.jpg",
+                      "/assets/images/profile/zprofile.jpg",
+                      "assets/images/profile/zprofile.jpg"
+                    ];
                     
-                    // Try first alternative
-                    (e.target as HTMLImageElement).src = altPath1;
+                    // Keep track of which path we're trying
+                    let pathIndex = 0;
                     
-                    // Set up a secondary error handler in case first alternative fails
-                    (e.target as HTMLImageElement).onerror = () => {
-                      (e.target as HTMLImageElement).src = altPath2;
-                      
-                      // Set up a third error handler for final fallback
-                      (e.target as HTMLImageElement).onerror = () => {
+                    // Function to try the next path
+                    const tryNextPath = () => {
+                      if (pathIndex < paths.length) {
+                        console.log(`Trying path: ${paths[pathIndex]}`);
+                        (e.target as HTMLImageElement).src = paths[pathIndex];
+                        pathIndex++;
+                      } else {
+                        // If we've tried all paths, use SVG placeholder
+                        console.log("All paths failed, using placeholder");
                         setImageSrc(placeholderSVG);
-                      };
+                        // Remove error handler to prevent infinite loop
+                        (e.target as HTMLImageElement).onerror = null;
+                      }
                     };
+                    
+                    // Set up error handler that tries the next path
+                    (e.target as HTMLImageElement).onerror = () => tryNextPath();
+                    
+                    // Try the first alternative path
+                    tryNextPath();
                   }}
                 />
               </div>

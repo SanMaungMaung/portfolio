@@ -15,8 +15,8 @@ import { IconType } from 'react-icons';
 
 // Helper function to get the correct path for assets
 const getAssetPath = (path: string) => {
-  // Ensure proper formatting with slashes
-  const basePath = import.meta.env.VITE_PUBLIC_PATH || "/";
+  // Ensure proper formatting with slashes for Vercel deployment
+  const basePath = "/";
   const cleanPath = path.startsWith("/") ? path.slice(1) : path;
   return `${basePath}${cleanPath}`;
 };
@@ -267,17 +267,38 @@ function CertificateCard({ certificate, index }: CertificateCardProps) {
                     const fileName = pathParts[pathParts.length - 1];
                     const folder = pathParts[pathParts.length - 2];
                     
-                    // Try multiple alternative path formats
-                    const altPath1 = `/certificates/${folder}/${fileName}`;
-                    const altPath2 = `certificates/${folder}/${fileName}`;
+                    // Define multiple path formats to try
+                    const pathsToTry = [
+                      `/certificates/${folder}/${fileName}`,
+                      `certificates/${folder}/${fileName}`,
+                      `/images/certificates/${folder}/${fileName}`,
+                      `images/certificates/${folder}/${fileName}`,
+                      `/public/certificates/${folder}/${fileName}`,
+                      `/public/images/certificates/${folder}/${fileName}`
+                    ];
                     
-                    // Try first alternative
-                    (e.target as HTMLImageElement).src = altPath1;
+                    let pathIndex = 0;
                     
-                    // Set up a secondary error handler in case first alternative fails
-                    (e.target as HTMLImageElement).onerror = () => {
-                      (e.target as HTMLImageElement).src = altPath2;
+                    // Function to try the next path
+                    const tryNextPath = () => {
+                      if (pathIndex < pathsToTry.length) {
+                        console.log(`Trying certificate image path: ${pathsToTry[pathIndex]}`);
+                        (e.target as HTMLImageElement).src = pathsToTry[pathIndex];
+                        pathIndex++;
+                      } else {
+                        // All paths failed, remove error handler to prevent infinite loop
+                        console.log("All certificate paths failed");
+                        (e.target as HTMLImageElement).onerror = null;
+                        // Add a minimal placeholder style
+                        (e.target as HTMLImageElement).style.backgroundColor = "#003366";
+                      }
                     };
+                    
+                    // Set up error handler to try next path
+                    (e.target as HTMLImageElement).onerror = () => tryNextPath();
+                    
+                    // Start trying paths
+                    tryNextPath();
                   }
                 }}
               />
@@ -311,22 +332,46 @@ function CertificateCard({ certificate, index }: CertificateCardProps) {
                 const fileName = pathParts[pathParts.length - 1];
                 const folder = pathParts[pathParts.length - 2];
                 
-                // Try multiple alternative path formats
-                const altPath1 = `/certificates/${folder}/${fileName}`;
-                const altPath2 = `certificates/${folder}/${fileName}`;
-                const altPath3 = `/${certificate.image.replace(/^\//, '')}`;
+                // Define multiple path formats to try
+                const pathsToTry = [
+                  `/certificates/${folder}/${fileName}`,
+                  `certificates/${folder}/${fileName}`,
+                  `/images/certificates/${folder}/${fileName}`,
+                  `images/certificates/${folder}/${fileName}`,
+                  `/public/certificates/${folder}/${fileName}`,
+                  `/public/images/certificates/${folder}/${fileName}`,
+                  `/${certificate.image.replace(/^\//, '')}`
+                ];
                 
-                // Try first alternative
-                (e.target as HTMLImageElement).src = altPath1;
+                let pathIndex = 0;
                 
-                // Set up a cascade of fallbacks
-                (e.target as HTMLImageElement).onerror = () => {
-                  (e.target as HTMLImageElement).src = altPath2;
-                  
-                  (e.target as HTMLImageElement).onerror = () => {
-                    (e.target as HTMLImageElement).src = altPath3;
-                  };
+                // Function to try the next path
+                const tryNextPath = () => {
+                  if (pathIndex < pathsToTry.length) {
+                    console.log(`Trying dialog certificate path: ${pathsToTry[pathIndex]}`);
+                    (e.target as HTMLImageElement).src = pathsToTry[pathIndex];
+                    pathIndex++;
+                  } else {
+                    // All paths failed, remove error handler to prevent infinite loop
+                    console.log("All dialog certificate paths failed");
+                    (e.target as HTMLImageElement).onerror = null;
+                    // Add a minimal placeholder style with text
+                    (e.target as HTMLImageElement).style.display = "none";
+                    const parent = (e.target as HTMLImageElement).parentElement;
+                    if (parent) {
+                      const placeholder = document.createElement("div");
+                      placeholder.className = "w-full h-40 bg-[#003366] rounded-lg flex items-center justify-center text-white";
+                      placeholder.innerText = "Certificate Image";
+                      parent.appendChild(placeholder);
+                    }
+                  }
                 };
+                
+                // Set up error handler to try next path
+                (e.target as HTMLImageElement).onerror = () => tryNextPath();
+                
+                // Start trying paths
+                tryNextPath();
               }
             }}
           />
