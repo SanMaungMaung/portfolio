@@ -13,27 +13,53 @@ export interface IStorage {
 
 export class DatabaseStorage implements IStorage {
   async createVisitor(insertVisitor: InsertVisitor): Promise<Visitor> {
-    const [visitor] = await db
+    const [visitorResult] = await db
       .insert(visitors)
       .values(insertVisitor)
       .returning();
+      
+    // Ensure we always have a valid Date object, never null
+    const visitor: Visitor = {
+      ...visitorResult,
+      createdAt: visitorResult.createdAt || new Date()
+    };
+    
     return visitor;
   }
 
   async createMessage(insertMessage: InsertContact): Promise<ContactMessage> {
-    const [message] = await db
+    const [messageResult] = await db
       .insert(messages)
       .values(insertMessage)
       .returning();
+      
+    // Ensure we always have a valid Date object, never null
+    const message: ContactMessage = {
+      ...messageResult,
+      createdAt: messageResult.createdAt || new Date()
+    };
+    
     return message;
   }
 
   async getVisitors(): Promise<Visitor[]> {
-    return await db.select().from(visitors).orderBy(visitors.createdAt);
+    const visitorResults = await db.select().from(visitors).orderBy(visitors.createdAt);
+    
+    // Ensure all records have valid Date objects
+    return visitorResults.map(v => ({
+      ...v,
+      createdAt: v.createdAt || new Date()
+    }));
   }
 
   async getMessages(): Promise<ContactMessage[]> {
-    return await db.select().from(messages).orderBy(messages.createdAt);
+    const messageResults = await db.select().from(messages).orderBy(messages.createdAt);
+    
+    // Ensure all records have valid Date objects
+    return messageResults.map(m => ({
+      ...m,
+      createdAt: m.createdAt || new Date()
+    }));
   }
 
   async validateAdmin(credentials: AdminLogin): Promise<Admin | null> {
@@ -92,6 +118,7 @@ export class MemStorage implements IStorage {
 
   async createVisitor(insertVisitor: InsertVisitor): Promise<Visitor> {
     const id = this.visitorId++;
+    // Ensure createdAt is always a valid Date object, never null
     const visitor: Visitor = {
       ...insertVisitor,
       id,
@@ -103,6 +130,7 @@ export class MemStorage implements IStorage {
 
   async createMessage(insertMessage: InsertContact): Promise<ContactMessage> {
     const id = this.messageId++;
+    // Ensure createdAt is always a valid Date object, never null
     const message: ContactMessage = {
       ...insertMessage,
       id,

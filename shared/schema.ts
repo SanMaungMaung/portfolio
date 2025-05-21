@@ -11,7 +11,7 @@ export interface Visitor {
   company: string;
   position: string;
   email: string;
-  createdAt: Date;
+  createdAt: Date | null;
 }
 
 export interface ContactMessage {
@@ -19,7 +19,7 @@ export interface ContactMessage {
   name: string;
   email: string;
   message: string;
-  createdAt: Date;
+  createdAt: Date | null;
 }
 
 export type InsertVisitor = Omit<Visitor, "id" | "createdAt">;
