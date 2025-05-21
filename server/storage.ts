@@ -49,11 +49,7 @@ export class DatabaseStorage implements IStorage {
   }
 }
 
-import { 
-  type Admin, type AdminLogin,
-  type Visitor, type InsertVisitor,
-  type ContactMessage, type InsertContact
-} from "@shared/schema";
+// Types are already imported above
 
 
 export class MemStorage implements IStorage {
