@@ -169,8 +169,16 @@ export default function Welcome() {
         >
           <div className="relative">
             <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white/20 shadow-lg transform hover:scale-105 transition-transform duration-300">
-              {/* Always use the fallback for Vercel */}
-              <ProfileFallback />
+              {imageLoaded ? (
+                <img
+                  src="/img/profile.jpg"
+                  alt="San Maung Maung"
+                  className="w-full h-full object-cover"
+                  onError={() => setImageLoaded(false)}
+                />
+              ) : (
+                <ProfileFallback />
+              )}
             </div>
           </div>
         </motion.div>
