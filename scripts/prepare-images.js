@@ -21,14 +21,45 @@ function createDirectories() {
 function copyImageAssets() {
   console.log('Copying image assets...');
   
-  // Copy profile images
+  // Copy profile images - make sure zprofile.jpg is copied
   shelljs.cp('-R', 'public/images/profile/*.jpg', 'dist/public/images/profile/');
+  
+  // Ensure profile image exists, if not try attached_assets
+  if (!fs.existsSync('dist/public/images/profile/zprofile.jpg')) {
+    console.log('Profile image not found in public folder, checking attached_assets...');
+    if (fs.existsSync('attached_assets/54113232300.jpg')) {
+      console.log('Found profile image in attached_assets, copying...');
+      shelljs.cp('attached_assets/54113232300.jpg', 'dist/public/images/profile/zprofile.jpg');
+    }
+  }
   
   // Copy certificate images from both locations (for fallback)
   shelljs.cp('-R', 'public/images/certificates/Meta/*.jpg', 'dist/public/images/certificates/Meta/');
   shelljs.cp('-R', 'public/images/certificates/Microsoft/*.jpg', 'dist/public/images/certificates/Microsoft/');
   shelljs.cp('-R', 'public/certificates/Meta/*.jpg', 'dist/public/certificates/Meta/');
   shelljs.cp('-R', 'public/certificates/Microsoft/*.jpg', 'dist/public/certificates/Microsoft/');
+  
+  // Copy certificate images from attached_assets if needed
+  const certificateFiles = [
+    { src: 'attached_assets/Meta Front-End Developer Pro_page-0002.jpg', dest: 'dist/public/images/certificates/Meta/' },
+    { src: 'attached_assets/Meta Front-End Developer Pro_page-0003.jpg', dest: 'dist/public/images/certificates/Meta/' },
+    { src: 'attached_assets/Meta Front-End Developer Pro_page-0004.jpg', dest: 'dist/public/images/certificates/Meta/' },
+    { src: 'attached_assets/Meta Front-End Developer Pro_page-0005.jpg', dest: 'dist/public/images/certificates/Meta/' },
+    { src: 'attached_assets/Meta Front-End Developer Pro_page-0006.jpg', dest: 'dist/public/images/certificates/Meta/' },
+    { src: 'attached_assets/Meta Front-End Developer Pro_page-0007.jpg', dest: 'dist/public/images/certificates/Meta/' },
+    { src: 'attached_assets/Meta Front-End Developer Pro_page-0008.jpg', dest: 'dist/public/images/certificates/Meta/' },
+    { src: 'attached_assets/Microsoft UX Design Pro_page-0001.jpg', dest: 'dist/public/images/certificates/Microsoft/' },
+    { src: 'attached_assets/Microsoft UX Design Pro_page-0002.jpg', dest: 'dist/public/images/certificates/Microsoft/' },
+    { src: 'attached_assets/Microsoft UX Design Pro_page-0003.jpg', dest: 'dist/public/images/certificates/Microsoft/' }
+  ];
+  
+  // Copy each certificate file if it exists
+  certificateFiles.forEach(file => {
+    if (fs.existsSync(file.src)) {
+      const filename = path.basename(file.src);
+      shelljs.cp(file.src, file.dest + filename);
+    }
+  });
 }
 
 // Execute the preparation functions
