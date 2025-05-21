@@ -1,0 +1,67 @@
+[19:33:10.565] Running build in Washington, D.C., USA (East) – iad1
+[19:33:10.565] Build machine configuration: 2 cores, 8 GB
+[19:33:10.617] Cloning github.com/SanMaungMaung/portfolio (Branch: main, Commit: 5d3a485)
+[19:33:10.623] Skipping build cache, deployment was triggered without cache.
+[19:33:12.424] Cloning completed: 1.807s
+[19:33:12.815] Running "vercel build"
+[19:33:13.235] Vercel CLI 42.1.1
+[19:33:13.886] Running "install" command: `npm install`...
+[19:33:17.264] npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+[19:33:18.690] npm warn deprecated @esbuild-kit/core-utils@3.3.2: Merged into tsx: https://tsx.is
+[19:33:18.749] npm warn deprecated @esbuild-kit/esm-loader@2.6.5: Merged into tsx: https://tsx.is
+[19:33:18.998] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[19:33:24.934] 
+[19:33:24.934] added 610 packages, and audited 611 packages in 11s
+[19:33:24.935] 
+[19:33:24.935] 68 packages are looking for funding
+[19:33:24.936]   run `npm fund` for details
+[19:33:24.978] 
+[19:33:24.979] 11 vulnerabilities (9 moderate, 2 high)
+[19:33:24.980] 
+[19:33:24.980] To address issues that do not require attention, run:
+[19:33:24.980]   npm audit fix
+[19:33:24.980] 
+[19:33:24.980] To address all issues (including breaking changes), run:
+[19:33:24.981]   npm audit fix --force
+[19:33:24.981] 
+[19:33:24.981] Run `npm audit` for details.
+[19:33:25.246] 
+[19:33:25.247] > rest-express@1.0.0 build
+[19:33:25.247] > vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
+[19:33:25.247] 
+[19:33:25.603] [36mvite v5.4.14 [32mbuilding for production...[36m[39m
+[19:33:25.653] transforming...
+[19:33:25.890] Browserslist: browsers data (caniuse-lite) is 7 months old. Please run:
+[19:33:25.892]   npx update-browserslist-db@latest
+[19:33:25.892]   Why you should do it regularly: https://github.com/browserslist/update-db#readme
+[19:33:32.245] [32m✓[39m 2071 modules transformed.
+[19:33:32.679] rendering chunks...
+[19:33:32.693] computing gzip size...
+[19:33:32.711] [2m../dist/public/[22m[32mindex.html                 [39m[1m[2m  1.66 kB[22m[1m[22m[2m │ gzip:   0.65 kB[22m
+[19:33:32.712] [2m../dist/public/[22m[2massets/[22m[35mindex-kHmrQyU_.css  [39m[1m[2m 94.22 kB[22m[1m[22m[2m │ gzip:  14.65 kB[22m
+[19:33:32.712] [2m../dist/public/[22m[2massets/[22m[36mindex-zzCeqcwa.js   [39m[1m[33m561.83 kB[39m[22m[2m │ gzip: 176.25 kB[22m
+[19:33:32.712] [33m
+[19:33:32.712] (!) Some chunks are larger than 500 kB after minification. Consider:
+[19:33:32.713] - Using dynamic import() to code-split the application
+[19:33:32.713] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[19:33:32.713] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+[19:33:32.713] [32m✓ built in 7.09s[39m
+[19:33:32.755] 
+[19:33:32.755]   dist/index.js  10.7kb
+[19:33:32.755] 
+[19:33:32.756] ⚡ Done in 5ms
+[19:33:32.795] file:///vercel/path0/scripts/prepare-images.js:1
+[19:33:32.796] const fs = require('fs');
+[19:33:32.796]            ^
+[19:33:32.796] 
+[19:33:32.796] ReferenceError: require is not defined in ES module scope, you can use import instead
+[19:33:32.796] This file is being treated as an ES module because it has a '.js' file extension and '/vercel/path0/package.json' contains "type": "module". To treat it as a CommonJS script, rename it to use the '.cjs' file extension.
+[19:33:32.796]     at file:///vercel/path0/scripts/prepare-images.js:1:12
+[19:33:32.796]     at ModuleJob.run (node:internal/modules/esm/module_job:274:25)
+[19:33:32.796]     at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:644:26)
+[19:33:32.797]     at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+[19:33:32.797] 
+[19:33:32.797] Node.js v22.15.1
+[19:33:32.801] Error: Command "npm run build && node scripts/prepare-images.js" exited with 1
+[19:33:33.065] 
+[19:33:36.521] Exiting build container
