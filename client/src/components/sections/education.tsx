@@ -16,7 +16,7 @@ import { IconType } from 'react-icons';
 // Helper function to get the correct path for assets
 const getAssetPath = (path: string) => {
   // Ensure proper formatting with slashes for Vercel deployment
-  const basePath = "/";
+  const basePath = "/public/";
   const cleanPath = path.startsWith("/") ? path.slice(1) : path;
   return `${basePath}${cleanPath}`;
 };
