@@ -1,0 +1,73 @@
+[19:23:46.716] Running build in Washington, D.C., USA (East) – iad1
+[19:23:46.716] Build machine configuration: 2 cores, 8 GB
+[19:23:46.734] Cloning github.com/SanMaungMaung/portfolio (Branch: main, Commit: 9eb1555)
+[19:23:46.916] Previous build caches not available
+[19:23:48.743] Cloning completed: 2.008s
+[19:23:49.186] Running "vercel build"
+[19:23:49.661] Vercel CLI 42.1.1
+[19:23:50.373] Running "install" command: `npm install`...
+[19:23:54.071] npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+[19:23:55.643] npm warn deprecated @esbuild-kit/core-utils@3.3.2: Merged into tsx: https://tsx.is
+[19:23:55.702] npm warn deprecated @esbuild-kit/esm-loader@2.6.5: Merged into tsx: https://tsx.is
+[19:23:55.932] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[19:24:02.175] 
+[19:24:02.176] added 610 packages, and audited 611 packages in 12s
+[19:24:02.177] 
+[19:24:02.177] 68 packages are looking for funding
+[19:24:02.177]   run `npm fund` for details
+[19:24:02.218] 
+[19:24:02.219] 11 vulnerabilities (9 moderate, 2 high)
+[19:24:02.219] 
+[19:24:02.220] To address issues that do not require attention, run:
+[19:24:02.220]   npm audit fix
+[19:24:02.220] 
+[19:24:02.221] To address all issues (including breaking changes), run:
+[19:24:02.221]   npm audit fix --force
+[19:24:02.221] 
+[19:24:02.221] Run `npm audit` for details.
+[19:24:02.533] 
+[19:24:02.533] > rest-express@1.0.0 build
+[19:24:02.533] > vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
+[19:24:02.533] 
+[19:24:02.947] [36mvite v5.4.14 [32mbuilding for production...[36m[39m
+[19:24:03.003] transforming...
+[19:24:03.263] Browserslist: browsers data (caniuse-lite) is 7 months old. Please run:
+[19:24:03.264]   npx update-browserslist-db@latest
+[19:24:03.264]   Why you should do it regularly: https://github.com/browserslist/update-db#readme
+[19:24:10.161] [32m✓[39m 2071 modules transformed.
+[19:24:10.672] rendering chunks...
+[19:24:10.691] computing gzip size...
+[19:24:10.785] [2m../dist/public/[22m[32mindex.html                 [39m[1m[2m  1.66 kB[22m[1m[22m[2m │ gzip:   0.65 kB[22m
+[19:24:10.789] [2m../dist/public/[22m[2massets/[22m[35mindex-kHmrQyU_.css  [39m[1m[2m 94.22 kB[22m[1m[22m[2m │ gzip:  14.65 kB[22m
+[19:24:10.793] [2m../dist/public/[22m[2massets/[22m[36mindex-zzCeqcwa.js   [39m[1m[33m561.83 kB[39m[22m[2m │ gzip: 176.25 kB[22m
+[19:24:10.808] [32m✓ built in 7.82s[39m
+[19:24:10.809] [33m
+[19:24:10.810] (!) Some chunks are larger than 500 kB after minification. Consider:
+[19:24:10.810] - Using dynamic import() to code-split the application
+[19:24:10.810] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[19:24:10.811] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+[19:24:10.850] 
+[19:24:10.850]   dist/index.js  10.7kb
+[19:24:10.850] 
+[19:24:10.850] ⚡ Done in 5ms
+[19:24:10.971] Preparing image assets for build...
+[19:24:10.975] Creating directories...
+[19:24:10.980] Copying image assets...
+[19:24:11.023] Image assets preparation complete!
+[19:24:11.075] Installing dependencies...
+[19:24:12.471] 
+[19:24:12.472] up to date in 1s
+[19:24:12.472] 
+[19:24:12.472] 68 packages are looking for funding
+[19:24:12.473]   run `npm fund` for details
+[19:24:12.841] Using TypeScript 5.6.3 (local user-provided)
+[19:24:19.833] Using TypeScript 5.6.3 (local user-provided)
+[19:24:21.600] Using TypeScript 5.6.3 (local user-provided)
+[19:24:23.017] Using TypeScript 5.6.3 (local user-provided)
+[19:24:24.185] Build Completed in /vercel/output [34s]
+[19:24:24.370] Deploying outputs...
+[19:24:31.687] 
+[19:24:31.982] Deployment completed
+[19:25:06.591] Uploading build cache [99.48 MB]...
+[19:25:07.840] Build cache uploaded: 1.249s
+[19:25:10.051] Exiting build container

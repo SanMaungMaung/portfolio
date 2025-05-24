@@ -10,11 +10,11 @@ function createDirectories() {
   console.log('Creating directories...');
   
   // Make sure the public directory exists in the build output
-  shelljs.mkdir('-p', 'dist/public/images/profile');
-  shelljs.mkdir('-p', 'dist/public/images/certificates/Meta');
-  shelljs.mkdir('-p', 'dist/public/images/certificates/Microsoft');
-  shelljs.mkdir('-p', 'dist/public/certificates/Meta');
-  shelljs.mkdir('-p', 'dist/public/certificates/Microsoft');
+  shelljs.mkdir('-p', 'dist/public/public/images/profile');
+  shelljs.mkdir('-p', 'dist/public/public/images/certificates/Meta');
+  shelljs.mkdir('-p', 'dist/public/public/images/certificates/Microsoft');
+  shelljs.mkdir('-p', 'dist/public/public/certificates/Meta');
+  shelljs.mkdir('-p', 'dist/public/public/certificates/Microsoft');
 }
 
 // Copy all image assets from public to build output
