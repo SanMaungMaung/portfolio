@@ -48,7 +48,7 @@ const certificates: Certificate[] = [
   {
     title: "Microsoft UX Design Professional Certificate",
     image: getAssetPath("certificates/Microsoft/Microsoft UX Design Pro_page-0001.jpg"),
-    verificationUrl: "https://coursera.org/verify/professionalal-cert/EZ51MOA140J8",
+    verificationUrl: "https://coursera.org/verify/professional-cert/EZ51M0A140J8",
     issuer: "Microsoft",
     issueDate: "Jan 4, 2025",
     description: "Gain in-demand UX design skills through this Professional Certificate.",
