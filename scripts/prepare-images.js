@@ -21,6 +21,9 @@ function createDirectories() {
 function copyImageAssets() {
   console.log('Copying image assets...');
   
+  // Copy favicon
+  shelljs.cp('public/favicon.png', 'dist/public/favicon.png');
+  
   // Copy profile images - make sure zprofile.jpg is copied
   shelljs.cp('-R', 'public/images/profile/*.jpg', 'dist/public/public/images/profile/');
   

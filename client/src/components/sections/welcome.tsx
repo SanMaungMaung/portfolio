@@ -171,7 +171,7 @@ export default function Welcome() {
             <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white/20 shadow-lg transform hover:scale-105 transition-transform duration-300">
               {imageLoaded ? (
                 <img
-                  src="/public/images/profile/zprofile.jpg"
+                  src={import.meta.env.PROD ? "/public/images/profile/zprofile.jpg" : "/images/profile/zprofile.jpg"}
                   alt="San Maung Maung"
                   className="w-full h-full object-cover"
                   onError={() => setImageLoaded(false)}
