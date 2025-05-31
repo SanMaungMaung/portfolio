@@ -250,13 +250,13 @@ export default function Portfolio() {
 
         <Tabs defaultValue="featured" className="space-y-8">
           <TabsList className="flex justify-center gap-2 p-1 bg-[#F5F5F5] dark:bg-gray-800 rounded-lg">
-            {["featured", "web", "ai", "design"].map((tab) => (
+            {["featured", "web", "design"].map((tab) => (
               <TabsTrigger
                 key={tab}
                 value={tab}
                 className="relative px-4 py-2 rounded-md transition-all duration-300 data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700 data-[state=active]:text-[#003366] dark:data-[state=active]:text-[#66b2ff] data-[state=active]:shadow-sm hover:text-[#003366] dark:hover:text-[#66b2ff] group"
               >
-                <span>{tab.charAt(0).toUpperCase() + tab.slice(1)} {tab === "featured" ? "Projects" : tab === "ai" ? "Integration" : tab === "web" ? "Development" : "Prototypes"}</span>
+                <span>{tab.charAt(0).toUpperCase() + tab.slice(1)} {tab === "featured" ? "Projects" : tab === "web" ? "Development" : "Prototypes"}</span>
                 <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#003366] dark:bg-[#66b2ff] scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
               </TabsTrigger>
             ))}
