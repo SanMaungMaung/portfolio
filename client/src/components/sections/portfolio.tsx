@@ -130,34 +130,6 @@ export const projects = {
       liveUrl: "https://www.survetic.com"
     }
   ],
-  ai: [
-    {
-      title: "ML-Powered Content Generator",
-      description: "AI-driven content generation tool that creates SEO-optimized articles and blog posts using advanced natural language processing.",
-      tech: "Python, TensorFlow, FastAPI, React",
-      image: generatePlaceholderImage("ML-Powered Content Generator"),
-      challenges: [
-        "Training large language models",
-        "Ensuring content quality",
-        "Real-time generation",
-        "SEO optimization"
-      ],
-      solutions: [
-        "Fine-tuned GPT models",
-        "Implemented quality scoring system",
-        "Used async processing",
-        "Integrated SEO analysis tools"
-      ],
-      results: [
-        "90% reduction in content creation time",
-        "85% acceptance rate of generated content",
-        "40% improvement in SEO rankings",
-        "2x increase in organic traffic"
-      ],
-      githubUrl: "https://github.com/example/ai-content",
-      liveUrl: "https://ai-content.example.com"
-    }
-  ],
   design: [
     {
       title: "Healthcare Portal UX Design",
