@@ -95,6 +95,15 @@ export const projects = {
       title: "Survetic - Survey Builder & Analytics Platform",
       description: "A comprehensive survey builder and analytics platform that empowers organizations to create, distribute, and analyze surveys with advanced administrative capabilities. Built as a full-stack TypeScript application with drag-and-drop functionality, real-time analytics, and mobile-first responsive design.",
       tech: "React 18, TypeScript, Node.js, Express, PostgreSQL, Drizzle ORM, Tailwind CSS, shadcn/ui, TanStack Query, Framer Motion, Recharts",
+      role: "As the sole designer and developer of Survetic, I led the project end-to-end — from idea validation and UI/UX design to full-stack implementation and deployment. I architected a scalable, production-ready survey platform that demonstrates my ability to build robust, modern web applications that solve real business problems.",
+      responsibilities: [
+        "🧠 Product Design & Planning: Conceptualized product vision and defined feature set to address fragmented survey tool limitations",
+        "🖥️ Frontend Development: Engineered UI using React 18 with TypeScript, built drag-and-drop survey builder with real-time previews",
+        "🔒 Backend & Authentication: Developed secure backend using Node.js, Express, implemented modular authentication with Passport.js",
+        "📊 Analytics & Performance: Designed real-time analytics dashboard, applied code splitting and lazy loading for optimization",
+        "📱 Responsive UX: Used CSS Grid/Flexbox for 100% mobile compatibility, developed responsive admin interfaces",
+        "⚙️ DevOps & Deployment: Configured Vite and ESBuild for fast development, deployed on Vercel with CI/CD workflows"
+      ],
       image: import.meta.env.PROD ? "/public/images/projects/survetic-homepage.png" : "/images/projects/survetic-homepage.png",
       challenges: [
         "Creating responsive survey builder interface for all device sizes",

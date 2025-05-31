@@ -144,11 +144,43 @@ export default function ProjectDetails({ params }: ProjectDetailsProps) {
           </motion.div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        {/* My Role Section */}
+        {project.role && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
+            className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg mb-8"
+          >
+            <h2 className="text-xl font-bold text-[#003366] dark:text-[#66b2ff] mb-4">
+              My Role
+            </h2>
+            <p className="text-[#336699] dark:text-gray-300 mb-4">
+              {project.role}
+            </p>
+            {project.responsibilities && (
+              <div>
+                <h3 className="text-lg font-semibold text-[#003366] dark:text-[#66b2ff] mb-3">
+                  Key Responsibilities
+                </h3>
+                <ul className="list-none text-[#336699] dark:text-gray-300 space-y-2">
+                  {project.responsibilities.map((responsibility, index) => (
+                    <li key={index} className="flex items-start">
+                      <span className="mr-2">{responsibility.split(':')[0]}</span>
+                      <span>{responsibility.split(':').slice(1).join(':')}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </motion.div>
+        )}
+
+        <div className="space-y-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
             className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg"
           >
             <h2 className="text-xl font-bold text-[#003366] dark:text-[#66b2ff] mb-4">
@@ -164,7 +196,7 @@ export default function ProjectDetails({ params }: ProjectDetailsProps) {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
             className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg"
           >
             <h2 className="text-xl font-bold text-[#003366] dark:text-[#66b2ff] mb-4">
@@ -180,7 +212,7 @@ export default function ProjectDetails({ params }: ProjectDetailsProps) {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
             className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg"
           >
             <h2 className="text-xl font-bold text-[#003366] dark:text-[#66b2ff] mb-4">
