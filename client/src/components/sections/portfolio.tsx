@@ -92,30 +92,33 @@ export const projects = {
   ],
   web: [
     {
-      title: "E-commerce Platform",
-      description: "A modern e-commerce platform built with React and Node.js, featuring real-time inventory management, secure payment processing, and responsive design.",
-      tech: "React, Node.js, PostgreSQL, Stripe API",
-      image: generatePlaceholderImage("E-commerce Platform"),
+      title: "Survetic - Survey Builder & Analytics Platform",
+      description: "A comprehensive survey builder and analytics platform that empowers organizations to create, distribute, and analyze surveys with advanced administrative capabilities. Built as a full-stack TypeScript application with drag-and-drop functionality, real-time analytics, and mobile-first responsive design.",
+      tech: "React 18, TypeScript, Node.js, Express, PostgreSQL, Drizzle ORM, Tailwind CSS, shadcn/ui, TanStack Query, Framer Motion, Recharts",
+      image: import.meta.env.PROD ? "/public/images/projects/survetic-homepage.png" : "/images/projects/survetic-homepage.png",
       challenges: [
-        "Real-time inventory synchronization",
-        "Secure payment processing",
-        "Mobile-first responsive design",
-        "Performance optimization"
+        "Creating responsive survey builder interface for all device sizes",
+        "Implementing robust authentication with session management",
+        "Handling real-time survey responses without performance degradation",
+        "Designing flexible database schema for various question types",
+        "Ensuring consistent API error handling across endpoints"
       ],
       solutions: [
-        "Implemented WebSocket for real-time updates",
-        "Integrated Stripe payment gateway",
-        "Used Tailwind CSS for responsive layouts",
-        "Implemented lazy loading and code splitting"
+        "Mobile-first design with collapsible settings panel and hamburger navigation",
+        "Modular authentication system with Passport.js, secure sessions, and role-based access",
+        "TanStack Query for intelligent caching and background updates with Drizzle ORM optimization",
+        "Comprehensive error boundaries with user-friendly messages and retry mechanisms",
+        "Code splitting, lazy loading, and tree shaking for optimal performance"
       ],
       results: [
-        "99.9% uptime achievement",
-        "2x faster page load times",
-        "50% increase in mobile conversions",
-        "30% reduction in cart abandonment"
+        "Sub-2-second initial page load with 100% mobile compatibility",
+        "Zero runtime type errors with full TypeScript implementation",
+        "Intuitive drag-and-drop reduces survey creation time significantly",
+        "Real-time analytics dashboard with instant feedback and insights",
+        "Production-ready deployment on Vercel with automated CI/CD"
       ],
-      githubUrl: "https://github.com/example/ecommerce",
-      liveUrl: "https://ecommerce.example.com"
+      githubUrl: "https://github.com/SanMaungMaung/survetic",
+      liveUrl: "https://www.survetic.com"
     }
   ],
   ai: [

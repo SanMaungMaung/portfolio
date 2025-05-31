@@ -24,6 +24,10 @@ function copyImageAssets() {
   // Copy favicon
   shelljs.cp('public/favicon.png', 'dist/public/favicon.png');
   
+  // Copy project images
+  shelljs.mkdir('-p', 'dist/public/public/images/projects');
+  shelljs.cp('-R', 'public/images/projects/*.png', 'dist/public/public/images/projects/');
+  
   // Copy profile images - make sure zprofile.jpg is copied
   shelljs.cp('-R', 'public/images/profile/*.jpg', 'dist/public/public/images/profile/');
   
