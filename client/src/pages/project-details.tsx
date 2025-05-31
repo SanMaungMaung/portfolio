@@ -163,13 +163,21 @@ export default function ProjectDetails({ params }: ProjectDetailsProps) {
                 <h3 className="text-lg font-semibold text-[#003366] dark:text-[#66b2ff] mb-3">
                   Key Responsibilities
                 </h3>
-                <ul className="list-none text-[#336699] dark:text-gray-300 space-y-2">
-                  {project.responsibilities.map((responsibility, index) => (
-                    <li key={index} className="flex items-start">
-                      <span className="mr-2">{responsibility.split(':')[0]}</span>
-                      <span>{responsibility.split(':').slice(1).join(':')}</span>
-                    </li>
-                  ))}
+                <ul className="list-none text-[#336699] dark:text-gray-300 space-y-4">
+                  {project.responsibilities.map((responsibility, index) => {
+                    const [title, ...descriptionParts] = responsibility.split(':');
+                    const description = descriptionParts.join(':').trim();
+                    return (
+                      <li key={index}>
+                        <div className="font-semibold text-[#003366] dark:text-[#66b2ff] mb-1">
+                          {title}
+                        </div>
+                        <div className="text-[#336699] dark:text-gray-300">
+                          {description}
+                        </div>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             )}
