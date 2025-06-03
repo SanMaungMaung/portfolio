@@ -15,6 +15,7 @@ function createDirectories() {
   shelljs.mkdir('-p', 'dist/public/public/images/certificates/Microsoft');
   shelljs.mkdir('-p', 'dist/public/public/certificates/Meta');
   shelljs.mkdir('-p', 'dist/public/public/certificates/Microsoft');
+  shelljs.mkdir('-p', 'dist/public/public/resume');
 }
 
 // Copy all image assets from public to build output
@@ -67,6 +68,19 @@ function copyImageAssets() {
       shelljs.cp(file.src, file.dest + filename);
     }
   });
+  
+  // Copy resume file
+  console.log('Copying resume file...');
+  if (fs.existsSync('public/resume/SMMCV.pdf')) {
+    shelljs.cp('public/resume/SMMCV.pdf', 'dist/public/public/resume/SMMCV.pdf');
+    console.log('Resume file copied successfully');
+  } else if (fs.existsSync('attached_assets/SMMCV.pdf')) {
+    console.log('Resume file not found in public folder, copying from attached_assets...');
+    shelljs.cp('attached_assets/SMMCV.pdf', 'dist/public/public/resume/SMMCV.pdf');
+    console.log('Resume file copied from attached_assets');
+  } else {
+    console.log('Warning: Resume file not found in either location');
+  }
 }
 
 // Execute the preparation functions

@@ -9,7 +9,7 @@
       "destination": "/server/index.ts"
     },
     {
-      "source": "/(images|certificates)/(.*)",
+      "source": "/(images|certificates|resume)/(.*)",
       "destination": "/public/$1/$2"
     },
     {
@@ -22,7 +22,7 @@
   "regions": ["iad1"],
   "headers": [
     {
-      "source": "/(images|certificates)/(.*)",
+      "source": "/(images|certificates|resume)/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
