@@ -1,0 +1,63 @@
+⚡ Confidential Enterprise Project: Nationwide Automatic Billing System
+Role: Project Manager & Senior Front-End Developer
+Client: Myanmar Electricity Sector (via Ever Meter Co.)
+Duration: 2017 – 2024
+Status: Actively deployed in 85+ townships
+
+🔒 Note
+Due to a non-disclosure agreement (NDA), I cannot publicly share the source code, UI screenshots, or internal implementation details. This case study offers a generalized overview of my responsibilities and the impact of the system.
+
+🧭 Project Overview
+Led the design, development, and implementation of a scalable Automatic Billing System (ABS) integrated with Advanced Metering Infrastructure (AMI) across multiple Myanmar electricity corporations (YESC, ESE, MESC). This platform replaced the traditional manual billing process, enabling:
+
+Automatic meter readings
+
+Real-time billing and accounting
+
+Online payments via local bank integrations
+
+Remote enforcement for late payments
+
+Centralized auditing & compliance reports
+
+🎯 Key Contributions
+🔹 Project Management
+Oversaw cross-functional teams of developers, testers, and infrastructure engineers across 3 corporations.
+
+Coordinated with international experts for security, scalability, and infrastructure guidance.
+
+Delivered on strict deadlines imposed by governmental clients during the transition to smart metering.
+
+🔹 Front-End Development
+Architected and developed modern, responsive interfaces for the billing dashboard and reporting tools using React and TypeScript.
+
+Created role-based access controls and admin panels for township-level management.
+
+Built dashboards to generate real-time analytics (tariff ledgers, Form 7/43/76/243/etc.), improving audit transparency.
+
+🔹 Integrations
+Integrated with various smart meters using industry protocols (e.g., DLMS/COSEM).
+
+Collaborated with backend and DevOps teams to ensure smooth communication with APIs and secure data flows.
+
+Helped develop an online payment gateway connected to major local banks for seamless bill collection.
+
+💡 Impact Highlights
+Deployed across 85 townships in Myanmar.
+
+Reduced billing cycle from weeks to hours.
+
+Achieved over 90% accuracy in meter readings and automated calculations.
+
+Minimized human errors and reduced field staff exposure to harsh environments.
+
+Delivered 24/7 billing support and automated real-time reporting for government auditing.
+
+🔐 Technologies Used
+React, TypeScript, Redux, SCSS,
+Node.js, PostgreSQL, REST APIs,
+AMI Protocols, OTP-based Security, Docker,
+Bank API Integrations, Audit Logging, PDF Bill Generators
+
+📎 Want to Know More?
+This project is under strict NDA, but I am happy to discuss my experience and role in more detail during interviews.

@@ -105,31 +105,44 @@ export const projects = {
   ],
   design: [
     {
-      title: "Automatic Billing System (ABS)",
-      client: "Ministry of Electric Power Myanmar",
-      description: "Developed an intelligent and sophisticated electricity billing data analysis system that automates manual errors while increasing data accuracy and security.",
-      tech: "HTML, CSS, MySQL, Python, Django Framework, PostgreSQL",
+      title: "Nationwide Automatic Billing System (ABS)",
+      client: "Myanmar Electricity Sector (YESC, ESE, MESC)",
+      description: "Led the design, development, and implementation of a scalable Automatic Billing System integrated with Advanced Metering Infrastructure across multiple Myanmar electricity corporations. This enterprise platform replaced traditional manual billing processes with automated meter readings, real-time billing, and centralized compliance reporting.",
+      tech: "React, TypeScript, Redux, SCSS, Node.js, PostgreSQL, REST APIs, AMI Protocols, OTP-based Security, Docker, Bank API Integrations",
+      role: "As Project Manager & Senior Front-End Developer, I oversaw cross-functional teams across 3 corporations while architecting modern, responsive interfaces for billing dashboards and reporting tools. I coordinated with international experts and delivered on strict governmental deadlines during the transition to smart metering infrastructure.",
+      responsibilities: [
+        "🔹 Project Management: Oversaw cross-functional teams of developers, testers, and infrastructure engineers across 3 corporations",
+        "🔹 Front-End Development: Architected responsive interfaces for billing dashboard and reporting tools using React and TypeScript",
+        "🔹 Access Controls: Created role-based access controls and admin panels for township-level management",
+        "🔹 Analytics Dashboard: Built real-time analytics dashboards for tariff ledgers and compliance forms (Form 7/43/76/243)",
+        "🔹 Integration Management: Integrated with smart meters using industry protocols (DLMS/COSEM) and bank APIs",
+        "🔹 Security Implementation: Developed secure data flows and OTP-based security systems for financial transactions"
+      ],
       image: generatePlaceholderImage("Automatic Billing System"),
       challenges: [
-        "Integration with legacy systems",
-        "Data migration from paper-based records",
-        "Training staff on the new system",
-        "Ensuring 24/7 system availability"
+        "Replacing manual billing processes across 85+ townships with automated systems",
+        "Integrating with various smart meters using industry protocols (DLMS/COSEM)",
+        "Coordinating cross-functional teams across 3 different electricity corporations",
+        "Meeting strict governmental deadlines during smart metering infrastructure transition",
+        "Ensuring 24/7 system availability with real-time billing and compliance reporting"
       ],
       solutions: [
-        "Developed custom API adapters for legacy system integration",
-        "Created automated data entry and verification tools",
-        "Implemented comprehensive training programs",
-        "Built robust backup and failover systems"
+        "Architected scalable React/TypeScript platform with role-based access controls",
+        "Implemented industry-standard AMI protocols for seamless smart meter integration",
+        "Established coordinated project management across multiple corporations with international expert guidance",
+        "Built robust automated billing cycles with real-time processing and audit transparency",
+        "Developed comprehensive online payment gateway with major local bank integrations"
       ],
       results: [
-        "95% reduction in billing errors",
-        "80% faster processing time",
-        "30% reduction in customer complaints",
-        "Improved data accuracy and security"
+        "Successfully deployed across 85 townships in Myanmar with active government use",
+        "Reduced billing cycle from weeks to hours with automated processing",
+        "Achieved over 90% accuracy in meter readings and automated calculations",
+        "Eliminated human errors and reduced field staff exposure to harsh environments",
+        "Delivered 24/7 billing support with automated real-time government auditing compliance"
       ],
-      githubUrl: "https://github.com/example/abs",
-      liveUrl: "https://abs.example.com"
+      githubUrl: "#confidential",
+      liveUrl: "#confidential",
+      isConfidential: true
     }
   ]
 };

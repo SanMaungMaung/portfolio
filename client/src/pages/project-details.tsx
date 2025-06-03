@@ -116,24 +116,41 @@ export default function ProjectDetails({ params }: ProjectDetailsProps) {
               {project.githubUrl && (
                 <Button
                   variant="outline"
-                  className="bg-[#003366] hover:bg-[#336699] text-white dark:bg-[#003366] dark:hover:bg-[#66b2ff] dark:text-white dark:hover:text-[#003366] transition-all duration-300"
-                  onClick={() => window.open(project.githubUrl, '_blank')}
+                  className={`${
+                    project.isConfidential 
+                      ? "bg-gray-400 cursor-not-allowed text-white" 
+                      : "bg-[#003366] hover:bg-[#336699] text-white dark:bg-[#003366] dark:hover:bg-[#66b2ff] dark:text-white dark:hover:text-[#003366]"
+                  } transition-all duration-300`}
+                  onClick={() => !project.isConfidential && window.open(project.githubUrl, '_blank')}
+                  disabled={project.isConfidential}
                 >
                   <Github className="mr-2 h-4 w-4" />
-                  View Source
+                  {project.isConfidential ? "Confidential (NDA)" : "View Source"}
                 </Button>
               )}
               {project.liveUrl && (
                 <Button
                   variant="outline"
-                  className="bg-[#003366] hover:bg-[#336699] text-white dark:bg-[#003366] dark:hover:bg-[#66b2ff] dark:text-white dark:hover:text-[#003366] transition-all duration-300"
-                  onClick={() => window.open(project.liveUrl, '_blank')}
+                  className={`${
+                    project.isConfidential 
+                      ? "bg-gray-400 cursor-not-allowed text-white" 
+                      : "bg-[#003366] hover:bg-[#336699] text-white dark:bg-[#003366] dark:hover:bg-[#66b2ff] dark:text-white dark:hover:text-[#003366]"
+                  } transition-all duration-300`}
+                  onClick={() => !project.isConfidential && window.open(project.liveUrl, '_blank')}
+                  disabled={project.isConfidential}
                 >
                   <ExternalLink className="mr-2 h-4 w-4" />
-                  Live Demo
+                  {project.isConfidential ? "Confidential (NDA)" : "Live Demo"}
                 </Button>
               )}
             </div>
+            {project.isConfidential && (
+              <div className="mt-4 p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg">
+                <p className="text-sm text-amber-800 dark:text-amber-200">
+                  🔒 <strong>Note:</strong> Due to a non-disclosure agreement (NDA), I cannot publicly share the source code, UI screenshots, or internal implementation details. This case study offers a generalized overview of my responsibilities and the impact of the system.
+                </p>
+              </div>
+            )}
           </motion.div>
 
           <motion.div
