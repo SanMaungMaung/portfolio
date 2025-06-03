@@ -36,62 +36,6 @@ const generatePlaceholderImage = (title: string) => {
 export const projects = {
   featured: [
     {
-      title: "Automatic Billing System (ABS)",
-      client: "Ministry of Electric Power Myanmar",
-      description: "Developed an intelligent and sophisticated electricity billing data analysis system that automates manual errors while increasing data accuracy and security.",
-      tech: "HTML, CSS, MySQL, Python, Django Framework, PostgreSQL",
-      image: generatePlaceholderImage("Automatic Billing System"),
-      challenges: [
-        "Integration with legacy systems",
-        "Data migration from paper-based records",
-        "Training staff on the new system",
-        "Ensuring 24/7 system availability"
-      ],
-      solutions: [
-        "Developed custom API adapters for legacy system integration",
-        "Created automated data entry and verification tools",
-        "Implemented comprehensive training programs",
-        "Built robust backup and failover systems"
-      ],
-      results: [
-        "95% reduction in billing errors",
-        "80% faster processing time",
-        "30% reduction in customer complaints",
-        "Improved data accuracy and security"
-      ],
-      githubUrl: "https://github.com/example/abs",
-      liveUrl: "https://abs.example.com"
-    },
-    {
-      title: "Advanced Metering Infrastructure (AMI)",
-      client: "Ministry of Electric Power Myanmar",
-      description: "Experimental smart system and IoT technology to reduce Non-Technical Losses, enabling real-time remote meter readings, load management, usage analytics, and billing accuracy.",
-      tech: "HTML, CSS, JavaScript, React, Python, Django Framework, PostgreSQL",
-      image: generatePlaceholderImage("Advanced Metering Infrastructure"),
-      challenges: [
-        "Real-time data collection at scale",
-        "Secure communication protocols",
-        "Integration with existing infrastructure",
-        "Data privacy compliance"
-      ],
-      solutions: [
-        "Implemented MQTT protocol for efficient IoT communication",
-        "Developed end-to-end encryption system",
-        "Created modular integration framework",
-        "Built comprehensive data anonymization pipeline"
-      ],
-      results: [
-        "40% reduction in technical losses",
-        "Real-time monitoring of 10,000+ meters",
-        "98% data accuracy improvement",
-        "50% faster issue resolution"
-      ],
-      githubUrl: "https://github.com/example/ami",
-      liveUrl: "https://ami.example.com"
-    }
-  ],
-  web: [
-    {
       title: "Survetic - Survey Builder & Analytics Platform",
       description: "A comprehensive survey builder and analytics platform that empowers organizations to create, distribute, and analyze surveys with advanced administrative capabilities. Built as a full-stack TypeScript application with drag-and-drop functionality, real-time analytics, and mobile-first responsive design.",
       tech: "React 18, TypeScript, Node.js, Express, PostgreSQL, Drizzle ORM, Tailwind CSS, shadcn/ui, TanStack Query, Framer Motion, Recharts",
@@ -130,32 +74,62 @@ export const projects = {
       liveUrl: "https://www.survetic.com"
     }
   ],
-  design: [
+  web: [
     {
-      title: "Healthcare Portal UX Design",
-      description: "User-centered design for a healthcare management system focusing on patient engagement and medical record access.",
-      tech: "Figma, Adobe XD, Principle",
-      image: generatePlaceholderImage("Healthcare Portal UX Design"),
+      title: "Advanced Metering Infrastructure (AMI)",
+      client: "Ministry of Electric Power Myanmar",
+      description: "Experimental smart system and IoT technology to reduce Non-Technical Losses, enabling real-time remote meter readings, load management, usage analytics, and billing accuracy.",
+      tech: "HTML, CSS, JavaScript, React, Python, Django Framework, PostgreSQL",
+      image: generatePlaceholderImage("Advanced Metering Infrastructure"),
       challenges: [
-        "Complex information architecture",
-        "Accessibility compliance",
-        "Mobile responsiveness",
-        "User privacy concerns"
+        "Real-time data collection at scale",
+        "Secure communication protocols",
+        "Integration with existing infrastructure",
+        "Data privacy compliance"
       ],
       solutions: [
-        "Created intuitive navigation system",
-        "Implemented WCAG 2.1 guidelines",
-        "Developed responsive design system",
-        "Built secure authentication flows"
+        "Implemented MQTT protocol for efficient IoT communication",
+        "Developed end-to-end encryption system",
+        "Created modular integration framework",
+        "Built comprehensive data anonymization pipeline"
       ],
       results: [
-        "95% user satisfaction rate",
-        "30% reduction in support tickets",
-        "100% WCAG compliance",
-        "40% increase in mobile usage"
+        "40% reduction in technical losses",
+        "Real-time monitoring of 10,000+ meters",
+        "98% data accuracy improvement",
+        "50% faster issue resolution"
       ],
-      githubUrl: "https://github.com/example/healthcare-ux",
-      liveUrl: "https://healthcare-ux.example.com"
+      githubUrl: "https://github.com/example/ami",
+      liveUrl: "https://ami.example.com"
+    }
+  ],
+  design: [
+    {
+      title: "Automatic Billing System (ABS)",
+      client: "Ministry of Electric Power Myanmar",
+      description: "Developed an intelligent and sophisticated electricity billing data analysis system that automates manual errors while increasing data accuracy and security.",
+      tech: "HTML, CSS, MySQL, Python, Django Framework, PostgreSQL",
+      image: generatePlaceholderImage("Automatic Billing System"),
+      challenges: [
+        "Integration with legacy systems",
+        "Data migration from paper-based records",
+        "Training staff on the new system",
+        "Ensuring 24/7 system availability"
+      ],
+      solutions: [
+        "Developed custom API adapters for legacy system integration",
+        "Created automated data entry and verification tools",
+        "Implemented comprehensive training programs",
+        "Built robust backup and failover systems"
+      ],
+      results: [
+        "95% reduction in billing errors",
+        "80% faster processing time",
+        "30% reduction in customer complaints",
+        "Improved data accuracy and security"
+      ],
+      githubUrl: "https://github.com/example/abs",
+      liveUrl: "https://abs.example.com"
     }
   ]
 };
@@ -256,7 +230,7 @@ export default function Portfolio() {
                 value={tab}
                 className="relative px-4 py-2 rounded-md transition-all duration-300 data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700 data-[state=active]:text-[#003366] dark:data-[state=active]:text-[#66b2ff] data-[state=active]:shadow-sm hover:text-[#003366] dark:hover:text-[#66b2ff] group"
               >
-                <span>{tab.charAt(0).toUpperCase() + tab.slice(1)} {tab === "featured" ? "Projects" : tab === "web" ? "Development" : "Prototypes"}</span>
+                <span>{tab === "featured" ? "Featured Project" : tab === "web" ? "Advanced Metering Infrastructure" : "Automatic Billing System"}</span>
                 <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#003366] dark:bg-[#66b2ff] scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
               </TabsTrigger>
             ))}
