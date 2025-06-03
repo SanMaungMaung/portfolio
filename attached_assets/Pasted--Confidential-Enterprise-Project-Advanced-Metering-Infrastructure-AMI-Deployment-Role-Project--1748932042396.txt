@@ -1,0 +1,42 @@
+🔌 Confidential Enterprise Project: Advanced Metering Infrastructure (AMI) Deployment
+Role: Project Manager & Senior Front-End Developer Client: Myanmar Electricity Sector  Duration: 2017 – 2025 Status: Nationwide rollout completed and operational
+🔒 Note
+This project is protected under a long-term non-disclosure agreement. Therefore, source code, detailed architecture, and visuals cannot be shared. The following summary reflects only publicly generalizable aspects of the project.
+
+🧭 Project Overview
+Led the national-scale implementation of an Advanced Metering Infrastructure (AMI) system that replaced manual meter reading and enabled real-time, secure, and remote energy data acquisition. The AMI system formed the foundation for the country's first fully automated billing and energy usage monitoring platform.
+
+🎯 Key Contributions
+🔹 Project Management
+* Directed cross-departmental collaboration among hardware engineers, embedded system developers, software engineers, and governmental stakeholders.
+* Managed rollout across multiple townships, coordinating deployment logistics, testing, and stakeholder training.
+* Acted as the central point of communication between international hardware suppliers, local utility staff, and software teams.
+🔹 Front-End Development
+* Designed and built front-end tools to:
+    * Visualize live meter data and grid health across multiple zones
+    * Monitor communication status of thousands of remote meters
+    * Administer firmware update rollouts and diagnostics
+* Developed admin dashboards with filters for township, ward, and meter status levels.
+🔹 System Integration
+* Enabled seamless data exchange between smart meters and billing servers.
+* Worked closely with hardware engineers to develop AMI APIs and ensure compliance with DLMS/COSEM protocols.
+* Integrated warning and alert mechanisms for abnormal readings, tampering detection, and data sync failures.
+
+⚡ Impact Highlights
+* Over 2.7 million+ smart meters connected nationwide.
+* Enabled real-time consumption monitoring and remote meter disconnections/reconnections.
+* Drastically reduced Non-Technical Losses (NTL) through automated detection of anomalies and tampering.
+* Improved energy planning and load balancing via accurate consumption data.
+
+🔐 Technologies Used
+React, Redux, TypeScript, Map APIs (for geo-visualization), WebSocket / MQTT for real-time data, REST APIs, DLMS/COSEM Protocol, Custom Device Management Tools, Secure TLS Data Transport, Grafana (internal use)
+
+🧠 Special Features
+* AMI Health Dashboard: Live monitoring of meter communication uptime and data packet success rates.
+* Meter Management Tools: UI for linking, replacing, and updating smart meters by township.
+* Anomaly Detection Interface: Highlighted suspicious consumption patterns and communication outages.
+
+📎 Want to Know More?
+While the implementation is confidential, I'm available to walk through my technical leadership and architectural decisions in a private interview setting.
+
+

@@ -76,31 +76,44 @@ export const projects = {
   ],
   web: [
     {
-      title: "Advanced Metering Infrastructure (AMI)",
-      client: "Ministry of Electric Power Myanmar",
-      description: "Experimental smart system and IoT technology to reduce Non-Technical Losses, enabling real-time remote meter readings, load management, usage analytics, and billing accuracy.",
-      tech: "HTML, CSS, JavaScript, React, Python, Django Framework, PostgreSQL",
+      title: "Advanced Metering Infrastructure (AMI) Deployment",
+      client: "Myanmar Electricity Sector",
+      description: "Led the national-scale implementation of an Advanced Metering Infrastructure system that replaced manual meter reading and enabled real-time, secure, and remote energy data acquisition. The AMI system formed the foundation for the country's first fully automated billing and energy usage monitoring platform.",
+      tech: "React, Redux, TypeScript, Map APIs, WebSocket/MQTT, REST APIs, DLMS/COSEM Protocol, Custom Device Management Tools, Secure TLS Data Transport, Grafana",
+      role: "As Project Manager & Senior Front-End Developer, I directed cross-departmental collaboration among hardware engineers, embedded system developers, software engineers, and governmental stakeholders. I managed the nationwide rollout across multiple townships while designing and building critical front-end tools for live meter monitoring and administration.",
+      responsibilities: [
+        "🔹 Project Management: Directed cross-departmental collaboration among hardware engineers, embedded system developers, and governmental stakeholders",
+        "🔹 Rollout Coordination: Managed deployment across multiple townships, coordinating logistics, testing, and stakeholder training",
+        "🔹 Stakeholder Communication: Acted as central point between international hardware suppliers, local utility staff, and software teams",
+        "🔹 Data Visualization: Designed front-end tools to visualize live meter data and grid health across multiple zones",
+        "🔹 System Monitoring: Built admin dashboards to monitor communication status of thousands of remote meters",
+        "🔹 Device Management: Developed tools for firmware update rollouts, diagnostics, and meter administration by township/ward"
+      ],
       image: generatePlaceholderImage("Advanced Metering Infrastructure"),
       challenges: [
-        "Real-time data collection at scale",
-        "Secure communication protocols",
-        "Integration with existing infrastructure",
-        "Data privacy compliance"
+        "Managing nationwide rollout of 2.7 million+ smart meters across diverse geographic regions",
+        "Ensuring seamless data exchange between smart meters and billing servers at scale",
+        "Implementing real-time monitoring and communication status tracking for thousands of devices",
+        "Coordinating cross-departmental teams including hardware engineers and governmental stakeholders",
+        "Developing compliance with DLMS/COSEM protocols while maintaining system security"
       ],
       solutions: [
-        "Implemented MQTT protocol for efficient IoT communication",
-        "Developed end-to-end encryption system",
-        "Created modular integration framework",
-        "Built comprehensive data anonymization pipeline"
+        "Architected scalable React/Redux platform with real-time WebSocket/MQTT data streaming",
+        "Implemented DLMS/COSEM protocol compliance with secure TLS data transport",
+        "Built comprehensive AMI Health Dashboard with live communication uptime monitoring",
+        "Developed advanced geo-visualization tools using Map APIs for multi-zone grid management",
+        "Created automated anomaly detection interface for suspicious consumption patterns and tampering"
       ],
       results: [
-        "40% reduction in technical losses",
-        "Real-time monitoring of 10,000+ meters",
-        "98% data accuracy improvement",
-        "50% faster issue resolution"
+        "Successfully connected over 2.7 million smart meters nationwide with operational deployment",
+        "Enabled real-time consumption monitoring and remote meter disconnections/reconnections",
+        "Drastically reduced Non-Technical Losses through automated anomaly and tampering detection",
+        "Improved energy planning and load balancing via accurate real-time consumption data",
+        "Achieved seamless integration between smart meters and automated billing infrastructure"
       ],
-      githubUrl: "https://github.com/example/ami",
-      liveUrl: "https://ami.example.com"
+      githubUrl: "#confidential",
+      liveUrl: "#confidential",
+      isConfidential: true
     }
   ],
   design: [
