@@ -155,12 +155,7 @@ export default function Welcome() {
               size="lg"
               className="bg-white/10 backdrop-blur-sm border-2 border-white/20 text-white hover:bg-white/20 hover:border-white/30 transition-all duration-300"
               onClick={() => {
-                const link = document.createElement('a');
-                link.href = '/resume/SMMCV.pdf';
-                link.download = 'SanMaungMaung_Resume.pdf';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
+                window.open('/resume/SMMCV.pdf', '_blank');
               }}
             >
               <Download className="mr-2 h-4 w-4" />
