@@ -1,5 +1,6 @@
 import { useLocation } from "wouter";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Github, ExternalLink } from "lucide-react";
 import { projects } from "@/components/sections/portfolio";
@@ -22,6 +23,11 @@ interface ProjectDetailsProps {
 
 export default function ProjectDetails({ params }: ProjectDetailsProps) {
   const [, setLocation] = useLocation();
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   // Get project data from the projects object
   const project = projects[params.category]?.[parseInt(params.id)];
